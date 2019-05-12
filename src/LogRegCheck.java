@@ -22,19 +22,20 @@ public class LogRegCheck {
 	 * 		else
 	 * 			User does not exist.
 	 */
-	public static Object checkUsername(String aRegister) {
+	public static Object checkUsername(String aUsername) {
 		
 		if ( !initializedList )
 			return null;
 		
-		if ( users.contains(aRegister) )
+		if ( users.contains(aUsername) )
 			return true;
 		return false;
 	}
 	
-	public static boolean checkPassword(Users aUser, String aPassword) {
+	
+	public static boolean checkPassword(Student aStudent, String aPassword) {
 		
-		if( aUser.getPassword().equals(aPassword) ) {
+		if( aStudent.getPassword().equals(aPassword) ) {
 			return true;
 		}
 		return false;
