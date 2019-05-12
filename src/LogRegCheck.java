@@ -22,7 +22,7 @@ public class LogRegCheck {
 	 * 		else
 	 * 			User does not exist.
 	 */
-	public static Object checkExistingRegistry(String aRegister) {
+	public static Object checkUsername(String aRegister) {
 		
 		if ( !initializedList )
 			return null;
@@ -30,5 +30,14 @@ public class LogRegCheck {
 		if ( users.contains(aRegister) )
 			return true;
 		return false;
+	}
+	
+	public static boolean checkPassword(Users aUser, String aPassword) {
+		
+		if( aUser.getPassword().equals(aPassword) ) {
+			return true;
+		}
+		return false;
+			
 	}
 }
