@@ -14,12 +14,30 @@ public class Score {
 	}
 	
 	public static double CalculateYear(Student stud) {
-		return WG2*stud.getYear();
+		int year=stud.getYear();
+		double yearScore=0;
+		if (year==2)
+			yearScore=7.5;
+		else if (year==3)
+			yearScore=10;
+		else if (year==4)
+			yearScore=5;
+		return WG2*yearScore;
 		
 	}
 	
 	public static double CalculateFailed(Student stud) {
-		return WG3*stud.getFailed();
+		int failed=stud.getFailed();
+		double failedScore=0;
+		if (failed<=3)
+			failedScore=10;
+		else if (failed<=7)
+			failedScore=7.5;
+		else if (failed<=11)
+			failedScore=5;
+		else if (failed<=15)
+			failedScore=2.5;
+		return WG3*failed;
 		
 	}
 	
