@@ -9,12 +9,12 @@ public class Score {
 	private static final double WL3 = 0.1;		//Average of Other Degrees Sub-Weight
 	
 	public static double CalculateGrade(Student stud) {
-		return WG1*stud.getGrade();
+		return WG1*stud.getAverageGrade();
 		
 	}
 	
 	public static double CalculateYear(Student stud) {
-		int year=stud.getYear();
+		int year=stud.getAcademicYear();
 		double yearScore=0;
 		if (year==2)
 			yearScore=7.5;
@@ -27,7 +27,7 @@ public class Score {
 	}
 	
 	public static double CalculateFailed(Student stud) {
-		int failed=stud.getFailed();
+		int failed=stud.getnFailed();
 		double failedScore=0;
 		if (failed<=3)
 			failedScore=10;
@@ -37,7 +37,7 @@ public class Score {
 			failedScore=5;
 		else if (failed<=15)
 			failedScore=2.5;
-		return WG3*failed;
+		return WG3*failedScore;
 		
 	}
 	
