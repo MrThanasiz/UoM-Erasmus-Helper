@@ -23,6 +23,13 @@ public class Student extends User{
 		this.nFailed = nFailed;
 		this.langDegrees = langDegrees;
 	}
+	
+	public static void copyInfo(Student origin,Student copy) {
+		copy.setAverageGrade(origin.getAverageGrade());
+		copy.setAcademicYear(origin.getAcademicYear());
+		copy.setnFailed(origin.getnFailed());
+		copy.setLangDegrees(origin.getLangDegrees());
+	}
 
 	public int getAcademicYear() {
 		return academicYear;
