@@ -42,7 +42,19 @@ public class Score {
 	}
 	
 	
-	public static double CalculateLanguage(Student stud, University uni) {
+	public static double CalculateLEnglish(Student stud, University uni) {
+		//Wainting for Class Student & University
+		return 0;
+		
+	}
+	
+	public static double CalculateLNative(Student stud, University uni) {
+		//Wainting for Class Student & University
+		return 0;
+		
+	}
+	
+	public static double CalculateLOther(Student stud, University uni) {
 		//Wainting for Class Student & University
 		return 0;
 		
