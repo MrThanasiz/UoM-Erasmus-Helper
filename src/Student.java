@@ -16,7 +16,7 @@ public class Student extends User{
 		return password;
 	}
 	
-	public void setInfo(int academicYear, float averageGrade, int nFailed, HashMap<String, Integer> langDegrees) {
+	public void setInfo(int academicYear, double averageGrade, int nFailed, HashMap<String, Integer> langDegrees) {
 		
 		this.academicYear = academicYear;
 		this.averageGrade = averageGrade;
@@ -24,11 +24,15 @@ public class Student extends User{
 		this.langDegrees = langDegrees;
 	}
 	
-	public static void copyInfo(Student origin,Student copy) {
-		copy.setAverageGrade(origin.getAverageGrade());
-		copy.setAcademicYear(origin.getAcademicYear());
-		copy.setnFailed(origin.getnFailed());
-		copy.setLangDegrees(origin.getLangDegrees());
+	public void copyInfo(Student copy) {
+		copy.setInfo(this.getAcademicYear(), this.getAverageGrade(), this.getnFailed(), this.getLangDegrees());
+		
+		/*
+		copy.setAverageGrade(this.getAverageGrade());
+		copy.setAcademicYear(this.getAcademicYear());
+		copy.setnFailed(this.getnFailed());
+		copy.setLangDegrees(this.getLangDegrees()); 
+		*/
 	}
 
 	public int getAcademicYear() {
