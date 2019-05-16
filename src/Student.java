@@ -16,23 +16,12 @@ public class Student extends User{
 		return password;
 	}
 	
-	public void setInfo(int academicYear, double averageGrade, int nFailed, HashMap<String, Integer> langDegrees) {
-		
-		this.academicYear = academicYear;
-		this.averageGrade = averageGrade;
-		this.nFailed = nFailed;
-		this.langDegrees = langDegrees;
-	}
 	
 	public void copyInfo(Student copy) {
-		copy.setInfo(this.getAcademicYear(), this.getAverageGrade(), this.getnFailed(), this.getLangDegrees());
-		
-		/*
 		copy.setAverageGrade(this.getAverageGrade());
 		copy.setAcademicYear(this.getAcademicYear());
 		copy.setnFailed(this.getnFailed());
 		copy.setLangDegrees(this.getLangDegrees()); 
-		*/
 	}
 
 	public int getAcademicYear() {
