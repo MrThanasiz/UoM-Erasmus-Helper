@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Student extends User{
 	
 	private int academicYear = 0;
-	private float averageGrade = 0;
+	private double averageGrade = 0;
 	private int nFailed = 0;
 	private HashMap<String, Integer> langDegrees= null;
 
@@ -15,19 +15,19 @@ public class Student extends User{
 		return password;
 	}
 	
-	public void setInfo(int academicYear, float averageGrade, int nFailed, HashMap<String, Integer> langDegrees) {
-		
-		this.academicYear = academicYear;
-		this.averageGrade = averageGrade;
-		this.nFailed = nFailed;
-		this.langDegrees = langDegrees;
+	
+	public void copyInfo(Student copy) {
+		copy.setAverageGrade(this.getAverageGrade());
+		copy.setAcademicYear(this.getAcademicYear());
+		copy.setnFailed(this.getnFailed());
+		copy.setLangDegrees(this.getLangDegrees()); 
 	}
 
 	public int getAcademicYear() {
 		return academicYear;
 	}
 
-	public float getAverageGrade() {
+	public double getAverageGrade() {
 		return averageGrade;
 	}
 
@@ -37,6 +37,22 @@ public class Student extends User{
 
 	public HashMap<String, Integer> getLangDegrees() {
 		return langDegrees;
+	}
+
+	public void setAcademicYear(int academicYear) {
+		this.academicYear = academicYear;
+	}
+
+	public void setAverageGrade(double d) {
+		this.averageGrade = d;
+	}
+
+	public void setnFailed(int nFailed) {
+		this.nFailed = nFailed;
+	}
+
+	public void setLangDegrees(HashMap<String, Integer> langDegrees) {
+		this.langDegrees = langDegrees;
 	}
 	
 }
