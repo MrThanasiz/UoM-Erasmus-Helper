@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Score {
 	private static final double WG1 = 0.25;		//Average Grade Weight
@@ -43,25 +45,84 @@ public class Score {
 	
 	
 	public static double CalculateLEnglish(Student stud, University uni) {
-		//Wainting for Class Student & University
-		return 0;
+		HashMap<String, Integer> degrees=stud.getLangDegrees();
+		double engScore=0;
+		if(degrees.containsKey("English")) {
+			int level=degrees.get("English");
+			
+			if (level==1)
+				engScore=4;
+			else if (level==2)
+				engScore=5.5;
+			else if (level==3)
+				engScore=7;
+			else if (level==4)
+				engScore=10;
+		}
+		return WL1*engScore;
 		
 	}
 	
 	public static double CalculateLNative(Student stud, University uni) {
-		//Wainting for Class Student & University
-		return 0;
+		HashMap<String, Integer> degrees=stud.getLangDegrees();
+		double ntvScore=0;
+		String ntvLang=uni.getLanguage();
+		if(degrees.containsKey(ntvLang)) {
+			int level=degrees.get(ntvLang);
+			
+			if (level==1)
+				ntvScore=4;
+			else if (level==2)
+				ntvScore=5.5;
+			else if (level==3)
+				ntvScore=7;
+			else if (level==4)
+				ntvScore=10;
+		}
+		return WL2*ntvScore;
 		
 	}
 	
 	public static double CalculateLOther(Student stud, University uni) {
-		//Wainting for Class Student & University
-		return 0;
+		HashMap<String, Integer> degrees=stud.getLangDegrees();
+		String ntvLang=uni.getLanguage();
+		double otrScore=0;
+		int otrCount=0;
+		int level=0;
+		if (!degrees.isEmpty()) {
+			String otrLang=uni.getLanguage();
+			for (Entry<String, Integer> entry : degrees.entrySet()) {
+			    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+			    if(entry.getKey()!="English" && entry.getKey()!=ntvLang) {
+			    	level=entry.getValue();
+			    	otrCount++;
+			    	if (level==1)
+						otrScore+=4;
+					else if (level==2)
+						otrScore+=5.5;
+					else if (level==3)
+						otrScore+=7;
+					else if (level==4)
+						otrScore+=10;
+			    }
+			    otrScore=otrScore/otrCount;
+			}
+		}
+		return WL3*otrScore;
+		
+	}
+	
+	public static double CalculateLanguage(Student stud, University uni) {
+		double engScore=CalculateLEnglish(stud,uni);
+		double ntvScore=CalculateLNative(stud,uni);
+		double otrScore=CalculateLOther(stud,uni);
+		double langScore=engScore+ntvScore+otrScore;
+		return WG4*langScore;
 		
 	}
 	
 	public static double CalculateTotal(Student stud, University uni) {
-		float Final=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
+		double Final=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
 		return Final;
 		
 	}
