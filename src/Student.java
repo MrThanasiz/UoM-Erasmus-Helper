@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Student extends User{
@@ -40,6 +39,4 @@ public class Student extends User{
 		return langDegrees;
 	}
 	
-	
-
 }
