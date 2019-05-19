@@ -17,7 +17,7 @@ public class LogRegCheck {
 		if ( CentralRegistry.initializedList )
 			return null;
 		
-		if ( users.contains(aUsername) )
+		if ( CentralRegistry.getUsers.contains(aUsername) )
 			return true;
 		return false;
 	}

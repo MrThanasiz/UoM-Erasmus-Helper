@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
-public class Secretariat extends User{
+public class Secretariat{
 
+	private String username;
+	private String password;
+	
 	public Secretariat(String username, String password) {
-		super(username, password);
+		this.username = username;
+		this.password = password;
 	}
 	
 	public ArrayList<Integer> get_workswith_List() {

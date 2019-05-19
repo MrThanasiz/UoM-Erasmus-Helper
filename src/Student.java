@@ -1,14 +1,17 @@
 import java.util.HashMap;
 
-public class Student extends User{
+public class Student{
 	
+	private String username;
+	private String password;
 	private int academicYear = 0;
 	private double averageGrade = 0;
 	private int nFailed = 0;
 	private HashMap<String, Integer> langDegrees= null;
 
 	public Student(String username, String password) {
-		super(username, password);
+		this.username = username;
+		this.password = password;
 	}
 	
 	public String getPassword() {
