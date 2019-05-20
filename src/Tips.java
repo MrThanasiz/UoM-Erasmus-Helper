@@ -1,6 +1,6 @@
 
 public class Tips {
-	private static Student stips = new Student(); //Student object required for Tips.java
+	private static Student stips = new Student("stipsuser","stipspass"); //Student object required for Tips.java
 	
 	public static String getTipGrade(Student stud) {
 		stud.copyInfo(stips);

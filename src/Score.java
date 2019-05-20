@@ -44,7 +44,7 @@ public class Score {
 	}
 	
 	
-	public static double CalculateLEnglish(Student stud, University uni) {
+	public static double CalculateLEnglish(Student stud) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
 		double engScore=0;
 		if(degrees.containsKey("English")) {
@@ -85,12 +85,11 @@ public class Score {
 	
 	public static double CalculateLOther(Student stud, University uni) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
-		String ntvLang=uni.getLanguage();
 		double otrScore=0;
-		int otrCount=0;
-		int level=0;
 		if (!degrees.isEmpty()) {
-			String otrLang=uni.getLanguage();
+			String ntvLang=uni.getLanguage();
+			int otrCount=0;
+			int level=0;
 			for (Entry<String, Integer> entry : degrees.entrySet()) {
 			    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 			    if(entry.getKey()!="English" && entry.getKey()!=ntvLang) {
@@ -113,7 +112,7 @@ public class Score {
 	}
 	
 	public static double CalculateLanguage(Student stud, University uni) {
-		double engScore=CalculateLEnglish(stud,uni);
+		double engScore=CalculateLEnglish(stud);
 		double ntvScore=CalculateLNative(stud,uni);
 		double otrScore=CalculateLOther(stud,uni);
 		double langScore=engScore+ntvScore+otrScore;
