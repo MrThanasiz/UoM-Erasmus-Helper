@@ -1,6 +1,7 @@
 import java.util.HashMap;
+import java.io.Serializable;
 
-public class Student{
+public class Student implements Serializable{
 	
 	private String username;
 	private String password;
