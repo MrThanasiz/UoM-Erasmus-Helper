@@ -28,6 +28,8 @@ public class Department {
 		return this.studentslist;
 	}
 	
-	
+	public String getName() {
+		return this.name;
+	}
 
 }
