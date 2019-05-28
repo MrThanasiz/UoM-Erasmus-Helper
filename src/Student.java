@@ -14,8 +14,12 @@ public class Student{
 		this.password = password;
 	}
 	
+	public String getUsername() {
+		return this.username;
+	}
+	
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	
 	
@@ -27,27 +31,27 @@ public class Student{
 	}
 
 	public int getAcademicYear() {
-		return academicYear;
+		return this.academicYear;
 	}
 
 	public double getAverageGrade() {
-		return averageGrade;
+		return this.averageGrade;
 	}
 
 	public int getnFailed() {
-		return nFailed;
+		return this.nFailed;
 	}
 
 	public HashMap<String, Integer> getLangDegrees() {
-		return langDegrees;
+		return this.langDegrees;
 	}
 
 	public void setAcademicYear(int academicYear) {
 		this.academicYear = academicYear;
 	}
 
-	public void setAverageGrade(double d) {
-		this.averageGrade = d;
+	public void setAverageGrade(double averageGrade) {
+		this.averageGrade = averageGrade;
 	}
 
 	public void setnFailed(int nFailed) {

@@ -28,7 +28,6 @@ public class LogRegCheck {
 		if( aStudent.getPassword().equals(aPassword) ) {
 			return true;
 		}
-		return false;
-			
+		return false;	
 	}
 }

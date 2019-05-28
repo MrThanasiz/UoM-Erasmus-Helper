@@ -1,16 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Secretariat{
 
-	private String username;
-	private String password;
+	private HashMap<String, String> secretaries = null;
 	
-	public Secretariat(String username, String password) {
-		this.username = username;
-		this.password = password;
+	public void addSecretary(String username, String password) {
+		secretaries.put(username, password);
 	}
 	
-	public ArrayList<Integer> get_workswith_List() {
+	public ArrayList<Integer> getUniConnections() {
 		ArrayList<Integer> lis = new ArrayList<Integer>();
 		lis.add(1);
 		return lis;
