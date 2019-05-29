@@ -11,7 +11,7 @@ public class Main {
 	
 	}
 	
-	public void createUnis() {
+	private static void createUnis() {
 		
 		String name;
 		String town;
