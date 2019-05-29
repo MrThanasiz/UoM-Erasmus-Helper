@@ -8,7 +8,9 @@ public class Student implements Serializable{
 	private int academicYear = 0;
 	private double averageGrade = 0;
 	private int nFailed = 0;
-	private HashMap<String, Integer> langDegrees= null;
+	private int chosenUnis;
+	private HashMap<String, Integer> langDegrees;
+	private HashMap<University, Double> scores;
 
 	public Student(String username, String password) {
 		this.username = username;
@@ -61,6 +63,25 @@ public class Student implements Serializable{
 
 	public void setLangDegrees(HashMap<String, Integer> langDegrees) {
 		this.langDegrees = langDegrees;
+	}
+	
+	public String getInfo() {
+		
+		String str;
+		
+		str = username + "";
+		
+		for(University university: scores.keySet()) {
+			str += "   " + university.toString() + "   ";
+			str += scores.get(university).toString();
+		}
+		
+		return str;
+	}
+	
+	public String toString() {
+		
+		return username;
 	}
 	
 }

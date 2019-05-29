@@ -27,5 +27,7 @@ public class University {
 		return coop;
 	}
 	
-
+	public String toString() {
+		return name;
+	}
 }
