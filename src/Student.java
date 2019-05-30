@@ -69,7 +69,7 @@ public class Student implements Serializable{
 		
 		String str;
 		
-		str = username + "";
+		str = username;
 		
 		for(University university: scores.keySet()) {
 			str += "   " + university.toString() + "   ";
