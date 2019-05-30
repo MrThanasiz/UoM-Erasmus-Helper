@@ -7,7 +7,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Department pliroforiki = new Department("Εφαρμοσμένη Πληροφορική", );
 		
 	
 	}
