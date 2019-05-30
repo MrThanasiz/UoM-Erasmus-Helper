@@ -7,6 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		Department pliroforiki = new Department("Εφαρμοσμένη Πληροφορική", );
 		
 	
 	}
@@ -18,9 +19,9 @@ public class Main {
 		String country;
 		String language;
 		boolean langRequired;
+		ArrayList<University> unilist = new ArrayList<>();
 		int i=0;
-		ArrayList<Integer> coop = null;
-		coop.add(1);
+		ArrayList<Integer> coop = new ArrayList<>();
 		File f = new File("Unis.txt");
 		try {
 			
@@ -32,11 +33,16 @@ public class Main {
 				country = sc.next();
 				language = sc.next();
 				langRequired = sc.nextBoolean();
+				while(sc.hasNextInt()) {
+					coop.add(sc.nextInt());
+				}
 				
-				University un = new University(name,town,country,language,coop,langRequired);
+				University uni = new University(name,town,country,language,coop,langRequired);
+				unilist.add(uni);
 				i++;
 				
 			}
+			sc.close();
 			
 		}
 		
