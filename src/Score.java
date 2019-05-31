@@ -18,12 +18,17 @@ public class Score {
 	public static double CalculateYear(Student stud) {
 		int year=stud.getAcademicYear();
 		double yearScore=0;
-		if (year==2)
+		switch(year) {
+		case 2:
 			yearScore=7.5;
-		else if (year==3)
+			break;
+		case 3:
 			yearScore=10;
-		else if (year==4)
+			break;
+		case 4:
 			yearScore=5;
+			break;
+		}
 		return WG2*yearScore;
 		
 	}
@@ -50,14 +55,20 @@ public class Score {
 		if(degrees.containsKey("English")) {
 			int level=degrees.get("English");
 			
-			if (level==1)
+			switch (level) {
+			case 1:
 				engScore=4;
-			else if (level==2)
+				break;
+			case 2:
 				engScore=5.5;
-			else if (level==3)
+				break;
+			case 3:
 				engScore=7;
-			else if (level==4)
+				break;
+			case 4:
 				engScore=10;
+				break;
+			}
 		}
 		return WL1*engScore;
 		
@@ -70,14 +81,20 @@ public class Score {
 		if(degrees.containsKey(ntvLang)) {
 			int level=degrees.get(ntvLang);
 			
-			if (level==1)
+			switch (level) {
+			case 1:
 				ntvScore=4;
-			else if (level==2)
+				break;
+			case 2:
 				ntvScore=5.5;
-			else if (level==3)
+				break;
+			case 3:
 				ntvScore=7;
-			else if (level==4)
+				break;
+			case 4:
 				ntvScore=10;
+				break;
+			}
 		}
 		return WL2*ntvScore;
 		
@@ -95,14 +112,20 @@ public class Score {
 			    if(entry.getKey()!="English" && entry.getKey()!=ntvLang) {
 			    	level=entry.getValue();
 			    	otrCount++;
-			    	if (level==1)
+			    	switch (level) {
+					case 1:
 						otrScore+=4;
-					else if (level==2)
+						break;
+					case 2:
 						otrScore+=5.5;
-					else if (level==3)
+						break;
+					case 3:
 						otrScore+=7;
-					else if (level==4)
+						break;
+					case 4:
 						otrScore+=10;
+						break;
+					}
 			    }
 			    otrScore=otrScore/otrCount;
 			}
