@@ -1,0 +1,204 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
+import javax.swing.*;
+
+public class HomeFrame extends JFrame 
+{
+	//Frame Options 
+	private static final int WIDTH = 1280;
+	private static final int HEIGHT = 720;
+	//login button options
+	private static final int LOGIN_PANEL_WIDTH = WIDTH*4/20;
+	private static final int LOGIN_BUTTON_PANEL_WIDTH = LOGIN_PANEL_WIDTH;
+	private static final int LOGIN_PANEL_HEIGHT = HEIGHT*1/10;
+	private static final int LOGIN_BUTTON_PANEL_HEIGHT = LOGIN_PANEL_HEIGHT;
+	//register button options
+	private static final int REGISTER_PANEL_WIDTH = WIDTH*4/20;
+	private static final int REGISTER_BUTTON_PANEL_WIDTH = REGISTER_PANEL_WIDTH;
+	private static final int REGISTER_PANEL_HEIGHT = HEIGHT*1/10;
+	private static final int REGISTER_BUTTON_PANEL_HEIGHT = REGISTER_PANEL_HEIGHT;
+	//info button options
+	private static final int INFO_PANEL_WIDTH = WIDTH*5/20;
+	private static final int INFO_BUTTON_PANEL_WIDTH = INFO_PANEL_WIDTH;
+	private static final int INFO_PANEL_HEIGHT = HEIGHT*1/10;
+	private static final int INFO_BUTTON_PANEL_HEIGHT = INFO_PANEL_HEIGHT;
+	//username text field options 
+	private static final int USERNAME_PANEL_WIDTH = WIDTH * 2/15;
+	private static final int USERNAME_TEXT_AREA_WIDTH = USERNAME_PANEL_WIDTH;
+	private static final int USERNAME_PANEL_HEIGHT = HEIGHT * 1/25;
+	private static final int USERNAME_TEXT_AREA_HEIGHT = USERNAME_PANEL_HEIGHT;
+	//password text field options 
+	private static final int PASSWORD_PANEL_WIDTH = WIDTH * 2/15;
+	private static final int PASSWORD_TEXT_AREA_WIDTH = PASSWORD_PANEL_WIDTH;
+	private static final int PASSWORD_PANEL_HEIGHT = HEIGHT * 1/25;
+	private static final int PASSWORD_TEXT_AREA_HEIGHT = PASSWORD_PANEL_HEIGHT;
+	//messages options
+	private static final int MESSAGE_PANEL_HEIGHT = 15;
+	private static final int MESSAGE_PANEL_WIDTH = 25;
+	
+
+	
+	private JPanel panel;
+	private JPanel welcomeMessage;
+	private JPanel LoginButtonPanel;
+	private JPanel RegisterButtonPanel;
+	private JPanel InfoButtonPanel;
+	private JPanel UsernameFieldPanel;
+	private JPanel PasswordFieldPanel;
+	private JPanel PasswordLabelAbovePanel;
+	private JPanel PasswordLabelBelowPanel;
+	private JPanel UsernameLabelAbovePanel;
+	
+	
+	
+	private JButton loginButton;
+	private JButton registerButton;
+	private JButton infoButton;
+	
+	private JList<Student> studentList;
+	private DefaultListModel<Student> studentModel;
+	
+	private JTextArea username;
+	private JTextArea password;
+	
+
+	
+	public void WelcomeFrame() {
+		this.setPanel();
+		
+		this.setContentPane(panel);
+		
+		this.setVisible(true);
+		//Set the frame size
+		this.setSize(WIDTH, HEIGHT);
+		//Set the start position
+		this.setLocationRelativeTo(null);
+		
+		this.setTitle("Welcome to UoM Erasmus Helper!");
+		this.setResizable(false);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private void setPanel() {
+		
+		panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	
+		this.usernameLablelAbove();
+		this.setUsernameTextPanel();
+		this.passwordLabelAbove();
+		this.setPasswordTextPanel();
+		this.passwordLabelBelow();
+		this.setLoginButtonPanel();
+		this.setRegisterButtonPanel();
+		this.setInfoButtonPanel();
+		
+		panel.add(UsernameLabelAbovePanel);
+		panel.add(UsernameFieldPanel);
+		panel.add(PasswordLabelAbovePanel);
+		panel.add(PasswordFieldPanel);
+		panel.add(PasswordLabelBelowPanel);
+		panel.add(LoginButtonPanel);
+		panel.add(RegisterButtonPanel);
+		panel.add(InfoButtonPanel);
+		
+		
+	}
+	
+	
+	public void setLoginButtonPanel() {
+		
+		LoginButtonPanel = new JPanel();
+		LoginButtonPanel.setPreferredSize(new Dimension(LOGIN_PANEL_WIDTH, LOGIN_PANEL_HEIGHT));
+		
+		loginButton = new JButton("Login");
+				
+		LoginButtonPanel.add(loginButton);
+	}
+	
+	public void setRegisterButtonPanel() {
+		
+		RegisterButtonPanel = new JPanel();
+		RegisterButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
+	
+		registerButton = new JButton("Register");
+				
+		RegisterButtonPanel.add(registerButton);		
+	}
+	public void setInfoButtonPanel() {
+		
+		InfoButtonPanel = new JPanel();
+		InfoButtonPanel.setPreferredSize(new Dimension(INFO_PANEL_WIDTH, INFO_PANEL_HEIGHT));
+		
+		infoButton = new JButton("What is Erasmus?");
+		infoButton.setBounds(250,250,INFO_BUTTON_PANEL_WIDTH,INFO_BUTTON_PANEL_HEIGHT);
+		
+		InfoButtonPanel.add(infoButton);
+				
+		
+	}
+	
+	public void setUsernameTextPanel() {
+		
+		UsernameFieldPanel = new JPanel();
+		UsernameFieldPanel.setPreferredSize(new Dimension(USERNAME_PANEL_WIDTH , USERNAME_PANEL_HEIGHT));
+		
+		username = new JTextArea();
+		username.setPreferredSize(new Dimension(USERNAME_TEXT_AREA_WIDTH, USERNAME_TEXT_AREA_HEIGHT));
+		
+		UsernameFieldPanel.add(username);
+	
+	}
+	
+	
+	public void setPasswordTextPanel() {
+		
+		PasswordFieldPanel = new JPanel();
+		PasswordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
+		
+		
+		password = new JTextArea();
+		
+		password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
+		
+	
+		PasswordFieldPanel.add(password);
+		
+		
+	}
+	
+	public void usernameLablelAbove() {
+		UsernameLabelAbovePanel = new JPanel();
+		UsernameLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		
+		JLabel labela = new JLabel("Enter a username :");
+		
+		UsernameLabelAbovePanel.add(labela);
+		
+	}
+	
+	public void passwordLabelAbove() {
+		PasswordLabelAbovePanel = new JPanel();
+		PasswordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		
+		JLabel labela = new JLabel("Enter a password :");
+		
+		PasswordLabelAbovePanel.add(labela);
+		
+	}
+	
+	public void passwordLabelBelow() {
+		PasswordLabelBelowPanel = new JPanel();
+		PasswordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		
+		JLabel labela = new JLabel("Remember , password must contain at least 8 characters!");
+		
+		PasswordLabelBelowPanel.add(labela);
+		
+	}
+	
+	
+}
