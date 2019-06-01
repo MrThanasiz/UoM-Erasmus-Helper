@@ -40,7 +40,15 @@ public class CentralRegistry
 			}
 		}
 		
+		public Student getStudent() {
 		
+			
+			Student s = null;
+			
+			
+			return  s;
+			
+		}
 	
 	}
 	

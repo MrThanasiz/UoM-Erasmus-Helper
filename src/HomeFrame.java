@@ -1,25 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
 
-import javax.swing.*;
+
 
 public class HomeFrame extends JFrame 
 {
+
 	//Frame Options 
 	private static final int WIDTH = 1280;
 	private static final int HEIGHT = 720;
 	//login button options
 	private static final int LOGIN_PANEL_WIDTH = WIDTH*4/20;
-	private static final int LOGIN_BUTTON_PANEL_WIDTH = LOGIN_PANEL_WIDTH;
 	private static final int LOGIN_PANEL_HEIGHT = HEIGHT*1/10;
-	private static final int LOGIN_BUTTON_PANEL_HEIGHT = LOGIN_PANEL_HEIGHT;
 	//register button options
 	private static final int REGISTER_PANEL_WIDTH = WIDTH*4/20;
-	private static final int REGISTER_BUTTON_PANEL_WIDTH = REGISTER_PANEL_WIDTH;
 	private static final int REGISTER_PANEL_HEIGHT = HEIGHT*1/10;
-	private static final int REGISTER_BUTTON_PANEL_HEIGHT = REGISTER_PANEL_HEIGHT;
 	//info button options
 	private static final int INFO_PANEL_WIDTH = WIDTH*5/20;
 	private static final int INFO_BUTTON_PANEL_WIDTH = INFO_PANEL_WIDTH;
@@ -42,7 +40,6 @@ public class HomeFrame extends JFrame
 
 	
 	private JPanel panel;
-	private JPanel welcomeMessage;
 	private JPanel LoginButtonPanel;
 	private JPanel RegisterButtonPanel;
 	private JPanel InfoButtonPanel;
@@ -54,15 +51,16 @@ public class HomeFrame extends JFrame
 	
 	
 	
-	private JButton loginButton;
-	private JButton registerButton;
-	private JButton infoButton;
+	private static JButton loginButton;
+	private static JButton registerButton;
+	private static JButton infoButton;
 	
+	private Student student;
 	private JList<Student> studentList;
 	private DefaultListModel<Student> studentModel;
 	
-	private JTextArea username;
-	private JTextArea password;
+	private static JTextArea username;
+	private static JTextArea password;
 	
 
 	
@@ -83,10 +81,12 @@ public class HomeFrame extends JFrame
 	}
 	
 	private void setPanel() {
-		
+		//create a panel
 		panel = new JPanel();
+		//used box layout
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-	
+		
+		//call-create elements
 		this.usernameLablelAbove();
 		this.setUsernameTextPanel();
 		this.passwordLabelAbove();
@@ -96,6 +96,7 @@ public class HomeFrame extends JFrame
 		this.setRegisterButtonPanel();
 		this.setInfoButtonPanel();
 		
+		//add elements to panel
 		panel.add(UsernameLabelAbovePanel);
 		panel.add(UsernameFieldPanel);
 		panel.add(PasswordLabelAbovePanel);
@@ -104,6 +105,11 @@ public class HomeFrame extends JFrame
 		panel.add(LoginButtonPanel);
 		panel.add(RegisterButtonPanel);
 		panel.add(InfoButtonPanel);
+		
+		//button is pressed
+		loginButton.addActionListener(new Action());
+		registerButton.addActionListener(new Action());
+		infoButton.addActionListener(new Action());
 		
 		
 	}
@@ -199,6 +205,52 @@ public class HomeFrame extends JFrame
 		PasswordLabelBelowPanel.add(labela);
 		
 	}
+
+	public static JButton getLoginButton() {
+		return loginButton;
+	}
 	
+	public static JButton getRegisterButton() {
+		return registerButton;
+	}
 	
+	public static JButton getInfoButton() {
+		return infoButton;
+	}
+	
+	public static String getUsername() {
+		return username.getText();
+	 
+	}
+	
+	public static String getPassword() {
+		return password.getText();
+	}
 }
+
+ class Action implements ActionListener {
+	 
+	 HomeFrame f = new HomeFrame();
+	
+	public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == HomeFrame.getLoginButton()) {
+				System.out.println("Button login Working");
+			}
+			else if (e.getSource() == HomeFrame.getRegisterButton()) {
+				
+				System.out.println(HomeFrame.getUsername());
+				System.out.println(HomeFrame.getPassword());
+				
+				
+				
+			}
+			else if (e.getSource() == HomeFrame.getInfoButton()) {
+				
+				try {
+				    Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Erasmus_Programme").toURI());
+				} catch (Exception e1) {}
+				
+			}
+		}
+	
+	}
