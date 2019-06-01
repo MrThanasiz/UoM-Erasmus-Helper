@@ -12,7 +12,7 @@ public class ValidationCheck {
 	public static boolean CheckPassword(String pw) {
 		String n = ".*[0-9].*";
 	    String a = ".*[A-Z].*";
-	    return pw.matches(n) && pw.matches(a);
+	    return pw.matches(n) && pw.matches(a) && pw.length()>=8;
 	}
 	
 	
