@@ -252,8 +252,10 @@ public class HomeFrame extends JFrame
 				 username = HomeFrame.getUsername();
 				 password = HomeFrame.getPassword();
 				
-				if ( LogRegCheck.checkUsername(username)) {
-					System.out.println("Login success");
+				if (1 == 5) {
+				//if ( LogRegCheck.checkUsername(username)) {
+					//System.out.println("Login success");
+					
 				}
 				else {
 					
