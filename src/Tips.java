@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 public class Tips {
 	private static Student stips = new Student("stipsuser","stipspass"); //Student object required for Tips.java
@@ -8,8 +9,8 @@ public class Tips {
 		double cscore=Score.CalculateGrade(stud);
 		double tscore=Score.CalculateGrade(stips);
 		double diffscore=tscore-cscore;
-		return "An veltiones ton meso oro sou kata 0.5, "
-				+ "to score sou tha afxanotan kata "+diffscore;
+		return "If you improve your avarage 0.5, "
+				+ "your score will increase by: "+diffscore;
 	}
 	
 	public static String getTipYear(Student stud) {
@@ -19,25 +20,21 @@ public class Tips {
 		stips.setAcademicYear(cyear+1);
 		double tscore = Score.CalculateYear(stips);
 		double diffscore=tscore-cscore;
-		if(cyear==1) {
-			return "Kalitera na perimeneis mexri toy xronou, "
-					+ "to score sou tha exei auxithei kata"+diffscore;
-		}
-		else if(cyear==2) {
-			return "Einai kalh stigmh na kaneis aithsh, an kai tou xronou "
-					+ "to score sou tha exei auxithei kata"+diffscore;
-		}
-		else if(cyear==3) {
-			return "Einai h teleia stigmh gia na kaneis aithsh, kalutera na kaneis fetos,"
-					+ " giati tou xronou to score sou tha exei meiothei kata"+diffscore;
-			
-		}
-		else if(cyear==4) {
-			return "Kalutera na kaneis aithsh fetos,"
-					+ " giati tou xronou to score sou tha exei meiothei kata"+diffscore;
-		}
-		else {
-			return "Eisai ligo megalos, apo edw kai pera to score sou menei to idio :)";
+		switch (cyear) {
+		case 1:
+			return "Its better to wait till next year, "
+					+ "your score will increase by: "+diffscore;
+		case 2:
+			return "Its a good point to apply, however next year "
+					+ "your score will increase by: "+diffscore;
+		case 3:
+			return "Its the perfect moment to apply, next year "
+					+ "your score will decrease by: "+diffscore;
+		case 4:
+			return "Its better to apply now, next year "
+					+ "your score will decrease by: "+diffscore;
+		default:
+			return "You're a bit old, your score says the same from now on. :)";
 		}
 	}
 
@@ -47,52 +44,90 @@ public class Tips {
 		int cfailed=stud.getnFailed();
 		double cscore = Score.CalculateFailed(stud);
 		if (cfailed<=3) {
-			return "Eisai teleia, den tha borouses na eixes "
-					+ "kalutero score se authn thn kathgoria!";
-		}
-		else if (cfailed<=7) {
-			stips.setnFailed(3);
-			double tscore = Score.CalculateFailed(stips);
-			double diffscore=tscore-cscore;
-			return "Boreis kai kalutera, an mexri ton septemvrio katafereis "
-					+ "na xrwstas mexri 3 to score sou tha afxithei kata "+diffscore;
-		}
-		else if (cfailed<=11) {
-			stips.setnFailed(7);
-			double tscore = Score.CalculateFailed(stips);
-			double diffscore=tscore-cscore;
-			return "Boreis kai kalutera, an mexri ton septemvrio katafereis "
-					+ "na xrwstas mexri 7 to score sou tha afxithei kata "+diffscore;
-		}
-		else if (cfailed<=15) {
-			stips.setnFailed(11);
-			double tscore = Score.CalculateFailed(stips);
-			double diffscore=tscore-cscore;
-			return "Boreis kai kalutera, an mexri ton septemvrio katafereis "
-					+ "na xrwstas mexri 11 to score sou tha afxithei kata "+diffscore;
+			return "That's great, you have the maximum score in this category!";
 		}
 		else {
-			stips.setnFailed(15);
+			int prevc=-1;
+			
+			
+			if (cfailed<=7)
+				stips.setnFailed(prevc);
+			else if (cfailed<=11)
+				stips.setnFailed(prevc);
+			else if (cfailed<=15)
+				stips.setnFailed(prevc);
+			else
+				stips.setnFailed(prevc);
+			
+			
+			stips.setnFailed(prevc);
 			double tscore = Score.CalculateFailed(stips);
 			double diffscore=tscore-cscore;
-			return "Boreis kai kalutera, an mexri ton septemvrio katafereis "
-					+ "na xrwstas mexri 15 to score sou tha afxithei kata "+diffscore;
+			return "You can do better! If you manage to have only "+ prevc +" failed classes by "
+					+ "September, your score will increase by: "+ diffscore;
 		}
-}
+		
+		
+	}
 
 
 
 	public static String getTipLEnglish(Student stud) {
 		stud.copyInfo(stips);
-	
-	
-		return null;
-}
+		HashMap<String, Integer> degrees=stips.getLangDegrees();
+		double cscore=Score.CalculateLEnglish(stips);
+		
+		if (degrees.containsKey("English")) {
+			if (degrees.get("English")<=3) {
+				degrees.put("English",degrees.get("English")+1);
+				stips.setLangDegrees(degrees);
+				double tscore=Score.CalculateLEnglish(stips);
+				double diffscore=tscore-cscore;
+				return "There's room for improvement, if you get the next degree, "
+						+ "your Native Language score will increase by:" + diffscore;
+			}
+			else {
+				return "You've got a (C2) Proficiency, your English score can't get any better! :)";
+			}
+			
+		}
+		else {
+			degrees.put("English", 1);
+			stips.setLangDegrees(degrees);
+			double tscore=Score.CalculateLEnglish(stips);
+			double diffscore=tscore-cscore;
+			return "Whoops, looks like you don't have an English Degree, "
+					+ "getting one (B1) would increase your English score by:" + diffscore;
+		}
+		
+	}
 	public static String getTipLNative(Student stud, University uni) {
 		stud.copyInfo(stips);
+		HashMap<String, Integer> degrees=stips.getLangDegrees();
+		double cscore=Score.CalculateLNative(stips,uni);
+		String ntvLang=uni.getLanguage();
 		
-		
-		return null;
-}
+		if(degrees.containsKey(ntvLang)) {
+			if (degrees.get(ntvLang)<=3) {
+				degrees.put(ntvLang,degrees.get(ntvLang)+1);
+				stips.setLangDegrees(degrees);
+				double tscore=Score.CalculateLEnglish(stips);
+				double diffscore=tscore-cscore;
+				return "There's room for improvement, if you get the next degree, "
+						+ "your Native Language score will increase by:" + diffscore;
+			}
+			else {
+				return "You've got a (C2) Proficiency, your Native Language score can't get any better! :)";
+			}
+		}
+		else {
+			degrees.put(ntvLang, 1);
+			stips.setLangDegrees(degrees);
+			double tscore=Score.CalculateLNative(stips,uni);
+			double diffscore=tscore-cscore;
+			return "Whoops, looks like you don't have an"+ ntvLang +"Degree, "
+					+ "getting one (B1) would increase your Native Language score by:" + diffscore;
+		}
+	}
 	
 }

@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class CentralRegistry
 {
@@ -39,7 +40,16 @@ public class CentralRegistry
 			}
 		}
 		
+		public Student getStudent() {
 		
+			
+			Student s = null;
+			
+			
+			return  s;
+			
+		}
+	
 	}
 	
 

@@ -1,21 +1,25 @@
 import javax.swing.*;    
 import java.awt.event.*;    
-public class UniversitySelectFrame { 
+public class InputDataFrame { 
 	//Frame Options
 	private static final int WIDTH=1280;
 	private static final int HEIGHT=720;
 	
-	//"Choose Country" Label
+	//"Input Data" Label
 	private static final int L_X=WIDTH*21/40;
 	private static final int L_Y=HEIGHT*1/10;
 	
-	//Country+Score Dropdowns
-	private static final int C_X=WIDTH*8/20;
-	private static final int C_WIDTH=WIDTH*3/20;
-	private static final int C_HEIGHT=HEIGHT*1/20;
-	private static final int C1_Y=HEIGHT*1/10;
-	private static final int C2_Y=HEIGHT*2/10;
-	private static final int C3_Y=HEIGHT*3/10;
+	//Data Fields
+	private static final int D_X=WIDTH*8/20;
+	private static final int D_WIDTH=WIDTH*3/20;
+	private static final int D_HEIGHT=HEIGHT*1/20;
+	private static final int D1_Y=HEIGHT*1/10;
+	private static final int D2_Y=HEIGHT*2/10;
+	private static final int D3_Y=HEIGHT*3/10;
+	
+	
+	//Language field
+	
 	
 	//Next button
 	private static final int NB_X=WIDTH*6/10;
@@ -26,32 +30,48 @@ public class UniversitySelectFrame {
 	
 	
 	JFrame f;    
-	UniversitySelectFrame(){
+	InputDataFrame(){
 		//Frame Options
-	    f=new JFrame("University Select");
+	    f=new JFrame("Input Data");
 	    f.setLayout(null);    
 	    f.setSize(WIDTH,HEIGHT);    
 	    
 	    
 	    //"Choose Country" Label
-	    final JLabel label = new JLabel();          
+	    final JLabel label = new JLabel("Epelekse 1 ews 3 panepistimia");  
 	    label.setHorizontalAlignment(JLabel.TRAILING);  
-	    label.setSize(L_X,L_Y);  
-	    label.setText("Select 1 to 3 Universities");
+	    label.setSize(L_X,L_Y);
 	    f.add(label);
 	    
 	    //Country+Score Dropdowns
 	    String languages[]={"University of Czechia","University of Denmark","University of Italy","University of Netherlands","University of Poland","University of Portugal","University of Spain"};
 	    //Todo ^^ getcountries list,calcucalte score
-	    final JComboBox country1=new JComboBox(languages);    
-	    country1.setBounds(C_X,C1_Y,C_WIDTH,C_HEIGHT); 
+	    final JTextField country1=new JTextField("");    
+	    country1.setBounds(D_X,D1_Y,D_WIDTH,D_HEIGHT); 
 	    f.add(country1);
-	    final JComboBox country2=new JComboBox(languages);    
-	    country2.setBounds(C_X,C2_Y,C_WIDTH,C_HEIGHT);
+	    final JTextField country2=new JTextField("");   
+	    country2.setBounds(D_X,D2_Y,D_WIDTH,D_HEIGHT);
 	    f.add(country2);
-	    final JComboBox country3=new JComboBox(languages);    
-	    country3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT); 
+	    final JTextField country3=new JTextField("");    
+	    country3.setBounds(D_X,D3_Y,D_WIDTH,D_HEIGHT); 
 	    f.add(country3);
+	    
+	    
+	    
+	    final JLabel l1 = new JLabel("Epelekse 1 ews 3 panepistimiafff");          
+	    l1.setHorizontalAlignment(JLabel.TRAILING);  
+	    l1.setSize(D_X,D1_Y);
+	    f.add(l1);
+	    
+	    final JLabel l2 = new JLabel("Epelekse 1 ews 3 panepistimia");          
+	    l2.setHorizontalAlignment(JLabel.TRAILING);  
+	    l2.setSize(D_X,D2_Y);
+	    f.add(l2);
+	    
+	    final JLabel l3 = new JLabel("Epelekse 1 ews 3 panepistimia");          
+	    l3.setHorizontalAlignment(JLabel.TRAILING);  
+	    l3.setSize(D_X,D3_Y);
+	    f.add(l3);
 	    
 	    //Next button
 	    JButton buttonNext=new JButton("Get Tips");  
@@ -65,7 +85,6 @@ public class UniversitySelectFrame {
 	    });
 	        
 	    f.setVisible(true);  
-	     
-	               
+	           
 	}
 }
