@@ -43,13 +43,14 @@ public class UniversitySelectFrame {
 	    //Country+Score Dropdowns
 	    String languages[]={"University of Czechia","University of Denmark","University of Italy","University of Netherlands","University of Poland","University of Portugal","University of Spain"};
 	    //Todo ^^ getcountries list,calcucalte score
-	    final JComboBox country1=new JComboBox(languages);    
+	    JComboBox<String> jComboBox = new JComboBox<String>(languages);
+		final JComboBox<String> country1=jComboBox;    
 	    country1.setBounds(C_X,C1_Y,C_WIDTH,C_HEIGHT); 
 	    f.add(country1);
-	    final JComboBox country2=new JComboBox(languages);    
+	    final JComboBox<String> country2=jComboBox;    
 	    country2.setBounds(C_X,C2_Y,C_WIDTH,C_HEIGHT);
 	    f.add(country2);
-	    final JComboBox country3=new JComboBox(languages);    
+	    final JComboBox<String> country3=jComboBox;    
 	    country3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT); 
 	    f.add(country3);
 	    
