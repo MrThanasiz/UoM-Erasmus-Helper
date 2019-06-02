@@ -8,6 +8,7 @@ public class CreateFile
 	
 	public boolean checkFile() {
 		
+		//returns : true = file exists || false = file not exists
 		
 		File f = new File(file);
 		if(f.exists() && !f.isDirectory()) { 
@@ -20,11 +21,9 @@ public class CreateFile
 	
 	public void newFile() {
 		//wait for input from user
-		String username = null;
-		String password = null;
 		
+		Student s = CentralRegistry.registerNewUser();
 		
-		Student s = new Student(username , password);
 	      try {
 	         FileOutputStream fileOut =
 	         new FileOutputStream( file );

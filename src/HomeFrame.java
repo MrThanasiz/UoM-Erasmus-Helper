@@ -1,8 +1,10 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 
@@ -55,12 +57,9 @@ public class HomeFrame extends JFrame
 	private static JButton registerButton;
 	private static JButton infoButton;
 	
-	private Student student;
-	private JList<Student> studentList;
-	private DefaultListModel<Student> studentModel;
-	
 	private static JTextArea username;
 	private static JTextArea password;
+	
 	
 
 	
@@ -205,6 +204,13 @@ public class HomeFrame extends JFrame
 		PasswordLabelBelowPanel.add(labela);
 		
 	}
+	
+	public void warningMessage() {
+		JOptionPane.showMessageDialog(panel,
+			    "Wrong Username (and) or Password.",
+			    "Error",
+			    JOptionPane.WARNING_MESSAGE);
+	}
 
 	public static JButton getLoginButton() {
 		return loginButton;
@@ -230,17 +236,46 @@ public class HomeFrame extends JFrame
 
  class Action implements ActionListener {
 	 
+	 String username = null;
+	 String password = null;
+	 
 	 HomeFrame f = new HomeFrame();
 	
+	 
 	public void actionPerformed(ActionEvent e) {
+		
+			HomeFrame hf = new HomeFrame(); 
 			if (e.getSource() == HomeFrame.getLoginButton()) {
-				System.out.println("Button login Working");
+				//System.out.println("Button login Working");
+				
+				
+				 username = HomeFrame.getUsername();
+				 password = HomeFrame.getPassword();
+				
+				if ( LogRegCheck.checkUsername(username)) {
+					System.out.println("Login success");
+				}
+				else {
+					
+					hf.warningMessage();
+				}
+				
+				
+				
 			}
 			else if (e.getSource() == HomeFrame.getRegisterButton()) {
 				
-				System.out.println(HomeFrame.getUsername());
-				System.out.println(HomeFrame.getPassword());
+				//register to a student username and password
+				//LogRegCheck.checkUsername(HomeFrame.getUsername());
+				Student s = new Student(null , null);
 				
+				s = CentralRegistry.registerNewUser();
+				
+				
+				CentralRegistry.serializeUser(s);
+				
+				
+				//CentralRegistry.desirializeUsers();
 				
 				
 			}
@@ -251,6 +286,11 @@ public class HomeFrame extends JFrame
 				} catch (Exception e1) {}
 				
 			}
+			
+			
 		}
+		
+		
+	
 	
 	}

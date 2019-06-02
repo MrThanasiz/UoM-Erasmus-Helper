@@ -6,8 +6,12 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+	
+	CentralRegistry.desirializeUsers();
+	
 		
 	HomeFrame fr = new HomeFrame();
+	
 	
 	fr.WelcomeFrame();
 	
