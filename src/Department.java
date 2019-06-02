@@ -13,6 +13,7 @@ public class Department {
 		University auni = new University(name, name, name, name, null, false);
 		this.name = name;
 		this.studentslist = studentslist;
+		this.numberofdep = numberofdep;
 		
 		for(int i=0;i<cooplist.size();i++) {
 			auni = cooplist.get(i);
