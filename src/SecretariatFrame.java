@@ -1,43 +1,45 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.function.IntFunction;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
+
+import InputFrame.ButtonListener;
 
 @SuppressWarnings("serial")
 public class SecretariatFrame extends JFrame{
 
+	// Window and main panel resolution
 	private static final int WIDTH = 1280;
 	private static final int HEIGHT = 720;
 	
-	private static final int DEP_PANEL_WIDTH = WIDTH*1/3;
-	private static final int DEP_PANEL_HEIGHT = HEIGHT;
-	private static final int INFO_PANEL_WIDTH = WIDTH*2/3;
-	private static final int INFO_PANEL_HEIGHT = HEIGHT;
+	// Resolutions of the department list and the exit button panels
+	private static final int DEP_LIST_PANEL_WIDTH = WIDTH*3/10;
+	private static final int DEP_LIST_PANEL_HEIGHT = HEIGHT*4/5;
+	private static final int DEP_BUTTON_PANEL_WIDTH = WIDTH*3/10;
+	private static final int DEP_BUTTON_PANEL_HEIGHT = HEIGHT*1/10;
 	
-	private static final int DEP_LIST_PANEL_WIDTH = DEP_PANEL_WIDTH;
-	private static final int DEP_LIST_PANEL_HEIGHT = DEP_PANEL_HEIGHT*9/10;
-	private static final int DEP_BUTTON_PANEL_WIDTH = DEP_PANEL_WIDTH;
-	private static final int DEP_BUTTON_PANEL_HEIGHT = DEP_PANEL_HEIGHT*1/10;
+	// Resolutions of the student list and the details for every student 
+	private static final int DET_PANEL_WIDTH = WIDTH*3/5;
+	private static final int DET_PANEL_HEIGHT = HEIGHT*4/5;
+	private static final int INFO_BUTTON_PANEL_WIDTH = WIDTH*3/5;
+	private static final int INFO_BUTTON_PANEL_HEIGHT = HEIGHT*1/10;
 	
-	private static final int DET_PANEL_WIDTH = INFO_PANEL_WIDTH;
-	private static final int DET_PANEL_HEIGHT = INFO_PANEL_HEIGHT*9/10;
-	private static final int INFO_BUTTON_PANEL_WIDTH = INFO_PANEL_WIDTH;
-	private static final int INFO_BUTTON_PANEL_HEIGHT = INFO_PANEL_HEIGHT*1/10;
-	
+	// Resolution of the list with the departments on the department panel
 	private static final int DEP_LIST_WIDTH = DEP_LIST_PANEL_WIDTH*4/5;
 	private static final int DEP_LIST_HEIGHT = DEP_LIST_PANEL_HEIGHT*1/2;
 	
+	// Resolutions of the list and text area on the information panel
 	private static final int STUD_INFO_LIST_WIDTH = DET_PANEL_WIDTH*3/5;
 	private static final int STUD_INFO_LIST_HEIGHT = DET_PANEL_HEIGHT*2/5;
 	private static final int STUD_DET_TEXT_AREA_WIDTH = DET_PANEL_WIDTH*4/5;
@@ -45,8 +47,6 @@ public class SecretariatFrame extends JFrame{
 	
 	
 	private JPanel panel;
-	private JPanel departmentsPanel;
-	private JPanel infoPanel;
 	private JPanel departmentListPanel;
 	private JPanel departmentButtonPanel;
 	private JPanel detailsPanel;
@@ -54,17 +54,19 @@ public class SecretariatFrame extends JFrame{
 	
 	private JButton nextDepartmentButton;
 	private JButton previousDepartmentButton;
+	private JButton backButton;
 	private JButton exitButton;
+	private ButtonListener listener;
 
 	private JList<String> departmentList;
 	private DefaultListModel<String> departmentModel;
-	private JList<String> studentInfoList;
-	private DefaultListModel<String> studentInfoModel;
+	private JList<Student> studentInfoList;
+	private DefaultListModel<Student> studentInfoModel;
 	
 	private JTextArea studentDetailsTextArea;
 
 	
-	
+	// Constructor of the Secretariat Frame
 	public SecretariatFrame() {
 		
 		this.setPanel();
@@ -73,57 +75,37 @@ public class SecretariatFrame extends JFrame{
 		
 		this.setVisible(true);
 		this.setSize(WIDTH, HEIGHT);
-		this.setResizable(false);
+		//this.setResizable(false);
 		this.setTitle("Secretariat");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	
-	
+	// The main panel sets the two subpanels 
 	private void setPanel() {
 		
 		panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-
-		this.setDepartmentsPanel();
-		this.setInfoPanel();
-		panel.add(departmentsPanel);
-		panel.add(infoPanel);
-	}
-	
-	
-	
-	private void setDepartmentsPanel() {
 		
-		departmentsPanel = new JPanel();
-		departmentsPanel.setLayout(new BoxLayout(departmentsPanel, BoxLayout.Y_AXIS));
-		departmentsPanel.setPreferredSize(new Dimension(DEP_PANEL_WIDTH, DEP_PANEL_HEIGHT));
-		departmentsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		this.setDepartmentListPanel();
-		this.setDepartmentButtonPanel();
-		departmentsPanel.add(departmentListPanel);
-		departmentsPanel.add(departmentButtonPanel);
-	}
-	
-	private void setInfoPanel() {
-		
-		infoPanel = new JPanel();
-		infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
-		infoPanel.setPreferredSize(new Dimension(INFO_PANEL_WIDTH, INFO_PANEL_HEIGHT));
-		infoPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-		
 		this.setDetailsPanel();
+		this.setDepartmentButtonPanel();
 		this.setInfoButtonPanel();
-		infoPanel.add(detailsPanel);
-		infoPanel.add(infoButtonPanel);
+		
+		panel.add(departmentListPanel);
+		panel.add(detailsPanel);
+		panel.add(departmentButtonPanel);
+		panel.add(infoButtonPanel);
+		
 	}
 	
 	
-	
+	// The department list panel sets the size of the department list 
 	private void setDepartmentListPanel() {
 		
 		departmentListPanel = new JPanel();
+		departmentListPanel.setBorder(BorderFactory.createTitledBorder(
+				BorderFactory.createEtchedBorder(), "Departments", TitledBorder.TOP, TitledBorder.TOP));
 		departmentListPanel.setPreferredSize(new Dimension(DEP_LIST_PANEL_WIDTH, DEP_LIST_PANEL_HEIGHT));
 		departmentListPanel.setLayout(new GridBagLayout());
 		
@@ -142,10 +124,17 @@ public class SecretariatFrame extends JFrame{
 	private void setDepartmentButtonPanel() {
 		
 		departmentButtonPanel = new JPanel();
+		departmentButtonPanel.setBorder(BorderFactory.createEtchedBorder());
 		departmentButtonPanel.setPreferredSize(new Dimension(DEP_BUTTON_PANEL_WIDTH, DEP_BUTTON_PANEL_HEIGHT));
 
+		backButton = new JButton("Back");
 		exitButton = new JButton("Exit");
 		
+		listener = new ButtonListener();
+		backButton.addActionListener(listener);
+		exitButton.addActionListener(listener);
+		
+		departmentButtonPanel.add(backButton);
 		departmentButtonPanel.add(exitButton);
 	}
 	
@@ -154,7 +143,10 @@ public class SecretariatFrame extends JFrame{
 	private void setDetailsPanel() {
 		
 		detailsPanel = new JPanel();
+		detailsPanel.setBorder(BorderFactory.createTitledBorder(
+				BorderFactory.createEtchedBorder(), "Students", TitledBorder.TOP, TitledBorder.TOP));
 		detailsPanel.setPreferredSize(new Dimension(DET_PANEL_WIDTH, DET_PANEL_HEIGHT));
+		
 		detailsPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(25, 10, 25, 10);
@@ -170,6 +162,7 @@ public class SecretariatFrame extends JFrame{
 		
 		studentDetailsTextArea = new JTextArea();
 		studentDetailsTextArea.setPreferredSize(new Dimension(STUD_DET_TEXT_AREA_WIDTH, STUD_DET_TEXT_AREA_HEIGHT));
+		studentDetailsTextArea.setEditable(false);
 		
 		gbc.gridy = 0;
 		detailsPanel.add(studentInfoList, gbc);
@@ -177,15 +170,42 @@ public class SecretariatFrame extends JFrame{
 		detailsPanel.add(studentDetailsTextArea, gbc);
 	}
 	
+	
 	private void setInfoButtonPanel() {
 		
 		infoButtonPanel = new JPanel();
+		infoButtonPanel.setBorder(BorderFactory.createEtchedBorder());
 		infoButtonPanel.setPreferredSize(new Dimension(INFO_BUTTON_PANEL_WIDTH, INFO_BUTTON_PANEL_HEIGHT));
 		
 		previousDepartmentButton = new JButton("Previous");
 		nextDepartmentButton = new JButton("Next");
 		
+		listener = new ButtonListener();
+		previousDepartmentButton.addActionListener(listener);
+		nextDepartmentButton.addActionListener(listener);		
+		
 		infoButtonPanel.add(previousDepartmentButton);
 		infoButtonPanel.add(nextDepartmentButton);
+	}
+	
+	
+	
+	
+	class ButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			if(e.getSource().equals(backButton))
+				return;
+			else if(e.getSource().equals(exitButton))
+				System.exit(0);
+			else if(e.getSource().equals(previousDepartmentButton))
+				return;
+			else if(e.getSource().equals(nextDepartmentButton))
+				return;
+			
+		}
+		
 	}
 }

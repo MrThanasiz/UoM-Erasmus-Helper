@@ -8,7 +8,7 @@ public class Student implements Serializable{
 	private int academicYear = 0;
 	private double averageGrade = 0;
 	private int nFailed = 0;
-	private int chosenUnis;
+	private Department department;
 	private HashMap<String, Integer> langDegrees;
 	private HashMap<University, Double> scores;
 
@@ -17,36 +17,8 @@ public class Student implements Serializable{
 		this.password = password;
 	}
 	
-	public String getUsername() {
-		return this.username;
-	}
-	
-	public String getPassword() {
-		return this.password;
-	}
-	
-	
-	public void copyInfo(Student copy) {
-		copy.setAverageGrade(this.getAverageGrade());
-		copy.setAcademicYear(this.getAcademicYear());
-		copy.setnFailed(this.getnFailed());
-		copy.setLangDegrees(this.getLangDegrees()); 
-	}
-
-	public int getAcademicYear() {
-		return this.academicYear;
-	}
-
-	public double getAverageGrade() {
-		return this.averageGrade;
-	}
-
-	public int getnFailed() {
-		return this.nFailed;
-	}
-
-	public HashMap<String, Integer> getLangDegrees() {
-		return this.langDegrees;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	public void setAcademicYear(int academicYear) {
@@ -65,6 +37,43 @@ public class Student implements Serializable{
 		this.langDegrees = langDegrees;
 	}
 	
+	public String getUsername() {
+		return this.username;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public Department getDepartment() {
+		return this.department;
+	}
+
+	public int getAcademicYear() {
+		return this.academicYear;
+	}
+
+	public double getAverageGrade() {
+		return this.averageGrade;
+	}
+
+	public int getnFailed() {
+		return this.nFailed;
+	}
+
+	public HashMap<String, Integer> getLangDegrees() {
+		return this.langDegrees;
+	}
+	
+	
+	public void copyInfo(Student copy) {
+		copy.setAverageGrade(this.getAverageGrade());
+		copy.setAcademicYear(this.getAcademicYear());
+		copy.setnFailed(this.getnFailed());
+		copy.setLangDegrees(this.getLangDegrees()); 
+	}
+	
+	
 	public String getInfo() {
 		
 		String str;
@@ -77,6 +86,10 @@ public class Student implements Serializable{
 		}
 		
 		return str;
+	}
+	
+	public String getDetails() {
+		return "kati";
 	}
 	
 	public String toString() {
