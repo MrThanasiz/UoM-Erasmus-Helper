@@ -17,17 +17,12 @@ public class LogRegCheck {
 		if ( CentralRegistry.initializedList )
 			return null;
 		
-		if ( CentralRegistry.getUsers.contains(aUsername) )
-			return true;
-		return false;
+		return CentralRegistry.getUsers.contains(aUsername);
 	}
 	
 	
 	public static boolean checkPassword(Student aStudent, String aPassword) {
 		
-		if( aStudent.getPassword().equals(aPassword) ) {
-			return true;
-		}
-		return false;	
+			return aStudent.getPassword().equals(aPassword);
 	}
 }
