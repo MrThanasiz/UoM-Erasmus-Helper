@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		
+	ArrayList<University> unilist = new ArrayList<>();
 	
 	CentralRegistry.desirializeUsers();
 	
@@ -15,12 +17,24 @@ public class Main {
 	
 	fr.WelcomeFrame();
 	
+	unilist = createUnis();
+	//testing createUnis
+	/*for(int y=0;y<unilist.size();y++) {
+		System.out.println(unilist.get(y).getName());
+		System.out.println(unilist.get(y).getTown());
+		System.out.println(unilist.get(y).getCountry());
+		System.out.println(unilist.get(y).getLanguage());
+		System.out.println(unilist.get(y).getLangRequired());
+		System.out.println(unilist.get(y).getCoop());
+	}*/
+	
+	
 	
 	
 	
 	}
 	
-	private static void createUnis() {
+	private static ArrayList<University> createUnis() {
 		
 		String name;
 		String town;
@@ -33,7 +47,7 @@ public class Main {
 		File f = new File("Unis.txt");
 		try {
 			
-			Scanner sc = new Scanner(f);
+			Scanner sc = new Scanner(f).useDelimiter(",");
 			while(sc.hasNext()) {
 				
 				name = sc.next();
@@ -57,6 +71,7 @@ public class Main {
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		return unilist;
 		
 	}
 

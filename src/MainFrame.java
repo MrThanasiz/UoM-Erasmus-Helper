@@ -175,6 +175,7 @@ public class MainFrame extends JFrame{
 			}
 			else if(e.getSource().equals(OkButton)) {
 				tipsPanel2.add(actualTips);
+				//ERROR CANNOT ADD THINGS TO PANEL
 				
 			}
 			else if(e.getSource().equals(countriesList)) {
