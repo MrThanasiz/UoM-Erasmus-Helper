@@ -6,14 +6,16 @@ public class Department {
 	private ArrayList<University> cooplist;
 	private ArrayList<Student> studentslist;
 	private int numberofdep;
+	private String prefix;
 	
-	public Department(String name, ArrayList<University> cooplist, ArrayList<Student> studentslist,int numberofdep) {
+	public Department(String name, ArrayList<University> cooplist, ArrayList<Student> studentslist,int numberofdep,String prefix) {
 		
 		ArrayList<University> coplist = new ArrayList<>();
 		University auni = new University(name, name, name, name, null, false);
 		this.name = name;
 		this.studentslist = studentslist;
 		this.numberofdep = numberofdep;
+		this.prefix = prefix;
 		
 		for(int i=0;i<cooplist.size();i++) {
 			auni = cooplist.get(i);
@@ -42,6 +44,10 @@ public class Department {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getPrefix() {
+		return prefix;
 	}
 
 }
