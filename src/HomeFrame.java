@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 
-public class HomeFrame extends JFrame 
+public class HomeFrame extends JFrame
 {
 
 	//Frame Options 
@@ -48,7 +48,6 @@ public class HomeFrame extends JFrame
 	private JPanel UsernameFieldPanel;
 	private JPanel PasswordFieldPanel;
 	private JPanel PasswordLabelAbovePanel;
-	private JPanel PasswordLabelBelowPanel;
 	private JPanel UsernameLabelAbovePanel;
 	
 	
@@ -90,7 +89,6 @@ public class HomeFrame extends JFrame
 		this.setUsernameTextPanel();
 		this.passwordLabelAbove();
 		this.setPasswordTextPanel();
-		this.passwordLabelBelow();
 		this.setLoginButtonPanel();
 		this.setRegisterButtonPanel();
 		this.setInfoButtonPanel();
@@ -100,7 +98,6 @@ public class HomeFrame extends JFrame
 		panel.add(UsernameFieldPanel);
 		panel.add(PasswordLabelAbovePanel);
 		panel.add(PasswordFieldPanel);
-		panel.add(PasswordLabelBelowPanel);
 		panel.add(LoginButtonPanel);
 		panel.add(RegisterButtonPanel);
 		panel.add(InfoButtonPanel);
@@ -189,21 +186,12 @@ public class HomeFrame extends JFrame
 		PasswordLabelAbovePanel = new JPanel();
 		PasswordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 		
-		JLabel labela = new JLabel("Enter a password :");
+		JLabel labela = new JLabel("Enter your password :");
 		
 		PasswordLabelAbovePanel.add(labela);
 		
 	}
 	
-	public void passwordLabelBelow() {
-		PasswordLabelBelowPanel = new JPanel();
-		PasswordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
-		
-		JLabel labela = new JLabel("Remember , password must contain at least 8 characters!");
-		
-		PasswordLabelBelowPanel.add(labela);
-		
-	}
 	
 	public void warningMessage() {
 		JOptionPane.showMessageDialog(panel,
@@ -245,6 +233,9 @@ public class HomeFrame extends JFrame
 	public void actionPerformed(ActionEvent e) {
 		
 			HomeFrame hf = new HomeFrame(); 
+			RegisterFrame rf = new RegisterFrame();
+			
+			//
 			if (e.getSource() == HomeFrame.getLoginButton()) {
 				//System.out.println("Button login Working");
 				
@@ -260,10 +251,7 @@ public class HomeFrame extends JFrame
 				else {
 					
 					hf.warningMessage();
-				}
-				
-				
-				
+				}	
 			}
 			else if (e.getSource() == HomeFrame.getRegisterButton()) {
 				
@@ -292,7 +280,8 @@ public class HomeFrame extends JFrame
 			
 		}
 		
-		
 	
+		
+		
 	
 	}
