@@ -11,24 +11,28 @@ public class Main {
 	ArrayList<Department> departmentslist = new ArrayList<>();
 	ArrayList<Student> studentslist = new ArrayList<>();
 	
-	CentralRegistry.desirializeUsers();
+	//CentralRegistry.desirializeUsers();
 	
 		
-	HomeFrame fr = new HomeFrame();
+	//HomeFrame fr = new HomeFrame();
 	
 	
-	fr.WelcomeFrame();
+	//fr.WelcomeFrame();
 	
 	unilist = createUnis();
 	//testing createUnis
 	
 	for(int y=0;y<unilist.size();y++) {
+		
 		System.out.println(unilist.get(y).getName());
 		System.out.println(unilist.get(y).getTown());
 		System.out.println(unilist.get(y).getCountry());
 		System.out.println(unilist.get(y).getLanguage());
-		System.out.println(unilist.get(y).getLangRequired());
 		System.out.println(unilist.get(y).getCoop());
+		System.out.println(unilist.get(y).getLangRequired());
+		System.out.println("\n");
+		
+		
 	}
 	
 	
@@ -61,6 +65,8 @@ public class Main {
 		String town;
 		String country;
 		String language;
+		String line = null;
+		int nex = 0;
 		boolean langRequired;
 		ArrayList<University> unilist = new ArrayList<>();
 		ArrayList<Integer> coop;
@@ -68,24 +74,31 @@ public class Main {
 		File f = new File("Unis.txt");
 		try {
 			
-			Scanner sc = new Scanner(f);
-			sc.useDelimiter(",");
+			Scanner lineSc = new Scanner(f);
 			
-			while(sc.hasNextLine()) {
+			
+			
+			while(lineSc.hasNext()) {
+				
+				line = lineSc.nextLine();
+				@SuppressWarnings("resource")
+				Scanner sc = new Scanner(line);
+				sc.useDelimiter(",");
 				
 				name = sc.next();
 				town = sc.next();
 				country = sc.next();
-				language = sc.next();
-				langRequired = sc.nextBoolean();
 				coop = new ArrayList<>();
 				while(sc.hasNextInt()) {
-					coop.add(sc.nextInt());
+					nex = sc.nextInt();
+					coop.add(nex);
 				}
+				language = sc.next();
+				langRequired = sc.nextBoolean();
 				uni = new University(name,town,country,language,coop,langRequired);
 				unilist.add(uni);
 			}
-			sc.close();
+			lineSc.close();
 			
 		}
 		
