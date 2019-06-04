@@ -27,7 +27,7 @@ public class University {
 		return town;
 	}
 	public String getCountry() {
-		return town;
+		return country;
 	}
 	
 	public String getLanguage() {

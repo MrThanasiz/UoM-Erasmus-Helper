@@ -22,14 +22,14 @@ public class Main {
 	unilist = createUnis();
 	//testing createUnis
 	
-	/*for(int y=0;y<unilist.size();y++) {
+	for(int y=0;y<unilist.size();y++) {
 		System.out.println(unilist.get(y).getName());
 		System.out.println(unilist.get(y).getTown());
 		System.out.println(unilist.get(y).getCountry());
 		System.out.println(unilist.get(y).getLanguage());
 		System.out.println(unilist.get(y).getLangRequired());
 		System.out.println(unilist.get(y).getCoop());
-	}*/
+	}
 	
 	
 	Department informatics = new Department("Applied Informatics",unilist,studentslist,0);
@@ -63,27 +63,27 @@ public class Main {
 		String language;
 		boolean langRequired;
 		ArrayList<University> unilist = new ArrayList<>();
-		int i=0;
-		ArrayList<Integer> coop = new ArrayList<>();
+		ArrayList<Integer> coop;
+		University uni;
 		File f = new File("Unis.txt");
 		try {
 			
-			Scanner sc = new Scanner(f).useDelimiter(",");
-			while(sc.hasNext()) {
+			Scanner sc = new Scanner(f);
+			sc.useDelimiter(",");
+			
+			while(sc.hasNextLine()) {
 				
 				name = sc.next();
 				town = sc.next();
 				country = sc.next();
 				language = sc.next();
 				langRequired = sc.nextBoolean();
+				coop = new ArrayList<>();
 				while(sc.hasNextInt()) {
 					coop.add(sc.nextInt());
 				}
-				
-				University uni = new University(name,town,country,language,coop,langRequired);
+				uni = new University(name,town,country,language,coop,langRequired);
 				unilist.add(uni);
-				i++;
-				
 			}
 			sc.close();
 			
@@ -96,9 +96,4 @@ public class Main {
 		
 	}
 
-	
 }
-
-
-
-
