@@ -11,18 +11,18 @@ public class Main {
 	ArrayList<Department> departmentslist = new ArrayList<>();
 	ArrayList<Student> studentslist = new ArrayList<>();
 	
-	//CentralRegistry.desirializeUsers();
+	CentralRegistry.desirializeUsers();
 	
 		
-	//HomeFrame fr = new HomeFrame();
+	HomeFrame fr = new HomeFrame();
 	
 	
-	//fr.WelcomeFrame();
+	fr.WelcomeFrame();
 	
 	unilist = createUnis();
 	//testing createUnis
 	
-	for(int y=0;y<unilist.size();y++) {
+	/*for(int y=0;y<unilist.size();y++) {
 		
 		System.out.println(unilist.get(y).getName());
 		System.out.println(unilist.get(y).getTown());
@@ -31,9 +31,8 @@ public class Main {
 		System.out.println(unilist.get(y).getCoop());
 		System.out.println(unilist.get(y).getLangRequired());
 		System.out.println("\n");
-		
-		
-	}
+			
+	}*/
 	
 	
 	Department informatics = new Department("Applied Informatics",unilist,studentslist,0);
@@ -88,13 +87,13 @@ public class Main {
 				name = sc.next();
 				town = sc.next();
 				country = sc.next();
+				language = sc.next();
+				langRequired = sc.nextBoolean();
 				coop = new ArrayList<>();
 				while(sc.hasNextInt()) {
 					nex = sc.nextInt();
 					coop.add(nex);
 				}
-				language = sc.next();
-				langRequired = sc.nextBoolean();
 				uni = new University(name,town,country,language,coop,langRequired);
 				unilist.add(uni);
 			}
