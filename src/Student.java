@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.List;
 import java.io.Serializable;
 
 public class Student implements Serializable{
@@ -75,7 +74,7 @@ public class Student implements Serializable{
 	}
 	
 	
-	public String getInfo() {
+	public String toString() {
 		
 		String str;
 		
@@ -91,13 +90,5 @@ public class Student implements Serializable{
 	
 	public String getDetails() {
 		return "kati";
-	}
-	
-	public String toString() {
-		
-		return username;
-	}
-	
-	
-	
+	}	
 }

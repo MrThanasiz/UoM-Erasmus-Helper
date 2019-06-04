@@ -10,11 +10,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
-
-import InputFrame.ButtonListener;
 
 @SuppressWarnings("serial")
 public class SecretariatFrame extends JFrame{
@@ -54,12 +53,12 @@ public class SecretariatFrame extends JFrame{
 	
 	private JButton nextDepartmentButton;
 	private JButton previousDepartmentButton;
-	private JButton backButton;
+	private JButton logoutButton;
 	private JButton exitButton;
 	private ButtonListener listener;
 
-	private JList<String> departmentList;
-	private DefaultListModel<String> departmentModel;
+	private JList<Department> departmentList;
+	private DefaultListModel<Department> departmentModel;
 	private JList<Student> studentInfoList;
 	private DefaultListModel<Student> studentInfoModel;
 	
@@ -127,14 +126,14 @@ public class SecretariatFrame extends JFrame{
 		departmentButtonPanel.setBorder(BorderFactory.createEtchedBorder());
 		departmentButtonPanel.setPreferredSize(new Dimension(DEP_BUTTON_PANEL_WIDTH, DEP_BUTTON_PANEL_HEIGHT));
 
-		backButton = new JButton("Back");
+		logoutButton = new JButton("Logout");
 		exitButton = new JButton("Exit");
 		
 		listener = new ButtonListener();
-		backButton.addActionListener(listener);
+		logoutButton.addActionListener(listener);
 		exitButton.addActionListener(listener);
 		
-		departmentButtonPanel.add(backButton);
+		departmentButtonPanel.add(logoutButton);
 		departmentButtonPanel.add(exitButton);
 	}
 	
@@ -153,8 +152,8 @@ public class SecretariatFrame extends JFrame{
 		
 		studentInfoModel = new DefaultListModel<>();
 		
-		//for(Student student: CentralRegistry.getStudents())
-				//	studentInfoModel.addElement(student.getInfo()); 
+		for(Student student: departmentList.getSelectedValue().getStudentslist())
+					studentInfoModel.addElement(student); 
 
 		studentInfoList = new JList<>();
 		studentInfoList.setPreferredSize(new Dimension(STUD_INFO_LIST_WIDTH, STUD_INFO_LIST_HEIGHT));
@@ -196,10 +195,13 @@ public class SecretariatFrame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			if(e.getSource().equals(backButton))
+			if(e.getSource().equals(logoutButton))
 				return;
-			else if(e.getSource().equals(exitButton))
-				System.exit(0);
+			else if(e.getSource().equals(exitButton)) {
+				int answer = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION);
+				if (answer == JOptionPane.YES_OPTION)
+					System.exit(0);
+			}
 			else if(e.getSource().equals(previousDepartmentButton))
 				return;
 			else if(e.getSource().equals(nextDepartmentButton))
