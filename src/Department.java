@@ -45,5 +45,9 @@ public class Department {
 	public String getName() {
 		return name;
 	}
+	
+	public String getPrefix() {
+		return prefix;
+	}
 
 }
