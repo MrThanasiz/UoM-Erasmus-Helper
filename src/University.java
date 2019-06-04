@@ -19,6 +19,17 @@ public class University {
 		this.langRequired = langRequired;
 	}
 
+	public String getName() {
+		return name;
+	}
+	
+	public String getTown() {
+		return town;
+	}
+	public String getCountry() {
+		return town;
+	}
+	
 	public String getLanguage() {
 		return language;
 	}
@@ -26,8 +37,8 @@ public class University {
 	public ArrayList<Integer> getCoop() {
 		return coop;
 	}
-	
-	public String toString() {
-		return name;
+
+	public boolean getLangRequired() {
+		return langRequired;
 	}
 }

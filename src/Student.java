@@ -12,6 +12,14 @@ public class Student implements Serializable{
 	private HashMap<String, Integer> langDegrees;
 	private HashMap<University, Double> scores;
 
+	public HashMap<University, Double> getScores() {
+		return scores;
+	}
+
+	public void setScores(HashMap<University, Double> scores) {
+		this.scores = scores;
+	}
+
 	public Student(String username, String password) {
 		this.username = username;
 		this.password = password;
