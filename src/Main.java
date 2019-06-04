@@ -35,14 +35,14 @@ public class Main {
 	}*/
 	
 	
-	Department informatics = new Department("Applied Informatics",unilist,studentslist,0);
-	Department economics = new Department("Economics",unilist,studentslist,1);
-	Department balkan = new Department("Balkan Studies",unilist,studentslist,2);
-	Department businessadm = new Department("Business Admninistration",unilist,studentslist,3);
-	Department accounting = new Department("Accounting & Finance",unilist,studentslist,4);
-	Department european = new Department("European Studies",unilist,studentslist,5);
-	Department social = new Department("Educational & Social Policy",unilist,studentslist,6);
-	Department music = new Department("Music Science & Art",unilist,studentslist,7);
+	Department informatics = new Department("Applied Informatics",unilist,studentslist,0,"dai");
+	Department economics = new Department("Economics",unilist,studentslist,1,"eco");
+	Department balkan = new Department("Balkan Studies",unilist,studentslist,2,"bal");
+	Department businessadm = new Department("Business Admninistration",unilist,studentslist,3,"bus");
+	Department accounting = new Department("Accounting & Finance",unilist,studentslist,4,"fin");
+	Department european = new Department("European Studies",unilist,studentslist,5,"eur");
+	Department educational = new Department("Educational & Social Policy",unilist,studentslist,6,"esp");
+	Department music = new Department("Music Science & Art",unilist,studentslist,7,"mus");
 	
 	departmentslist.add(informatics);
 	departmentslist.add(economics);
@@ -50,7 +50,7 @@ public class Main {
 	departmentslist.add(businessadm);
 	departmentslist.add(accounting);
 	departmentslist.add(european);
-	departmentslist.add(social);
+	departmentslist.add(educational);
 	departmentslist.add(music);
 	
 	
