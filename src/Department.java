@@ -27,6 +27,8 @@ public class Department {
 		
 		
 	}
+	//for calling ease
+	public Department() {}
 	
 	public void sortStudents( ) {
 		

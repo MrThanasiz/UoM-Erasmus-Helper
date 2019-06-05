@@ -10,14 +10,15 @@ public class Main {
 	ArrayList<University> unilist = new ArrayList<>();
 	ArrayList<Department> departmentslist = new ArrayList<>();
 	ArrayList<Student> studentslist = new ArrayList<>();
-	
+	//InitializedList
 	CentralRegistry.desirializeUsers();
-	
-		
+
 	HomeFrame fr = new HomeFrame();
+	RegisterFrame rf = new RegisterFrame();
 	
-	
-	fr.WelcomeFrame();
+	//First Frame to be displayed
+	//fr.WelcomeFrame();
+	rf.RegFrame();
 	
 	unilist = createUnis();
 	//testing createUnis
@@ -57,6 +58,12 @@ public class Main {
 	
 	
 	}
+	
+	public ArrayList<Department> getDepartmensist(){
+		
+		return departmentslist.get();
+	}
+	
 	
 	private static ArrayList<University> createUnis() {
 		

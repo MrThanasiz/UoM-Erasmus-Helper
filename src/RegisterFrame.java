@@ -27,11 +27,16 @@ public class RegisterFrame extends JFrame implements ActionListener
 		//combo box options
 		private static final int CB_PANEL_HEIGHT = 15;
 		private static final int CB_PANEL_WIDTH = 25;
-		
+		//id text field options 
+		private static final int ID_PANEL_HEIGHT = HEIGHT * 1/45;
+		private static final int ID_TEXT_AREA_HEIGHT = ID_PANEL_HEIGHT;
+		private static final int ID_PANEL_WIDTH = WIDTH * 1/25;
+		private static final int ID_TEXT_AREA_WIDTH = ID_PANEL_WIDTH;
 		
 		private JPanel panel;
 		private JPanel RegisterButtonPanel;
 		private JPanel PasswordFieldPanel;
+		private JPanel IDFieldPanel;
 		private JPanel PasswordLabelAbovePanel;
 		private JPanel PasswordLabelBelowPanel;
 		private JPanel DepLabelAbove;
@@ -44,6 +49,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static JButton registerButton;
 		
 		private static JTextArea password;
+		private static JTextArea id;
 		
 		String [] depString = {"informatics" ,"economics"};
 		String [] dep3digString = {"dai" , "it"};
@@ -76,11 +82,23 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			this.DepLabelAbove();
 			this.ComboBoxDep();
-			
+			this.IDLabelAbove();
+			this.setIDTextPanel();
+			this.passwordLabelAbove();
+			this.setPasswordTextPanel();
+			this.passwordLabelBelow();
+			this.setRegisterButtonPanel();
 			
 			panel.add(DepLabelAbovePanel);
 			panel.add(comboBoxPanel);
-			panel.add(lbltext);
+			panel.add(IDLabelAbovePanel);
+			panel.add(IDFieldPanel);
+			panel.add(PasswordLabelAbovePanel);
+			panel.add(PasswordFieldPanel);
+			panel.add(PasswordLabelBelowPanel);
+			panel.add(RegisterButtonPanel);
+		
+			
 			
 		}
 		
@@ -145,7 +163,23 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			JLabel labela = new JLabel("Enter your 5-digit ID number :");
 			
-			DepLabelAbovePanel.add(labela);
+			IDLabelAbovePanel.add(labela);
+			
+		}
+		
+		public void setIDTextPanel() {
+			
+			IDFieldPanel = new JPanel();
+			IDFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
+			
+			
+			id = new JTextArea();
+			
+			id.setPreferredSize(new Dimension(ID_TEXT_AREA_WIDTH, ID_TEXT_AREA_HEIGHT));
+			
+			IDFieldPanel.add(lbltext);
+			IDFieldPanel.add(id);
+			
 			
 		}
 		
@@ -183,15 +217,19 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		
 		public void actionPerformed(ActionEvent e) {
+			
+			Department d = new Department();
+			
 			if(e.getSource() == cmbDepList) {
 				JComboBox cb =(JComboBox)e.getSource();
 				String msg = (String)cb.getSelectedItem();
-				//switch (msg) 
+				//for(int i = 0 ; i < departmentslist.size() ;  )
 					if ( msg == depString[0]) {
 						lbltext.setText(dep3digString[0]);
 						}
 					else if (msg == depString[1]) {
 						lbltext.setText(dep3digString[1]);
+						
 					}
 			
 					
