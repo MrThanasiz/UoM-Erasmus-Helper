@@ -141,6 +141,8 @@ public class MainFrame extends JFrame{
 		tipsPanel1 = new JPanel();
 		tipsPanel1.setLayout(new BoxLayout(tipsPanel1, BoxLayout.X_AXIS));
 		
+		tipsPanel1.add(countriesList);
+		
 		listener = new ButtonListener();
 		
 		JLabel tipsLabel = new JLabel("Here you can find tips for improving "
@@ -212,6 +214,7 @@ public class MainFrame extends JFrame{
 			}
 			else if(e.getSource().equals(logoutButton)) {
 				dispose();
+				new HomeFrame();
 				
 				
 			}

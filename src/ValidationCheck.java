@@ -1,12 +1,7 @@
 
 public class ValidationCheck {
 	public static boolean CheckID(String idS) {
-		if (idS.matches("\\d+")) {
-			int id = Integer.parseInt(idS);
-			return id>10000&&id<=99999;
-		}
-		else
-			return false;
+		return idS.matches("\\d+") && idS.length()==5;
 		
 	}
 	public static boolean CheckAVG(String avgS) {

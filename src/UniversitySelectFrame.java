@@ -1,5 +1,6 @@
 import javax.swing.*;    
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.HashMap;    
 public class UniversitySelectFrame { 
 	//Frame Options
@@ -68,7 +69,7 @@ public class UniversitySelectFrame {
 	    
 	    //University+Score Drop-downs
 	    String universities[]={"---","University of Czechia","University of Denmark","University of Italy","University of Netherlands","University of Poland","University of Portugal","University of Spain"};
-		//TODO:
+		ArrayList<University> Unis=stud.getDepartment().getCooplist();
 	    //String universities[]={} (gets possible universities for student)
 	    //String languages[]={} for every university get's its language
 	    //Double scores[]={} for every university get's its score

@@ -1,3 +1,2 @@
-University of malcova,Ma,Kas,Greek,true,0
-University of bruskova,Ba,Ras,Maskegian,false,1
-University of jucoga,Ra,Jas,Kigikian,true,1,2,3
+University of Paris,Paris,France,French,true,0
+University of Derby,Derby,United Kingdom,English,true,0

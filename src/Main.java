@@ -10,13 +10,14 @@ public class Main {
 	public static void main(String[] args) {
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
-
+	Student stud = new Student("user","cod");
 	
 	createDep(uniList, studentsList);
 	uniList = createUnis();
 
 	
-	new HomeFrame();
+	//new HomeFrame();
+	new InputDataFrame(stud);
 	
 	}
 	
