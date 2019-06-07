@@ -230,7 +230,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			comboBoxPanel = new JPanel();
 			comboBoxPanel.setPreferredSize(new Dimension(CB_PANEL_HEIGHT , CB_PANEL_WIDTH));
 			cmbDepList = new JComboBox<String>();
-			for(Department i : Main.getDepartments()  )
+			for(Department i : CentralRegistry.getDepartments()  )
 				cmbDepList.addItem(i.getName());
 			
 			cmbDepList.setSelectedIndex(0);
@@ -248,7 +248,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 				Department d = new Department();
 				JComboBox cb =(JComboBox)e.getSource();
 				String msg = (String)cb.getSelectedItem();
-				for(Department i : Main.getDepartments()  )
+				for(Department i : CentralRegistry.getDepartments()  )
 					if ( msg == i.getName()) {
 						lbltext.setText(i.getPrefix());
 						

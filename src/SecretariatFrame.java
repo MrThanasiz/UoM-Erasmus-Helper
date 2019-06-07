@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -78,7 +77,7 @@ public class SecretariatFrame extends JFrame{
 		
 		this.setVisible(true);
 		this.setSize(WIDTH, HEIGHT);
-		//this.setResizable(false);
+		this.setResizable(false);
 		this.setTitle("Secretariat");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

@@ -5,23 +5,27 @@ import java.util.Scanner;
 
 public class Main {
 
-	private static ArrayList<Department> departmentsList;
+	
 	
 	public static void main(String[] args) {
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
 	uniList = createUnis();
-	createDep(uniList, studentsList);
+	
+	CentralRegistry.createDep(uniList, studentsList);
 	
 	
-	
-	
-	Student stud = new Student("user","cod");
-	stud.setDepartment(departmentsList.get(0));
+	CreateFile file = new CreateFile();
+	if(!file.checkFile()) {
+		file.newFile();
+	}
+	new RegisterFrame();
+	//Student stud = new Student("user","cod");
+	//stud.setDepartment(departmentsList.get(0));
 	
 	//new HomeFrame();
-	new InputDataFrame(stud);
-	
+	//new InputDataFrame(stud);
+	//new RegisterFrame();
 	}
 	
 	private static ArrayList<University> createUnis() {
@@ -72,32 +76,5 @@ public class Main {
 		}
 		return uniList;
 		
-	}
-	
-	private static void createDep(ArrayList<University> uniList, ArrayList<Student> studentsList) {
-		
-		departmentsList = new ArrayList<>();
-		
-		Department informatics = new Department("Applied Informatics",uniList,studentsList,0,"dai");
-		Department economics = new Department("Economics",uniList,studentsList,1,"eco");
-		Department balkan = new Department("Balkan Studies",uniList,studentsList,2,"bal");
-		Department businessadm = new Department("Business Admninistration",uniList,studentsList,3,"bus");
-		Department accounting = new Department("Accounting & Finance",uniList,studentsList,4,"fin");
-		Department european = new Department("European Studies",uniList,studentsList,5,"eur");
-		Department educational = new Department("Educational & Social Policy",uniList,studentsList,6,"esp");
-		Department music = new Department("Music Science & Art",uniList,studentsList,7,"mus");
-		
-		departmentsList.add(informatics);
-		departmentsList.add(economics);
-		departmentsList.add(balkan);
-		departmentsList.add(businessadm);
-		departmentsList.add(accounting);
-		departmentsList.add(european);
-		departmentsList.add(educational);
-		departmentsList.add(music);
-	}
-
-	public static ArrayList<Department> getDepartments(){
-		return departmentsList;
 	}
 }

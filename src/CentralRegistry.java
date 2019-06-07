@@ -4,48 +4,49 @@ import java.util.ArrayList;
 import javax.swing.plaf.synth.Region;
 public class CentralRegistry
 {
+	private static ArrayList<Department> departmentsList;
 	
-		private static ArrayList<Student> s;
-		private String username;
-		private String password;
+	private static ArrayList<Student> s;
+	private String username;
+	private String password;
 		
-		public static boolean initializedList = false;
-		static ArrayList<Student> studentList = new ArrayList<Student>();
+	public static boolean initializedList = false;
+	static ArrayList<Student> studentList = new ArrayList<Student>();
 		
 		
-		public static void desirializeUsers(){
+	public static void desirializeUsers(){
 			
 			 
-			 CreateFile cf = new CreateFile();
+		CreateFile cf = new CreateFile();
 			 
-			try {
+		try {
 				
-				FileInputStream fileIn = new FileInputStream(cf.getFile());
-		        ObjectInputStream in = new ObjectInputStream(fileIn);
+			FileInputStream fileIn = new FileInputStream(cf.getFile());
+		    ObjectInputStream in = new ObjectInputStream(fileIn);
 		         
 		   
-		        s = (ArrayList<Student>)in.readObject();
+		    s = (ArrayList<Student>)in.readObject();
 		      
 		        
-		         //System.out.println("Deserialization worked"); 
-				 //System.out.println(s.toString ()); 
+		    //System.out.println("Deserialization worked"); 
+			//System.out.println(s.toString ()); 
 				 
-				initializedList = true;
+			initializedList = true;
 				 
 				 
-		        in.close();
-		        fileIn.close();
+		    in.close();
+		    fileIn.close();
 		         
-		      } catch (IOException i) {
-		    	  System.out.println("IOException is caught"); 
-		         i.printStackTrace();
-		         return;
+		    } catch (IOException i) {
+		    System.out.println("IOException is caught"); 
+		    i.printStackTrace();
+		    return;
 		         
-		      } catch (ClassNotFoundException c) {
+		    } catch (ClassNotFoundException c) {
 		    	  
-		         System.out.println("Student class not found");
-		         c.printStackTrace();
-		         return;
+		    System.out.println("Student class not found");
+		    c.printStackTrace();
+		    return;
 		      }
 				
 			   
@@ -104,6 +105,35 @@ public class CentralRegistry
 			
 		}
 		
+
+		
+		public static void createDep(ArrayList<University> uniList, ArrayList<Student> studentsList) {
+			
+			departmentsList = new ArrayList<>();
+			
+			Department informatics = new Department("Applied Informatics",uniList,studentsList,0,"dai");
+			Department economics = new Department("Economics",uniList,studentsList,1,"eco");
+			Department balkan = new Department("Balkan Studies",uniList,studentsList,2,"bal");
+			Department businessadm = new Department("Business Admninistration",uniList,studentsList,3,"bus");
+			Department accounting = new Department("Accounting & Finance",uniList,studentsList,4,"fin");
+			Department european = new Department("European Studies",uniList,studentsList,5,"eur");
+			Department educational = new Department("Educational & Social Policy",uniList,studentsList,6,"esp");
+			Department music = new Department("Music Science & Art",uniList,studentsList,7,"mus");
+			
+			departmentsList.add(informatics);
+			departmentsList.add(economics);
+			departmentsList.add(balkan);
+			departmentsList.add(businessadm);
+			departmentsList.add(accounting);
+			departmentsList.add(european);
+			departmentsList.add(educational);
+			departmentsList.add(music);
+		}
+
+
+		public static ArrayList<Department> getDepartments(){
+			return departmentsList;
+		}
 		
 	}
 	

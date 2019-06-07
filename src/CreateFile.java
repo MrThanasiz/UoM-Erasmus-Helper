@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class CreateFile 
 {
@@ -23,11 +24,11 @@ public class CreateFile
 		
 		
 	      try {
-	         FileOutputStream fileOut =
-	         new FileOutputStream( file );
-	         
+	         FileOutputStream fileOut = new FileOutputStream( file );
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-	        // out.writeObject(s);
+	         
+	         out.writeObject(new ArrayList<Student>());
+	         
 	         out.close();
 	         fileOut.close();
 	         

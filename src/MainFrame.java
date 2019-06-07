@@ -1,4 +1,7 @@
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -22,14 +25,14 @@ public class MainFrame extends JFrame{
 	private static final int WIDTH = 1280;
 	private static final int HEIGHT = 720;
 	
-	private static final int MENU_WIDTH = WIDTH-WIDTH*1/10;
+	private static final int MENU_WIDTH = WIDTH*9/10;
 	private static final int MENU_HEIGHT = HEIGHT*1/10;
 	
-	private static final int TIPS1_WIDTH = WIDTH-WIDTH*1/10;
+	private static final int TIPS1_WIDTH = WIDTH*9/10;
 	private static final int TIPS1_HEIGHT = HEIGHT*1/10;
 	
-	private static final int TIPS2_WIDTH = WIDTH-WIDTH*1/10;
-	private static final int TIPS2_HEIGHT = HEIGHT*6/7-HEIGHT*1/10;
+	private static final int TIPS2_WIDTH = WIDTH*9/10;
+	private static final int TIPS2_HEIGHT = HEIGHT*7/10;
 	
 	private Student stud;
 	
@@ -78,21 +81,27 @@ public class MainFrame extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Main Screen");
 		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		
 	}
 	
 	private void setPanel(Student stud) {
 		
 		panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 0, 5, 0);
 		
 		this.setMenuPanel();
 		this.setTipsPanel1(stud);
 		this.setTipsPanel2(stud);
-		
-		panel.add(menuPanel);
-		panel.add(tipsPanel1);
-		panel.add(tipsPanel2);
+
+		gbc.gridy = 0;
+		panel.add(menuPanel, gbc);
+		gbc.gridy = 1;
+		panel.add(tipsPanel1, gbc);
+		gbc.gridy = 2;
+		panel.add(tipsPanel2, gbc);
 		
 	}
 	
@@ -116,13 +125,13 @@ public class MainFrame extends JFrame{
 				BorderFactory.createEtchedBorder(), "Menu", TitledBorder.TOP, TitledBorder.TOP));
 		menuPanel.setPreferredSize(new Dimension(MENU_WIDTH, MENU_HEIGHT));
 		
-		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
+		menuPanel.add(Box.createRigidArea(new Dimension(320,50)));
 		menuPanel.add(dataEditButton);
 		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
 		menuPanel.add(changeCountriesButton);
 		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
 		menuPanel.add(logoutButton);
-		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
+		menuPanel.add(Box.createRigidArea(new Dimension(320,50)));
 		
 		
 	}
@@ -140,8 +149,6 @@ public class MainFrame extends JFrame{
 		
 		tipsPanel1 = new JPanel();
 		tipsPanel1.setLayout(new BoxLayout(tipsPanel1, BoxLayout.X_AXIS));
-		
-		tipsPanel1.add(countriesList);
 		
 		listener = new ButtonListener();
 		
@@ -175,6 +182,7 @@ public class MainFrame extends JFrame{
 		
 		sTipYear = Tips.getTipYear(stud);
 		sTipGrade = Tips.getTipGrade(stud);
+		//get student chosenUni List
 		//sTipNative = Tips.getTipLNative(stud, uni);
 		sTipFailed = Tips.getTipFailed(stud);
 		sTipEnglish = Tips.getTipLEnglish(stud);
@@ -208,8 +216,9 @@ public class MainFrame extends JFrame{
 				new InputDataFrame(stud);
 			}
 			else if(e.getSource().equals(changeCountriesButton)) {
-				dispose();
 				new UniversitySelectFrame(stud);
+				dispose();
+				
 				
 			}
 			else if(e.getSource().equals(logoutButton)) {
@@ -228,24 +237,6 @@ public class MainFrame extends JFrame{
 				chosen = (String) cb.getSelectedItem();
 				
 			}
-			
-				
-			
 		}
-			
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
