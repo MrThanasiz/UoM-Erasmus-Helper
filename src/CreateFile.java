@@ -20,16 +20,14 @@ public class CreateFile
 	}
 	
 	public void newFile() {
-		//wait for input from user
 		
-		Student s = CentralRegistry.registerNewUser();
 		
 	      try {
 	         FileOutputStream fileOut =
 	         new FileOutputStream( file );
 	         
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-	         out.writeObject(s);
+	        // out.writeObject(s);
 	         out.close();
 	         fileOut.close();
 	         

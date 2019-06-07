@@ -51,11 +51,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static JTextArea password;
 		private static JTextArea id;
 		
+		static String depString;
 		
 		
 		JComboBox<String> cmbDepList;
 		JLabel lbltext = new JLabel();
 		
+		static Department dep = new Department();
 		
 		public  RegisterFrame() {
 			this.setPanel();
@@ -108,7 +110,8 @@ public class RegisterFrame extends JFrame implements ActionListener
 			RegisterButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
 		
 			registerButton = new JButton("Register");
-					
+			registerButton.addActionListener(this);		
+			
 			RegisterButtonPanel.add(registerButton);		
 		}
 		
@@ -205,8 +208,22 @@ public class RegisterFrame extends JFrame implements ActionListener
 			return id.getText();
 		}
 		
+		public static String getUsername() {
+			
+			return RegisterFrame.getDepString()+RegisterFrame.getID();
+		
+		}
+		
 		public static String getPasswordRF() {
 			return password.getText();
+		}
+
+		public static String getDepString() {
+			return depString;
+		}
+		
+		public static Department getDep() {
+			return dep;
 		}
 		
 		public void ComboBoxDep() {
@@ -218,8 +235,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			cmbDepList.setSelectedIndex(0);
 			cmbDepList.addActionListener(this);
-			//add(cmbDepList);
-			//add(lbltext);
 			
 			comboBoxPanel.add(cmbDepList);
 			
@@ -227,20 +242,39 @@ public class RegisterFrame extends JFrame implements ActionListener
 				
 		public void actionPerformed(ActionEvent e) {
 			
-			Department d = new Department();
+			
 			
 			if(e.getSource() == cmbDepList) {
+				Department d = new Department();
 				JComboBox cb =(JComboBox)e.getSource();
 				String msg = (String)cb.getSelectedItem();
 				for(Department i : Main.getDepartments()  )
 					if ( msg == i.getName()) {
 						lbltext.setText(i.getPrefix());
+						
+						depString = i.getPrefix();
+						dep = i;
+						
 						}
 					
-					}
-					
-				}
 			}
+		
+		 if (e.getSource() == registerButton) {
+		  
+		 // CentralRegistry.desirializeUsers(); ArrayList<Student> s =
+		 // CentralRegistry.getUsers(); Student stud = new Student(
+		 // RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
+		 // stud.setDepartment(getDep()); s.add(stud); CentralRegistry.serializeUsers(s);
+		  
+			 CentralRegistry.registerNewUser();
+			 
+		 }
+		 
+					
+			}
+		
+		
+	}
 		
 		
 		
