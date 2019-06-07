@@ -58,7 +58,7 @@ public class HomeFrame extends JFrame
 	
 	private static JTextArea username;
 	private static JTextArea password;
-	
+
 	
 
 	
@@ -217,7 +217,7 @@ public class HomeFrame extends JFrame
 	 
 	}
 	
-	public static String getPassword() {
+	public static String getPasswordHF() {
 		return password.getText();
 	}
 }
@@ -226,6 +226,7 @@ public class HomeFrame extends JFrame
 	 
 	 String username = null;
 	 String password = null;
+	 String id = null;
 	 
 	 HomeFrame f = new HomeFrame();
 	
@@ -241,7 +242,7 @@ public class HomeFrame extends JFrame
 				
 				
 				 username = HomeFrame.getUsername();
-				 password = HomeFrame.getPassword();
+				 password = HomeFrame.getPasswordHF();
 				
 				if (1 == 5) {
 				//if ( LogRegCheck.checkUsername(username)) {
@@ -277,10 +278,17 @@ public class HomeFrame extends JFrame
 				
 			}
 			
-			
+			if (e.getSource() == RegisterFrame.getRegisterButton()) {
+				//System.out.println("Button Register Working");
+				
+				 id = RegisterFrame.getID();
+				 password = RegisterFrame.getPassword();
+				
+				
+			}
 		}
 		
-	
+		
 		
 		
 	

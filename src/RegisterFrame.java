@@ -17,9 +17,9 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static final int REGISTER_PANEL_WIDTH = WIDTH*4/20;
 		private static final int REGISTER_PANEL_HEIGHT = HEIGHT*1/10;
 		//password text field options 
-		private static final int PASSWORD_PANEL_WIDTH = WIDTH * 2/15;
+		private static final int PASSWORD_PANEL_WIDTH = WIDTH * 1/10;
 		private static final int PASSWORD_TEXT_AREA_WIDTH = PASSWORD_PANEL_WIDTH;
-		private static final int PASSWORD_PANEL_HEIGHT = HEIGHT * 1/25;
+		private static final int PASSWORD_PANEL_HEIGHT = HEIGHT * 1/40;
 		private static final int PASSWORD_TEXT_AREA_HEIGHT = PASSWORD_PANEL_HEIGHT;
 		//messages options
 		private static final int MESSAGE_PANEL_HEIGHT = 15;
@@ -213,6 +213,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 			comboBoxPanel.add(cmbDepList);
 			
 			
+		}
+		public static String getID() {
+			return id.getText();
+		}
+		
+		public static String getPasswordRF() {
+			return password.getText();
 		}
 		
 		
