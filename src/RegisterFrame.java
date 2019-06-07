@@ -51,13 +51,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static JTextArea password;
 		private static JTextArea id;
 		
-		String [] depString = {"informatics" ,"economics"};
-		String [] dep3digString = {"dai" , "it"};
-		JComboBox cmbDepList = new JComboBox ( depString );
+		
+		
+		JComboBox<String> cmbDepList;
 		JLabel lbltext = new JLabel();
 		
 		
-		public void RegFrame() {
+		public  RegisterFrame() {
 			this.setPanel();
 			
 			this.setContentPane(panel);
@@ -200,20 +200,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			return password.getText();
 		}
 		
-		public void ComboBoxDep() {
-			comboBoxPanel = new JPanel();
-			comboBoxPanel.setPreferredSize(new Dimension(CB_PANEL_HEIGHT , CB_PANEL_WIDTH));
-			
-			
-			cmbDepList.setSelectedIndex(0);
-			cmbDepList.addActionListener(this);
-			//add(cmbDepList);
-			//add(lbltext);
-			
-			comboBoxPanel.add(cmbDepList);
-			
-			
-		}
+		
 		public static String getID() {
 			return id.getText();
 		}
@@ -222,7 +209,22 @@ public class RegisterFrame extends JFrame implements ActionListener
 			return password.getText();
 		}
 		
-		
+		public void ComboBoxDep() {
+			comboBoxPanel = new JPanel();
+			comboBoxPanel.setPreferredSize(new Dimension(CB_PANEL_HEIGHT , CB_PANEL_WIDTH));
+			cmbDepList = new JComboBox<String>();
+			for(Department i : Main.getDepartments()  )
+				cmbDepList.addItem(i.getName());
+			
+			cmbDepList.setSelectedIndex(0);
+			cmbDepList.addActionListener(this);
+			//add(cmbDepList);
+			//add(lbltext);
+			
+			comboBoxPanel.add(cmbDepList);
+			
+		}
+				
 		public void actionPerformed(ActionEvent e) {
 			
 			Department d = new Department();
@@ -230,19 +232,16 @@ public class RegisterFrame extends JFrame implements ActionListener
 			if(e.getSource() == cmbDepList) {
 				JComboBox cb =(JComboBox)e.getSource();
 				String msg = (String)cb.getSelectedItem();
-				//for(int i = 0 ; i < departmentslist.size() ;  )
-					if ( msg == depString[0]) {
-						lbltext.setText(dep3digString[0]);
+				for(Department i : Main.getDepartments()  )
+					if ( msg == i.getName()) {
+						lbltext.setText(i.getPrefix());
 						}
-					else if (msg == depString[1]) {
-						lbltext.setText(dep3digString[1]);
-						
+					
 					}
-			
 					
 				}
 			}
-		}
+		
 		
 		
 

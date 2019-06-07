@@ -62,7 +62,7 @@ public class HomeFrame extends JFrame
 	
 
 	
-	public void WelcomeFrame() {
+	public HomeFrame() {
 		this.setPanel();
 		
 		this.setContentPane(panel);

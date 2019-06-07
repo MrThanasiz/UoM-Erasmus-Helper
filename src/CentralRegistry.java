@@ -5,8 +5,6 @@ import java.util.List;
 public class CentralRegistry
 {
 	
-	public static class NestedCentralRegistry 
-	{}
 		static Student s = null;
 		String username = null;
 		String password = null;
@@ -59,7 +57,7 @@ public class CentralRegistry
 		
 		public static Student registerNewUser() {
 		
-			Student s = new Student( HomeFrame.getUsername() , HomeFrame.getPassword());
+			Student s = new Student( HomeFrame.getUsername() , HomeFrame.getPasswordHF());
 			return  s;
 			
 		}
@@ -97,11 +95,8 @@ public class CentralRegistry
 		
 		public static void getUsers(){
 			
-			
 			CentralRegistry.desirializeUsers();
 			studentList.add(s);
-			
-			
 			
 		}
 		
