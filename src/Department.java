@@ -1,6 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Department {
+public class Department implements Serializable{
+	
+	private static final long serialVersionUID = -4656698189033269601L;
 	
 	private String name;
 	private ArrayList<University> cooplist;
@@ -11,7 +14,7 @@ public class Department {
 	public Department(String name, ArrayList<University> cooplist, ArrayList<Student> studentslist,int numberofdep,String prefix) {
 		
 		ArrayList<University> coplist = new ArrayList<>();
-		University auni = new University(name, name, name, name, null, false);
+		University auni = new University(name, name, name, name, new ArrayList<>(), false);
 		this.name = name;
 		this.studentslist = studentslist;
 		this.numberofdep = numberofdep;
@@ -27,8 +30,6 @@ public class Department {
 		
 		
 	}
-	//for calling ease
-	public Department() {}
 	
 	public void sortStudents( ) {
 		
@@ -50,6 +51,10 @@ public class Department {
 	
 	public String getPrefix() {
 		return prefix;
+	}
+	
+	public String toString() {
+		return name;
 	}
 
 }

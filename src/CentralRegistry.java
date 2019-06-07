@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
 
-import javax.swing.plaf.synth.Region;
 public class CentralRegistry
 {
 	private static ArrayList<Department> departmentsList;
@@ -14,6 +13,7 @@ public class CentralRegistry
 	static ArrayList<Student> studentList = new ArrayList<Student>();
 		
 		
+	@SuppressWarnings("unchecked")
 	public static void desirializeUsers(){
 			
 			 
@@ -28,8 +28,8 @@ public class CentralRegistry
 		    s = (ArrayList<Student>)in.readObject();
 		      
 		        
-		    //System.out.println("Deserialization worked"); 
-			//System.out.println(s.toString ()); 
+		    System.out.println("Deserialization worked"); 
+			System.out.println(s.toString ()); 
 				 
 			initializedList = true;
 				 
@@ -59,12 +59,11 @@ public class CentralRegistry
 	  public static void registerNewUser() {
 	  
 	  desirializeUsers(); 
-	  ArrayList<Student> s = CentralRegistry.getUsers();
+	  ArrayList<Student> s = getUsers();
 	  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
 	  stud.setDepartment(RegisterFrame.getDep());
 	  s.add(stud);
-	  CentralRegistry.serializeUsers(s);
-	  System.out.println(s);
+	  serializeUsers(s);
 	  }
 	 
 

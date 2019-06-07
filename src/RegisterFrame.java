@@ -54,10 +54,10 @@ public class RegisterFrame extends JFrame implements ActionListener
 		static String depString;
 		
 		
-		JComboBox<String> cmbDepList;
+		JComboBox<Department> cmbDepList;
 		JLabel lbltext = new JLabel();
 		
-		static Department dep = new Department();
+		private static Department dep;
 		
 		public  RegisterFrame() {
 			this.setPanel();
@@ -229,9 +229,9 @@ public class RegisterFrame extends JFrame implements ActionListener
 		public void ComboBoxDep() {
 			comboBoxPanel = new JPanel();
 			comboBoxPanel.setPreferredSize(new Dimension(CB_PANEL_HEIGHT , CB_PANEL_WIDTH));
-			cmbDepList = new JComboBox<String>();
+			cmbDepList = new JComboBox<>();
 			for(Department i : CentralRegistry.getDepartments()  )
-				cmbDepList.addItem(i.getName());
+				cmbDepList.addItem(i);
 			
 			cmbDepList.setSelectedIndex(0);
 			cmbDepList.addActionListener(this);
@@ -244,12 +244,10 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			
 			
-			if(e.getSource() == cmbDepList) {
-				Department d = new Department();
-				JComboBox cb =(JComboBox)e.getSource();
-				String msg = (String)cb.getSelectedItem();
+			if(e.getSource().equals(cmbDepList)) {
+				Department cb = (Department) cmbDepList.getSelectedItem();
 				for(Department i : CentralRegistry.getDepartments()  )
-					if ( msg == i.getName()) {
+					if ( cb.getName() == i.getName()) {
 						lbltext.setText(i.getPrefix());
 						
 						depString = i.getPrefix();
@@ -261,11 +259,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		 if (e.getSource() == registerButton) {
 		  
-		 // CentralRegistry.desirializeUsers(); ArrayList<Student> s =
-		 // CentralRegistry.getUsers(); Student stud = new Student(
-		 // RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
-		 // stud.setDepartment(getDep()); s.add(stud); CentralRegistry.serializeUsers(s);
-		  
+			 dep = (Department) cmbDepList.getSelectedItem();
 			 CentralRegistry.registerNewUser();
 			 
 		 }
