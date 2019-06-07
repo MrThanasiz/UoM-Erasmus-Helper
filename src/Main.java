@@ -11,9 +11,6 @@ public class Main {
 	ArrayList<University> unilist = new ArrayList<>();
 	ArrayList<Student> studentslist = new ArrayList<>();
 
-	ArrayList<University> uniList = new ArrayList<>();
-	ArrayList<Student> studentsList = new ArrayList<>();
-
 	
 	//First Frame to be displayed
 	//fr.WelcomeFrame();
