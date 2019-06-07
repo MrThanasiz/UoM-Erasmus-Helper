@@ -1,6 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class University {
+public class University implements Serializable{
+	
+	private static final long serialVersionUID = -5077804379215225379L;
 	
 	private String name;
 	private String town;
