@@ -45,7 +45,9 @@ public class UniversitySelectFrame {
 		//Frame Options
 	    f=new JFrame("University Select");
 	    f.setLayout(null);    
-	    f.setSize(WIDTH,HEIGHT);    
+	    f.setSize(WIDTH,HEIGHT);   
+	    f.setResizable(false);
+		f.setLocationRelativeTo(null);
 	    
 	    
 	    //"Choose University" Label

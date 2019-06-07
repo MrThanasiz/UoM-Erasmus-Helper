@@ -11,7 +11,6 @@ public class Main {
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
 	uniList = createUnis();
-	
 	CentralRegistry.createDep(uniList, studentsList);
 	
 	
@@ -19,13 +18,11 @@ public class Main {
 	if(!file.checkFile()) {
 		file.newFile();
 	}
-	new RegisterFrame();
-	//Student stud = new Student("user","cod");
-	//stud.setDepartment(departmentsList.get(0));
-	
-	//new HomeFrame();
-	//new InputDataFrame(stud);
 	//new RegisterFrame();
+	
+	Student stud = new Student("user","cod");
+	stud.setDepartment(CentralRegistry.getDepartments().get(0));
+	new InputDataFrame(stud);
 	}
 	
 	private static ArrayList<University> createUnis() {

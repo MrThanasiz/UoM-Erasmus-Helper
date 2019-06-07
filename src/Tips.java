@@ -4,7 +4,7 @@ public class Tips {
 	private static Student stips = new Student("stipsuser","stipspass"); //Student object required for Tips.java
 	
 	public static String getTipGrade(Student stud) {
-		stud.copyInfo(stips);
+		stips.copyFrom(stud);
 		stips.setAverageGrade(stips.getAverageGrade()+0.5);
 		double cscore=Score.CalculateGrade(stud);
 		double tscore=Score.CalculateGrade(stips);
@@ -14,7 +14,7 @@ public class Tips {
 	}
 	
 	public static String getTipYear(Student stud) {
-		stud.copyInfo(stips);
+		stips.copyFrom(stud);
 		int cyear=stud.getAcademicYear();
 		double cscore = Score.CalculateYear(stud);
 		stips.setAcademicYear(cyear+1);
@@ -40,7 +40,7 @@ public class Tips {
 
 
 	public static String getTipFailed(Student stud) {
-		stud.copyInfo(stips);
+		stips.copyFrom(stud);
 		int cfailed=stud.getnFailed();
 		double cscore = Score.CalculateFailed(stud);
 		if (cfailed<=3) {
@@ -73,7 +73,7 @@ public class Tips {
 
 
 	public static String getTipLEnglish(Student stud) {
-		stud.copyInfo(stips);
+		stips.copyFrom(stud);
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
 		double cscore=Score.CalculateLEnglish(stips);
 		
@@ -102,7 +102,7 @@ public class Tips {
 		
 	}
 	public static String getTipLNative(Student stud, University uni) {
-		stud.copyInfo(stips);
+		stips.copyFrom(stud);
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
 		double cscore=Score.CalculateLNative(stips,uni);
 		String ntvLang=uni.getLanguage();

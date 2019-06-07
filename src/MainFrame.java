@@ -4,8 +4,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -68,7 +66,6 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(Student stud) {
 		
-		this.stud = stud;
 		
 		this.setPanel(stud);
 		
@@ -175,6 +172,8 @@ public class MainFrame extends JFrame{
 	}
 	
 	private void setTipsPanel2(Student stud) {
+
+		//PRINT STUDENT HERE TO DEBUG....
 		
 		tipsPanel2 = new JPanel();
 		
@@ -183,9 +182,9 @@ public class MainFrame extends JFrame{
 		sTipYear = Tips.getTipYear(stud);
 		sTipGrade = Tips.getTipGrade(stud);
 		//get student chosenUni List
-		//sTipNative = Tips.getTipLNative(stud, uni);
+		//sTipNative = Tips.getTipLNative(stud, stud.getS);
 		sTipFailed = Tips.getTipFailed(stud);
-		sTipEnglish = Tips.getTipLEnglish(stud);
+		//sTipEnglish = Tips.getTipLEnglish(stud);
 		
 		JLabel tipYear = new JLabel(sTipYear);
 		JLabel tipGrade = new JLabel(sTipGrade);

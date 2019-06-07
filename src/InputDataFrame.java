@@ -56,7 +56,9 @@ public class InputDataFrame {
 		//Frame Options
 	    f=new JFrame("Input Data");
 	    f.setLayout(null);    
-	    f.setSize(WIDTH,HEIGHT);    
+	    f.setSize(WIDTH,HEIGHT);
+	    f.setResizable(false);
+		f.setLocationRelativeTo(null);
 	    
 	    
 	    //Input Data Label
