@@ -8,22 +8,15 @@ public class Main {
 	private static ArrayList<Department> departmentsList;
 	
 	public static void main(String[] args) {
-		
+
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
-	
-	//CentralRegistry.desirializeUsers();
-	
-		
-	//HomeFrame fr = new HomeFrame();
-	
-	
-	//fr.WelcomeFrame();
+
 	
 	uniList = createUnis();
 	
 	createDep(uniList, studentsList);
-	
+	uniList = createUnis();
 	
 	new SecretariatFrame();
 	
@@ -59,13 +52,13 @@ public class Main {
 				name = sc.next();
 				town = sc.next();
 				country = sc.next();
+				language = sc.next();
+				langRequired = sc.nextBoolean();
 				coop = new ArrayList<>();
 				while(sc.hasNextInt()) {
 					nex = sc.nextInt();
 					coop.add(nex);
 				}
-				language = sc.next();
-				langRequired = sc.nextBoolean();
 				uni = new University(name,town,country,language,coop,langRequired);
 				uniList.add(uni);
 			}
@@ -84,14 +77,14 @@ public class Main {
 		
 		departmentsList = new ArrayList<>();
 		
-		Department informatics = new Department("Applied Informatics",uniList,studentsList,0);
-		Department economics = new Department("Economics",uniList,studentsList,1);
-		Department balkan = new Department("Balkan Studies",uniList,studentsList,2);
-		Department businessadm = new Department("Business Admninistration",uniList,studentsList,3);
-		Department accounting = new Department("Accounting & Finance",uniList,studentsList,4);
-		Department european = new Department("European Studies",uniList,studentsList,5);
-		Department social = new Department("Educational & Social Policy",uniList,studentsList,6);
-		Department music = new Department("Music Science & Art",uniList,studentsList,7);
+		Department informatics = new Department("Applied Informatics",uniList,studentsList,0,"dai");
+		Department economics = new Department("Economics",uniList,studentsList,1,"eco");
+		Department balkan = new Department("Balkan Studies",uniList,studentsList,2,"bal");
+		Department businessadm = new Department("Business Admninistration",uniList,studentsList,3,"bus");
+		Department accounting = new Department("Accounting & Finance",uniList,studentsList,4,"fin");
+		Department european = new Department("European Studies",uniList,studentsList,5,"eur");
+		Department educational = new Department("Educational & Social Policy",uniList,studentsList,6,"esp");
+		Department music = new Department("Music Science & Art",uniList,studentsList,7,"mus");
 		
 		departmentsList.add(informatics);
 		departmentsList.add(economics);
@@ -99,7 +92,7 @@ public class Main {
 		departmentsList.add(businessadm);
 		departmentsList.add(accounting);
 		departmentsList.add(european);
-		departmentsList.add(social);
+		departmentsList.add(educational);
 		departmentsList.add(music);
 	}
 
