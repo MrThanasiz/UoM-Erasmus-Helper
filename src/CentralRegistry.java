@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
+import javax.swing.plaf.synth.Region;
 public class CentralRegistry
 {
 	
-		static Student s = null;
-		String username = null;
-		String password = null;
+		private static ArrayList<Student> s;
+		private String username;
+		private String password;
 		
 		public static boolean initializedList = false;
 		static ArrayList<Student> studentList = new ArrayList<Student>();
@@ -21,20 +21,20 @@ public class CentralRegistry
 			try {
 				
 				FileInputStream fileIn = new FileInputStream(cf.getFile());
-		         ObjectInputStream in = new ObjectInputStream(fileIn);
+		        ObjectInputStream in = new ObjectInputStream(fileIn);
 		         
 		   
-		        s = (Student)in.readObject();
+		        s = (ArrayList<Student>)in.readObject();
 		      
 		        
 		         //System.out.println("Deserialization worked"); 
 				 //System.out.println(s.toString ()); 
 				 
-				 initializedList = true;
+				initializedList = true;
 				 
 				 
-		         in.close();
-		         fileIn.close();
+		        in.close();
+		        fileIn.close();
 		         
 		      } catch (IOException i) {
 		    	  System.out.println("IOException is caught"); 
@@ -55,15 +55,17 @@ public class CentralRegistry
 
 
 		
-		public static Student registerNewUser() {
-		
-			Student s = new Student( HomeFrame.getUsername() , HomeFrame.getPasswordHF());
-			return  s;
+		public static void registerNewUser() {
+			
+			desirializeUsers();
+			s.add(new Student( RegisterFrame.getID() , RegisterFrame.getPasswordRF()));
+			serializeUsers();
+			
 			
 		}
 
 
-		public static void serializeUser(Student s) {
+		public static void serializeUsers() {
 		     String filename = "student.ser"; 
 		     
 		     // Serialization  
@@ -93,10 +95,9 @@ public class CentralRegistry
 			
 		}
 		
-		public static void getUsers(){
+		public static ArrayList<Student> getUsers(){
 			
-			CentralRegistry.desirializeUsers();
-			studentList.add(s);
+			return s;
 			
 		}
 		
