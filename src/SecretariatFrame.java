@@ -1,4 +1,6 @@
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -13,6 +15,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
@@ -62,6 +65,7 @@ public class SecretariatFrame extends JFrame{
 	private JList<Student> studentInfoList;
 	private DefaultListModel<Student> studentInfoModel;
 	
+	private JTextField selectedDepartment;
 	private JTextArea studentDetailsTextArea;
 
 	
@@ -150,10 +154,16 @@ public class SecretariatFrame extends JFrame{
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(25, 10, 25, 10);
 		
+		selectedDepartment = new JTextField();
+		selectedDepartment.setEditable(false);
+		selectedDepartment.setBorder(null);
+		selectedDepartment.setText("University of Macedonia");
+		selectedDepartment.setFont(new Font("SansSerif", Font.BOLD, 32));
+		
 		studentInfoModel = new DefaultListModel<>();
 		
-		for(Student student: departmentList.getSelectedValue().getStudentslist())
-					studentInfoModel.addElement(student); 
+		/*for(Student student: departmentList.getSelectedValue().getStudentslist())
+					studentInfoModel.addElement(student);*/ 
 
 		studentInfoList = new JList<>();
 		studentInfoList.setPreferredSize(new Dimension(STUD_INFO_LIST_WIDTH, STUD_INFO_LIST_HEIGHT));
@@ -164,8 +174,10 @@ public class SecretariatFrame extends JFrame{
 		studentDetailsTextArea.setEditable(false);
 		
 		gbc.gridy = 0;
-		detailsPanel.add(studentInfoList, gbc);
+		detailsPanel.add(selectedDepartment, gbc);
 		gbc.gridy = 1;
+		detailsPanel.add(studentInfoList, gbc);
+		gbc.gridy = 2;
 		detailsPanel.add(studentDetailsTextArea, gbc);
 	}
 	
@@ -196,7 +208,7 @@ public class SecretariatFrame extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			
 			if(e.getSource().equals(logoutButton))
-				return;
+				new HomeFrame();
 			else if(e.getSource().equals(exitButton)) {
 				int answer = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (answer == JOptionPane.YES_OPTION)
