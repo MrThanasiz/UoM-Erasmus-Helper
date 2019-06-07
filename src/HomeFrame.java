@@ -226,10 +226,7 @@ public class HomeFrame extends JFrame
 	 
 	 String username = null;
 	 String password = null;
-	 String id = null;
-	 
-	 HomeFrame f = new HomeFrame();
-	
+	 String id = null;	
 	 
 	public void actionPerformed(ActionEvent e) {
 		
