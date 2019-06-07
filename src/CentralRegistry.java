@@ -54,18 +54,21 @@ public class CentralRegistry
 		
 
 
-		
-		public static void registerNewUser() {
-			
-			desirializeUsers();
-			s.add(new Student( RegisterFrame.getID() , RegisterFrame.getPasswordRF()));
-			serializeUsers();
-			
-			
-		}
+	
+	  public static void registerNewUser() {
+	  
+	  desirializeUsers(); 
+	  ArrayList<Student> s = CentralRegistry.getUsers();
+	  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
+	  stud.setDepartment(RegisterFrame.getDep());
+	  s.add(stud);
+	  CentralRegistry.serializeUsers(s);
+	  System.out.println(s);
+	  }
+	 
 
 
-		public static void serializeUsers() {
+		public static void serializeUsers(ArrayList<Student> s ) {
 		     String filename = "student.ser"; 
 		     
 		     // Serialization  

@@ -255,17 +255,9 @@ public class HomeFrame extends JFrame
 				
 				//register to a student username and password
 				//LogRegCheck.checkUsername(HomeFrame.getUsername());
-				Student s = new Student(null , null);
 				
-				s = CentralRegistry.registerNewUser();
-				
-				
-				CentralRegistry.serializeUser(s);
-				
-				
-				//CentralRegistry.desirializeUsers();
-				
-				
+				//dispose window , open next
+			
 			}
 			else if (e.getSource() == HomeFrame.getInfoButton()) {
 				
@@ -275,14 +267,7 @@ public class HomeFrame extends JFrame
 				
 			}
 			
-			if (e.getSource() == RegisterFrame.getRegisterButton()) {
-				//System.out.println("Button Register Working");
-				
-				 id = RegisterFrame.getID();
-				 password = RegisterFrame.getPassword();
-				
-				
-			}
+		
 		}
 		
 		
