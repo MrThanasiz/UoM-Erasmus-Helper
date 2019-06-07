@@ -100,6 +100,7 @@ public class Score {
 		
 	}
 	
+	
 	public static double CalculateLOther(Student stud, University uni) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
 		double otrScore=0;
