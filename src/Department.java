@@ -35,6 +35,7 @@ public class Department implements Serializable{
 		
 		
 		
+		
 	}
 	
 	public ArrayList<University> getCooplist() {
