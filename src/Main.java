@@ -10,11 +10,14 @@ public class Main {
 	public static void main(String[] args) {
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
-	Student stud = new Student("user","cod");
-	
-	createDep(uniList, studentsList);
 	uniList = createUnis();
-
+	createDep(uniList, studentsList);
+	
+	
+	
+	
+	Student stud = new Student("user","cod");
+	stud.setDepartment(departmentsList.get(0));
 	
 	//new HomeFrame();
 	new InputDataFrame(stud);

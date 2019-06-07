@@ -18,14 +18,14 @@ public class UniversitySelectFrame {
 	private static final int CL3_Y=HEIGHT*65/100;
 	//University+Score Drop-downs
 	private static final int C_X=WIDTH*40/100;
-	private static final int C_WIDTH=WIDTH*15/100;
+	private static final int C_WIDTH=WIDTH*25/100;
 	private static final int C_HEIGHT=HEIGHT*5/100;
 	private static final int C1_Y=HEIGHT*10/100;
 	private static final int C2_Y=HEIGHT*20/100;
 	private static final int C3_Y=HEIGHT*30/100;
 	
 	//Next button
-	private static final int NB_X=WIDTH*60/100;
+	private static final int NB_X=WIDTH*70/100;
 	private static final int NB_Y=HEIGHT*50/100;
 	private static final int NB_WIDTH=WIDTH*10/100;
 	private static final int NB_HEIGHT=HEIGHT*5/100;
@@ -65,26 +65,30 @@ public class UniversitySelectFrame {
 	    f.add(uni3label);
 	    
 	    
-	    
-	    
-	    //University+Score Drop-downs
-	    String universities[]={"---","University of Czechia","University of Denmark","University of Italy","University of Netherlands","University of Poland","University of Portugal","University of Spain"};
-		ArrayList<University> Unis=stud.getDepartment().getCooplist();
-	    //String universities[]={} (gets possible universities for student)
-	    //String languages[]={} for every university get's its language
-	    //Double scores[]={} for every university get's its score
-	    //then creates a "combined list" containing university + score
-	    //user chooses & when next's pressed we save that choice
-	    final JComboBox<String> uni1=new JComboBox<String>(universities);    
-	    uni1.setBounds(C_X,C1_Y,C_WIDTH,C_HEIGHT); 
-	    f.add(uni1);
-	    final JComboBox<String> uni2=new JComboBox<String>(universities); 
-	    uni2.setBounds(C_X,C2_Y,C_WIDTH,C_HEIGHT);
-	    f.add(uni2);
-	    final JComboBox<String> uni3=new JComboBox<String>(universities);  
-	    uni3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT); 
-	    f.add(uni3);
 	   
+	    //University+Score Drop-downs
+	    final JComboBox<String> uni1=new JComboBox<String>();    
+	    final JComboBox<String> uni2=new JComboBox<String>(); 
+	    final JComboBox<String> uni3=new JComboBox<String>(); 
+	    uni1.setBounds(C_X,C1_Y,C_WIDTH,C_HEIGHT); 
+	    uni2.setBounds(C_X,C2_Y,C_WIDTH,C_HEIGHT);
+	    uni3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT);
+	    uni1.addItem("---");
+	    uni2.addItem("---");
+	    uni3.addItem("---");
+	    ArrayList<University> unis=stud.getDepartment().getCooplist();
+	    HashMap<String,University> strUni=new HashMap<String,University>();
+	    for (University i:unis) {
+			uni1.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+			uni2.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+			uni3.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+			strUni.put(i.getName() +  "   " +String.valueOf(Score.CalculateTotal(stud, i)), i);
+			//debug
+			System.out.println(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+		}
+	    f.add(uni1);
+	    f.add(uni2);
+	    f.add(uni3);
 	    //Next button
 	    JButton buttonNext=new JButton("Get Tips");  
 	    buttonNext.setBounds(NB_X,NB_Y,NB_WIDTH,NB_HEIGHT);
