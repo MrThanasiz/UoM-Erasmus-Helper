@@ -83,7 +83,7 @@ public class UniversitySelectFrame {
 	    final JComboBox<String> uni3=new JComboBox<String>(universities);  
 	    uni3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT); 
 	    f.add(uni3);
-	    
+	   
 	    //Next button
 	    JButton buttonNext=new JButton("Get Tips");  
 	    buttonNext.setBounds(NB_X,NB_Y,NB_WIDTH,NB_HEIGHT);
@@ -94,8 +94,8 @@ public class UniversitySelectFrame {
 	        	//TODO
 	        	//fill scores :) 
 	        	stud.setScores(scores);
-	        	//f.dispose();
-	        	//new tipsFrame(stud);
+	        	f.dispose();
+	        	new MainFrame(stud);
 	        }
 	    });
 	        

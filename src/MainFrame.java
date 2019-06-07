@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -29,6 +31,7 @@ public class MainFrame extends JFrame{
 	private static final int TIPS2_WIDTH = WIDTH-WIDTH*1/10;
 	private static final int TIPS2_HEIGHT = HEIGHT*6/7-HEIGHT*1/10;
 	
+	private Student stud;
 	
 	private JPanel panel;
 	private JPanel menuPanel;
@@ -38,18 +41,33 @@ public class MainFrame extends JFrame{
 	private JButton dataEditButton;
 	private JButton changeCountriesButton;
 	private JButton logoutButton;
-	private JComboBox countriesList;
+	private JComboBox<String> countriesList;
 	private JButton OkButton;
 	private ButtonListener listener;
 	
-	private JLabel actualTips;
-	private String actualTip;
+	private JLabel tipYear;
+	private JLabel tipGrade;
+	private JLabel tipFailed;
+	private JLabel tipEnglish;
+	private JLabel tipNative;
+	
+	private String sTipYear;
+	private String sTipGrade;
+	private String sTipFailed;
+	private String sTipEnglish;
+	private String sTipNative;
+	
+	private HashMap<University,Double> hm;
+	
+	private String chosen;
+	private ArrayList<String> chosenCountries;
 	
 	
-	public MainFrame() {
+	public MainFrame(Student stud) {
 		
+		this.stud = stud;
 		
-		this.setPanel();
+		this.setPanel(stud);
 		
 		
 		
@@ -63,14 +81,14 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	private void setPanel() {
+	private void setPanel(Student stud) {
 		
 		panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		this.setMenuPanel();
-		this.setTipsPanel1();
-		this.setTipsPanel2();
+		this.setTipsPanel1(stud);
+		this.setTipsPanel2(stud);
 		
 		panel.add(menuPanel);
 		panel.add(tipsPanel1);
@@ -109,12 +127,16 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	private void setTipsPanel1() {
+	private void setTipsPanel1(Student stud) {
 		
-		String country1 = "country1";
-		String country2 = "country2";
-		String country3 = "country3";
-		actualTip = "getTips";
+		countriesList = new JComboBox<String>();
+
+		hm = stud.getScores();
+		
+		for(University uni: hm.keySet())
+			countriesList.addItem(uni.getName());
+			
+		
 		
 		tipsPanel1 = new JPanel();
 		tipsPanel1.setLayout(new BoxLayout(tipsPanel1, BoxLayout.X_AXIS));
@@ -124,10 +146,6 @@ public class MainFrame extends JFrame{
 		JLabel tipsLabel = new JLabel("Here you can find tips for improving "
 				+ "your Erasmus score for each of your chosen countries");
 		
-		
-		String[] chosenCountries = {country1,country2,country3};
-		
-		countriesList = new JComboBox(chosenCountries);
 		countriesList.addActionListener(listener);
 		
 		OkButton = new JButton("OK");
@@ -147,15 +165,34 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	private void setTipsPanel2() {
+	private void setTipsPanel2(Student stud) {
 		
 		tipsPanel2 = new JPanel();
-
-		JLabel actualTips = new JLabel(actualTip);
+		
+		tipsPanel2.setLayout(new BoxLayout(tipsPanel2, BoxLayout.Y_AXIS));
+		
+		sTipYear = Tips.getTipYear(stud);
+		sTipGrade = Tips.getTipGrade(stud);
+		//sTipNative = Tips.getTipLNative(stud, uni);
+		sTipFailed = Tips.getTipFailed(stud);
+		sTipEnglish = Tips.getTipLEnglish(stud);
+		
+		JLabel tipYear = new JLabel(sTipYear);
+		JLabel tipGrade = new JLabel(sTipGrade);
+		JLabel tipNative = new JLabel(sTipNative);
+		JLabel tipFailed = new JLabel(sTipFailed);
+		JLabel tipEnglish = new JLabel(sTipEnglish);
+		
+		
 		
 		tipsPanel2.setPreferredSize(new Dimension(TIPS2_WIDTH, TIPS2_HEIGHT));
 		tipsPanel2.setBorder(BorderFactory.createTitledBorder(
 				BorderFactory.createEtchedBorder(), "Tips", TitledBorder.TOP, TitledBorder.TOP));
+		tipsPanel2.add(tipYear);
+		tipsPanel2.add(tipGrade);
+		tipsPanel2.add(tipNative);
+		tipsPanel2.add(tipFailed);
+		tipsPanel2.add(tipEnglish);
 		
 	}
 	
@@ -165,22 +202,27 @@ public class MainFrame extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			
 			if(e.getSource().equals(dataEditButton)) {
-				
+				dispose();
+				new InputDataFrame(stud);
 			}
 			else if(e.getSource().equals(changeCountriesButton)) {
+				dispose();
+				new UniversitySelectFrame(stud);
 				
 			}
 			else if(e.getSource().equals(logoutButton)) {
+				dispose();
+				
 				
 			}
 			else if(e.getSource().equals(OkButton)) {
-				tipsPanel2.add(actualTips);
+				//tipsPanel2.add(actualTips);
 				//ERROR CANNOT ADD THINGS TO PANEL
 				
 			}
 			else if(e.getSource().equals(countriesList)) {
 				JComboBox cb = (JComboBox) e.getSource();
-				actualTip = (String) cb.getSelectedItem();
+				chosen = (String) cb.getSelectedItem();
 				
 			}
 			

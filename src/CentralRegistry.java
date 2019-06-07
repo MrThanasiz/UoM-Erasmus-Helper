@@ -59,7 +59,7 @@ public class CentralRegistry
 		
 		public static Student registerNewUser() {
 		
-			Student s = new Student( HomeFrame.getUsername() , HomeFrame.getPassword());
+			Student s = new Student( HomeFrame.getUsername() , HomeFrame.getPasswordHF());
 			return  s;
 			
 		}

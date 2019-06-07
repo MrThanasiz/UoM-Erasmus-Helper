@@ -8,12 +8,16 @@ public class Main {
 	private static ArrayList<Department> departmentsList;
 	
 	public static void main(String[] args) {
+	ArrayList<University> unilist = new ArrayList<>();
+	ArrayList<Student> studentslist = new ArrayList<>();
 
 	ArrayList<University> uniList = new ArrayList<>();
 	ArrayList<Student> studentsList = new ArrayList<>();
 
 	
-	uniList = createUnis();
+	//First Frame to be displayed
+	//fr.WelcomeFrame();
+	rf.RegFrame();
 	
 	createDep(uniList, studentsList);
 	uniList = createUnis();
@@ -22,6 +26,12 @@ public class Main {
 	
 	
 	}
+	
+	public ArrayList<Department> getDepartmensist(){
+		
+		return departmentslist.get();
+	}
+	
 	
 	private static ArrayList<University> createUnis() {
 		
