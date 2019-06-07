@@ -108,7 +108,6 @@ public class Score {
 			int otrCount=0;
 			int level=0;
 			for (Entry<String, Integer> entry : degrees.entrySet()) {
-			    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 			    if(entry.getKey()!="English" && entry.getKey()!=ntvLang) {
 			    	level=entry.getValue();
 			    	otrCount++;
@@ -127,7 +126,13 @@ public class Score {
 						break;
 					}
 			    }
-			    otrScore=otrScore/otrCount;
+			    if(otrCount>0) {
+			    	otrScore=otrScore/otrCount;
+			    }
+			    else {
+			    	otrScore=0;
+			    }
+			    
 			}
 		}
 		return WL3*otrScore;

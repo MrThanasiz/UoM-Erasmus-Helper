@@ -10,7 +10,7 @@ public class Tips {
 		double tscore=Score.CalculateGrade(stips);
 		double diffscore=tscore-cscore;
 		return "If you improve your avarage 0.5, "
-				+ "your score will increase by: "+diffscore;
+				+ "your score will increase by: "+diffscore+" to -> "+tscore;
 	}
 	
 	public static String getTipYear(Student stud) {
@@ -23,16 +23,16 @@ public class Tips {
 		switch (cyear) {
 		case 1:
 			return "Its better to wait till next year, "
-					+ "your score will increase by: "+diffscore;
+					+ "your score will increase by: "+diffscore+" to -> "+tscore;
 		case 2:
 			return "Its a good point to apply, however next year "
-					+ "your score will increase by: "+diffscore;
+					+ "your score will increase by: "+diffscore+" to -> "+tscore;
 		case 3:
 			return "Its the perfect moment to apply, next year "
-					+ "your score will decrease by: "+diffscore;
+					+ "your score will decrease by: "+diffscore+" to -> "+tscore;
 		case 4:
 			return "Its better to apply now, next year "
-					+ "your score will decrease by: "+diffscore;
+					+ "your score will decrease by: "+diffscore+" to -> "+tscore;
 		default:
 			return "You're a bit old, your score says the same from now on. :)";
 		}
@@ -64,7 +64,7 @@ public class Tips {
 			double tscore = Score.CalculateFailed(stips);
 			double diffscore=tscore-cscore;
 			return "You can do better! If you manage to have only "+ prevc +" failed classes by "
-					+ "September, your score will increase by: "+ diffscore;
+					+ "September, your score will increase by: "+ diffscore+" to -> "+tscore;
 		}
 		
 		
@@ -84,7 +84,7 @@ public class Tips {
 				double tscore=Score.CalculateLEnglish(stips);
 				double diffscore=tscore-cscore;
 				return "There's room for improvement, if you get the next degree, "
-						+ "your Native Language score will increase by:" + diffscore;
+						+ "your Native Language score will increase by:" + diffscore+" to -> "+tscore;
 			}
 			else {
 				return "You've got a (C2) Proficiency, your English score can't get any better! :)";
@@ -97,7 +97,7 @@ public class Tips {
 			double tscore=Score.CalculateLEnglish(stips);
 			double diffscore=tscore-cscore;
 			return "Whoops, looks like you don't have an English Degree, "
-					+ "getting one (B1) would increase your English score by:" + diffscore;
+					+ "getting one (B1) would increase your English score by:" + diffscore+" to -> "+tscore;
 		}
 		
 	}
@@ -114,7 +114,7 @@ public class Tips {
 				double tscore=Score.CalculateLEnglish(stips);
 				double diffscore=tscore-cscore;
 				return "There's room for improvement, if you get the next degree, "
-						+ "your Native Language score will increase by:" + diffscore;
+						+ "your Native Language score will increase by:" + diffscore+" to -> "+tscore;
 			}
 			else {
 				return "You've got a (C2) Proficiency, your Native Language score can't get any better! :)";
@@ -126,7 +126,7 @@ public class Tips {
 			double tscore=Score.CalculateLNative(stips,uni);
 			double diffscore=tscore-cscore;
 			return "Whoops, looks like you don't have an"+ ntvLang +"Degree, "
-					+ "getting one (B1) would increase your Native Language score by:" + diffscore;
+					+ "getting one (B1) would increase your Native Language score by:" + diffscore+" to -> "+tscore;
 		}
 	}
 	

@@ -1,4 +1,6 @@
-import javax.swing.*;    
+import javax.swing.*;
+
+import java.awt.Color;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;    
@@ -8,8 +10,12 @@ public class UniversitySelectFrame {
 	private static final int HEIGHT=720;
 	
 	//"Choose university" Label
-	private static final int L_X=WIDTH*52/100;
+	private static final int L_X=WIDTH*55/100;
 	private static final int L_Y=HEIGHT*10/100;
+	
+	//Error msg
+	private static final int ERR_X = WIDTH*59/100;
+	private static final int ERR_Y = HEIGHT*15/100;
 	
 	//University 1,2,3 Labels
 	private static final int CL_X=WIDTH*39/100;
@@ -29,6 +35,8 @@ public class UniversitySelectFrame {
 	private static final int NB_Y=HEIGHT*50/100;
 	private static final int NB_WIDTH=WIDTH*10/100;
 	private static final int NB_HEIGHT=HEIGHT*5/100;
+	
+	
 	
 	
 	
@@ -64,8 +72,13 @@ public class UniversitySelectFrame {
 	    uni3label.setText("Choice #3:");
 	    f.add(uni3label);
 	    
+	    final JLabel err = new JLabel("You must select atleast 1 University");          
+	    err.setHorizontalAlignment(JLabel.TRAILING);  
+	    err.setSize(ERR_X,ERR_Y);
+	    err.setForeground(Color.red);
 	    
-	   
+	    
+	    
 	    //University+Score Drop-downs
 	    final JComboBox<String> uni1=new JComboBox<String>();    
 	    final JComboBox<String> uni2=new JComboBox<String>(); 
@@ -84,7 +97,7 @@ public class UniversitySelectFrame {
 			uni3.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
 			strUni.put(i.getName() +  "   " +String.valueOf(Score.CalculateTotal(stud, i)), i);
 			//debug
-			System.out.println(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+			//System.out.println(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
 		}
 	    f.add(uni1);
 	    f.add(uni2);
@@ -96,11 +109,26 @@ public class UniversitySelectFrame {
 	    buttonNext.addActionListener(new ActionListener() {  
 	        public void actionPerformed(ActionEvent e) {
 	        	HashMap<University, Double> scores= new HashMap<University, Double>();
-	        	//TODO
-	        	//fill scores :) 
-	        	stud.setScores(scores);
-	        	f.dispose();
-	        	new MainFrame(stud);
+	        	//if no uni selected shows error msg
+	        	if(uni1.getSelectedItem().toString()=="---"&&uni2.getSelectedItem().toString()=="---"&&uni3.getSelectedItem().toString()=="---") {
+	        		f.add(err);
+	        		f.revalidate();
+		        	f.repaint();
+	        	}
+	        	else {
+	        		if (strUni.get(uni1.getSelectedItem().toString())!=null)
+	        			scores.put(strUni.get(uni1.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni1.getSelectedItem().toString())));
+	        		if (strUni.get(uni2.getSelectedItem().toString())!=null)
+	        			scores.put(strUni.get(uni2.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni2.getSelectedItem().toString())));
+	        		if (strUni.get(uni3.getSelectedItem().toString())!=null)
+	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
+	        		
+	        		stud.setScores(scores);
+		        	f.dispose();
+		        	new MainFrame(stud);
+		        	//TODO
+		        	//update scores before passing em
+	        	}
 	        }
 	    });
 	        
