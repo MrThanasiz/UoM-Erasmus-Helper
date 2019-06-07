@@ -16,8 +16,9 @@ public class LogRegCheck {
 		//We need a initializedList variable in Central Registry
 		if ( CentralRegistry.initializedList )
 			return null;
+		return aUsername;
 		
-		return CentralRegistry.getStudents.contains(aUsername);
+		//return CentralRegistry.getStudents.contains(aUsername);
 	}
 	
 	
