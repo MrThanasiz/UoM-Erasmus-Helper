@@ -58,11 +58,11 @@ public class MainFrame extends JFrame{
 	private String sTipEnglish;
 	private String sTipNative;
 	
-	private int index;
+	private int index=0;
 	private ArrayList<University> unisList= new ArrayList<University>();
 	private HashMap<University,Double> hm;
 	
-	private String chosen;
+	private University chosen=null;
 	private ArrayList<String> chosenCountries;
 	
 	
@@ -146,6 +146,9 @@ public class MainFrame extends JFrame{
 			unisList.add(uni);
 			
 		}
+		for(University nam: unisList) {
+			System.out.print(nam.getName());
+		}
 		
 			
 		
@@ -179,18 +182,16 @@ public class MainFrame extends JFrame{
 	
 	private void setTipsPanel2(Student stud) {
 
-		//PRINT STUDENT HERE TO DEBUG....
 		
 		tipsPanel2 = new JPanel();
 		
 		tipsPanel2.setLayout(new BoxLayout(tipsPanel2, BoxLayout.Y_AXIS));
 		
-		sTipYear = Tips.getTipYear(stud,unisList.get(0));
-		sTipGrade = Tips.getTipGrade(stud,unisList.get(0));
-		//get student chosenUni List
-		sTipNative = Tips.getTipLNative(stud, unisList.get(0));
-		sTipFailed = Tips.getTipFailed(stud,unisList.get(0));
-		sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(0));
+		sTipYear = Tips.getTipYear(stud,unisList.get(index));
+		sTipGrade = Tips.getTipGrade(stud,unisList.get(index));
+		sTipNative = Tips.getTipLNative(stud, unisList.get(index));
+		sTipFailed = Tips.getTipFailed(stud,unisList.get(index));
+		sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(index));
 		
 		JLabel tipYear = new JLabel(sTipYear);
 		JLabel tipGrade = new JLabel(sTipGrade);
@@ -235,14 +236,21 @@ public class MainFrame extends JFrame{
 				
 			}
 			else if(e.getSource().equals(OkButton)) {
+				
 				sTipNative = Tips.getTipLNative(stud, unisList.get(index));
+				
 				
 				
 			}
 			else if(e.getSource().equals(countriesList)) {
 				JComboBox cb = (JComboBox) e.getSource();
-				chosen = (String) cb.getSelectedItem();
-				index = unisList.indexOf(chosen);
+				index = cb.getSelectedIndex();
+				System.out.println(index);
+				
+				
+				
+				
+				
 				
 			}
 		}
