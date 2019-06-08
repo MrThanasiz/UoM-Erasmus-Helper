@@ -70,7 +70,7 @@ public class Score {
 				break;
 			}
 		}
-		return Math.floor((WL1*engScore)*10000)/10000;
+		return Math.floor((WG4*WL1*engScore)*10000)/10000;
 		
 	}
 	
@@ -96,7 +96,7 @@ public class Score {
 				break;
 			}
 		}
-		return Math.floor((WL2*ntvScore)*10000)/10000;
+		return Math.floor((WG4*WL2*ntvScore)*10000)/10000;
 		
 	}
 	
@@ -136,7 +136,7 @@ public class Score {
 			    
 			}
 		}
-		return Math.floor((WL3*otrScore)*10000)/10000;
+		return Math.floor((WG4*WL3*otrScore)*10000)/10000;
 		
 	}
 	
@@ -145,7 +145,7 @@ public class Score {
 		double ntvScore=CalculateLNative(stud,uni);
 		double otrScore=CalculateLOther(stud,uni);
 		double langScore=engScore+ntvScore+otrScore;
-		return Math.floor((WG4*langScore)*10000)/10000;
+		return Math.floor((langScore)*10000)/10000;
 		
 	}
 	

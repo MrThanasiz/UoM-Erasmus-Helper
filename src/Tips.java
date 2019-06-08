@@ -44,7 +44,7 @@ public class Tips {
 			double tscore = Score.CalculateFailed(stips);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "You can do better! If you manage to have only "+ prevc +" failed classes by "
-					+ "September, your score will increase by: "+ diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ "September, your score will increase by:   "+ diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 		
 		
