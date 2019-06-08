@@ -9,7 +9,7 @@ public class Tips {
 		double cscore=Score.CalculateGrade(stud);
 		double tscore=Score.CalculateGrade(stips);
 		double diffscore=tscore-cscore;
-		return "If you improve your avarage 0.5, "
+		return "If you improve your average 0.5, "
 				+ "your score will increase by: "+diffscore+" to -> "+tscore;
 	}
 	
@@ -22,19 +22,19 @@ public class Tips {
 		double diffscore=tscore-cscore;
 		switch (cyear) {
 		case 1:
-			return "Its better to wait till next year, "
+			return "It's better to wait till next year, "
 					+ "your score will increase by: "+diffscore+" to -> "+tscore;
 		case 2:
-			return "Its a good point to apply, however next year "
+			return "It's a good point to apply, however next year "
 					+ "your score will increase by: "+diffscore+" to -> "+tscore;
 		case 3:
-			return "Its the perfect moment to apply, next year "
+			return "It's the perfect moment to apply, next year "
 					+ "your score will decrease by: "+diffscore+" to -> "+tscore;
 		case 4:
-			return "Its better to apply now, next year "
+			return "It's better to apply now, next year "
 					+ "your score will decrease by: "+diffscore+" to -> "+tscore;
 		default:
-			return "You're a bit old, your score says the same from now on. :)";
+			return "You're a bit old, your score stays the same from now on. :)";
 		}
 	}
 
