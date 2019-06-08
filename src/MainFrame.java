@@ -58,6 +58,8 @@ public class MainFrame extends JFrame{
 	private String sTipEnglish;
 	private String sTipNative;
 	
+	private int index;
+	private ArrayList<University> unisList;
 	private HashMap<University,Double> hm;
 	
 	private String chosen;
@@ -139,8 +141,12 @@ public class MainFrame extends JFrame{
 
 		hm = stud.getScores();
 		
-		for(University uni: hm.keySet())
+		for(University uni: hm.keySet()) {
 			countriesList.addItem(uni.getName());
+			unisList.add(uni);
+			
+		}
+		
 			
 		
 		
@@ -182,9 +188,9 @@ public class MainFrame extends JFrame{
 		sTipYear = Tips.getTipYear(stud);
 		sTipGrade = Tips.getTipGrade(stud);
 		//get student chosenUni List
-		//sTipNative = Tips.getTipLNative(stud, stud.getS);
+		sTipNative = Tips.getTipLNative(stud, unisList.get(0));
 		sTipFailed = Tips.getTipFailed(stud);
-		//sTipEnglish = Tips.getTipLEnglish(stud);
+		sTipEnglish = Tips.getTipLEnglish(stud);
 		
 		JLabel tipYear = new JLabel(sTipYear);
 		JLabel tipGrade = new JLabel(sTipGrade);
@@ -206,6 +212,8 @@ public class MainFrame extends JFrame{
 	}
 	
 	class ButtonListener implements ActionListener {
+		
+		
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -215,8 +223,8 @@ public class MainFrame extends JFrame{
 				new InputDataFrame(stud);
 			}
 			else if(e.getSource().equals(changeCountriesButton)) {
-				new UniversitySelectFrame(stud);
 				dispose();
+				new UniversitySelectFrame(stud);
 				
 				
 			}
@@ -227,13 +235,14 @@ public class MainFrame extends JFrame{
 				
 			}
 			else if(e.getSource().equals(OkButton)) {
-				//tipsPanel2.add(actualTips);
-				//ERROR CANNOT ADD THINGS TO PANEL
+				sTipNative = Tips.getTipLNative(stud, unisList.get(index));
+				
 				
 			}
 			else if(e.getSource().equals(countriesList)) {
 				JComboBox cb = (JComboBox) e.getSource();
 				chosen = (String) cb.getSelectedItem();
+				index = unisList.indexOf(chosen);
 				
 			}
 		}
