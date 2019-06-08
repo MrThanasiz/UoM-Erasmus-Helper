@@ -29,8 +29,7 @@ public class CentralRegistry
 		    s = (ArrayList<Student>)in.readObject();
 		      
 		        
-		    System.out.println("Deserialization worked"); 
-			System.out.println(s.toString ()); 
+		   // System.out.println("Deserialization worked"); 
 				 
 			initializedList = true;
 				 
@@ -60,7 +59,7 @@ public class CentralRegistry
 	  public static void registerNewUser() {
 	  
 	  desirializeUsers(); 
-	  ArrayList<Student> s = getUsers();
+	  ArrayList<Student> s = getStudents();
 	  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
 	  stud.setDepartment(RegisterFrame.getDep());
 	  s.add(stud);
@@ -99,7 +98,7 @@ public class CentralRegistry
 			
 		}
 		
-		public static ArrayList<Student> getUsers(){
+		public static ArrayList<Student> getStudents(){
 			
 			return s;
 			

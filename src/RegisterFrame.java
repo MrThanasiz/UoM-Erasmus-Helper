@@ -53,6 +53,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		static String depString;
 		
+		private boolean inputOK = false;
 		
 		JComboBox<Department> cmbDepList;
 		JLabel lbltext = new JLabel();
@@ -260,7 +261,14 @@ public class RegisterFrame extends JFrame implements ActionListener
 		 if (e.getSource() == registerButton) {
 		  
 			 dep = (Department) cmbDepList.getSelectedItem();
-			 CentralRegistry.registerNewUser();
+			if( ValidationCheck.CheckPassword(getPasswordRF()) && (ValidationCheck.CheckID(getID())))
+				inputOK = true;
+			if(inputOK)	
+				CentralRegistry.registerNewUser();
+			 //set window invisible , set visible next window
+			else
+				HomeFrame.warningMessage();
+			
 			 
 		 }
 		 
