@@ -15,7 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 @SuppressWarnings("serial")
 public class SecretariatFrame extends JFrame{
@@ -57,12 +60,13 @@ public class SecretariatFrame extends JFrame{
 	private JButton previousDepartmentButton;
 	private JButton logoutButton;
 	private JButton exitButton;
-	private ButtonListener listener;
+	private ButtonListener actionListener;
 
 	private JList<Department> departmentList;
 	private DefaultListModel<Department> departmentModel;
 	private JList<Student> studentInfoList;
 	private DefaultListModel<Student> studentInfoModel;
+	private ListListener listListener;
 	
 	private JTextField selectedDepartment;
 	private JTextArea studentDetailsTextArea;
@@ -113,12 +117,15 @@ public class SecretariatFrame extends JFrame{
 		
 		departmentModel = new DefaultListModel<>();
 		
-		//for(Department department: CentralRegistry.getDepartments())
-				//	departmentModel.addElement(department.getName()); 
+		for(Department department: CentralRegistry.getDepartments())
+			departmentModel.addElement(department);
 
 		departmentList = new JList<>();
 		departmentList.setPreferredSize(new Dimension(DEP_LIST_WIDTH, DEP_LIST_HEIGHT));
+		departmentList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		departmentList.setModel(departmentModel);
+		listListener = new ListListener();
+		departmentList.addListSelectionListener(listListener);
 		
 		departmentListPanel.add(departmentList);
 	}
@@ -132,9 +139,9 @@ public class SecretariatFrame extends JFrame{
 		logoutButton = new JButton("Logout");
 		exitButton = new JButton("Exit");
 		
-		listener = new ButtonListener();
-		logoutButton.addActionListener(listener);
-		exitButton.addActionListener(listener);
+		actionListener = new ButtonListener();
+		logoutButton.addActionListener(actionListener);
+		exitButton.addActionListener(actionListener);
 		
 		departmentButtonPanel.add(logoutButton);
 		departmentButtonPanel.add(exitButton);
@@ -153,20 +160,20 @@ public class SecretariatFrame extends JFrame{
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(25, 10, 25, 10);
 		
-		selectedDepartment = new JTextField();
+		selectedDepartment = new JTextField(20);
+		selectedDepartment.setHorizontalAlignment(JTextField.CENTER);
 		selectedDepartment.setEditable(false);
 		selectedDepartment.setBorder(null);
-		selectedDepartment.setText("University of Macedonia");
-		selectedDepartment.setFont(new Font("SansSerif", Font.BOLD, 32));
+		selectedDepartment.setText("Select a Department");
+		selectedDepartment.setFont(new Font("SansSerif", Font.ITALIC, 30));
 		
 		studentInfoModel = new DefaultListModel<>();
-		
-		/*for(Student student: departmentList.getSelectedValue().getStudentslist())
-					studentInfoModel.addElement(student);*/ 
 
 		studentInfoList = new JList<>();
 		studentInfoList.setPreferredSize(new Dimension(STUD_INFO_LIST_WIDTH, STUD_INFO_LIST_HEIGHT));
 		studentInfoList.setModel(studentInfoModel);
+		listListener = new ListListener();
+		studentInfoList.addListSelectionListener(listListener);
 		
 		studentDetailsTextArea = new JTextArea();
 		studentDetailsTextArea.setPreferredSize(new Dimension(STUD_DET_TEXT_AREA_WIDTH, STUD_DET_TEXT_AREA_HEIGHT));
@@ -190,9 +197,9 @@ public class SecretariatFrame extends JFrame{
 		previousDepartmentButton = new JButton("Previous");
 		nextDepartmentButton = new JButton("Next");
 		
-		listener = new ButtonListener();
-		previousDepartmentButton.addActionListener(listener);
-		nextDepartmentButton.addActionListener(listener);		
+		actionListener = new ButtonListener();
+		previousDepartmentButton.addActionListener(actionListener);
+		nextDepartmentButton.addActionListener(actionListener);		
 		
 		infoButtonPanel.add(previousDepartmentButton);
 		infoButtonPanel.add(nextDepartmentButton);
@@ -213,11 +220,34 @@ public class SecretariatFrame extends JFrame{
 				if (answer == JOptionPane.YES_OPTION)
 					System.exit(0);
 			}
-			else if(e.getSource().equals(previousDepartmentButton))
-				return;
+			else if(e.getSource().equals(previousDepartmentButton)) {
+				if(departmentList.getSelectedIndex()-1 == -1)
+					departmentList.setSelectedIndex(CentralRegistry.getDepartments().size()-1);
+				else
+					departmentList.setSelectedIndex(
+							(departmentList.getSelectedIndex()-1)%CentralRegistry.getDepartments().size());
+			}
 			else if(e.getSource().equals(nextDepartmentButton))
-				return;
+				departmentList.setSelectedIndex(
+						(departmentList.getSelectedIndex()+1)%CentralRegistry.getDepartments().size());
 			
+		}
+		
+	}
+	
+	class ListListener implements ListSelectionListener{
+
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+
+			if(e.getSource().equals(departmentList)) {
+
+				selectedDepartment.setText(departmentList.getSelectedValue().getName());
+				for(Student student:departmentList.getSelectedValue().getStudentslist())
+					studentInfoModel.addElement(student);
+			}
+			else if(e.getSource().equals(studentInfoList))
+				studentDetailsTextArea.setText(studentInfoList.getSelectedValue().getDetails());
 		}
 		
 	}
