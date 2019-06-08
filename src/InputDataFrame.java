@@ -46,7 +46,7 @@ public class InputDataFrame {
 	//Next button
 	private static final int NB_X=WIDTH*70/100;
 	private static final int NB_Y=HEIGHT*80/100;
-	private static final int NB_WIDTH=WIDTH*10/100;
+	private static final int NB_WIDTH=WIDTH*13/100;
 	private static final int NB_HEIGHT=HEIGHT*5/100;
 	
 	
@@ -179,7 +179,7 @@ public class InputDataFrame {
 	    
 	    
 	    //Next screen button
-	    JButton buttonNext=new JButton("Get Tips");  
+	    JButton buttonNext=new JButton("Select Universities");  
 	    buttonNext.setBounds(NB_X,NB_Y,NB_WIDTH,NB_HEIGHT);
 	    f.add(buttonNext);
 	    buttonNext.addActionListener(new ActionListener() {  
@@ -199,7 +199,7 @@ public class InputDataFrame {
 	        		for( int i = 0; i < 5; i++)
 	        		{
 	        		    if(clangs[i]!="---"&&clevels[i]!="---") {
-	        		    	int lvl = 4;
+	        		    	int lvl=4;
 	        		    	if (clevels[i]=="B1")
 	        		    		lvl=1;
 	        		    	else if (clevels[i]=="B2")

@@ -124,12 +124,9 @@ public class UniversitySelectFrame {
 	        			scores.put(strUni.get(uni2.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni2.getSelectedItem().toString())));
 	        		if (strUni.get(uni3.getSelectedItem().toString())!=null)
 	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
-	        		
 	        		stud.setScores(scores);
 		        	f.dispose();
 		        	new MainFrame(stud);
-		        	//TODO
-		        	//update scores before passing em
 	        	}
 	        }
 	    });

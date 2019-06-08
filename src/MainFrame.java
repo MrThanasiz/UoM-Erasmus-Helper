@@ -68,10 +68,7 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(Student stud) {
 		
-		
 		this.setPanel(stud);
-		
-		
 		
 		this.setContentPane(panel);
 		
@@ -94,7 +91,7 @@ public class MainFrame extends JFrame{
 		this.setMenuPanel();
 		this.setTipsPanel1(stud);
 		this.setTipsPanel2(stud);
-
+    	
 		gbc.gridy = 0;
 		panel.add(menuPanel, gbc);
 		gbc.gridy = 1;
@@ -187,28 +184,30 @@ public class MainFrame extends JFrame{
 		
 		tipsPanel2.setLayout(new BoxLayout(tipsPanel2, BoxLayout.Y_AXIS));
 		
-		sTipYear = Tips.getTipYear(stud,unisList.get(index));
+
 		sTipGrade = Tips.getTipGrade(stud,unisList.get(index));
-		sTipNative = Tips.getTipLNative(stud, unisList.get(index));
 		sTipFailed = Tips.getTipFailed(stud,unisList.get(index));
+		sTipYear = Tips.getTipYear(stud,unisList.get(index));
 		sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(index));
-		
-		JLabel tipYear = new JLabel(sTipYear);
+		sTipNative = Tips.getTipLNative(stud, unisList.get(index));
+
 		JLabel tipGrade = new JLabel(sTipGrade);
-		JLabel tipNative = new JLabel(sTipNative);
 		JLabel tipFailed = new JLabel(sTipFailed);
+		JLabel tipYear = new JLabel(sTipYear);
 		JLabel tipEnglish = new JLabel(sTipEnglish);
+		JLabel tipNative = new JLabel(sTipNative);
 		
 		
 		
 		tipsPanel2.setPreferredSize(new Dimension(TIPS2_WIDTH, TIPS2_HEIGHT));
 		tipsPanel2.setBorder(BorderFactory.createTitledBorder(
 				BorderFactory.createEtchedBorder(), "Tips", TitledBorder.TOP, TitledBorder.TOP));
-		tipsPanel2.add(tipYear);
+
 		tipsPanel2.add(tipGrade);
-		tipsPanel2.add(tipNative);
 		tipsPanel2.add(tipFailed);
+		tipsPanel2.add(tipYear);
 		tipsPanel2.add(tipEnglish);
+		tipsPanel2.add(tipNative);
 		
 	}
 	
