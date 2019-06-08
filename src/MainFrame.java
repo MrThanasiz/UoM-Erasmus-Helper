@@ -59,7 +59,7 @@ public class MainFrame extends JFrame{
 	private String sTipNative;
 	
 	private int index;
-	private ArrayList<University> unisList;
+	private ArrayList<University> unisList= new ArrayList<University>();
 	private HashMap<University,Double> hm;
 	
 	private String chosen;
@@ -185,12 +185,12 @@ public class MainFrame extends JFrame{
 		
 		tipsPanel2.setLayout(new BoxLayout(tipsPanel2, BoxLayout.Y_AXIS));
 		
-		sTipYear = Tips.getTipYear(stud);
-		sTipGrade = Tips.getTipGrade(stud);
+		sTipYear = Tips.getTipYear(stud,unisList.get(0));
+		sTipGrade = Tips.getTipGrade(stud,unisList.get(0));
 		//get student chosenUni List
 		sTipNative = Tips.getTipLNative(stud, unisList.get(0));
-		sTipFailed = Tips.getTipFailed(stud);
-		sTipEnglish = Tips.getTipLEnglish(stud);
+		sTipFailed = Tips.getTipFailed(stud,unisList.get(0));
+		sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(0));
 		
 		JLabel tipYear = new JLabel(sTipYear);
 		JLabel tipGrade = new JLabel(sTipGrade);

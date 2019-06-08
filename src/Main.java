@@ -12,17 +12,17 @@ public class Main {
 		CentralRegistry.createDep(uniList, studentsList);
 	
 	
-		/*CreateFile file = new CreateFile();
+		CreateFile file = new CreateFile();
 		if(!file.checkFile()) {
 			file.newFile();
 		}
-		new RegisterFrame();
+		//new RegisterFrame();
 	
 		Student stud = new Student("user","cod");
 		stud.setDepartment(CentralRegistry.getDepartments().get(0));
-		new InputDataFrame(stud);*/
+		new InputDataFrame(stud);
 		
-		new SecretariatFrame();
+		//new SecretariatFrame();
 	}
 	
 	

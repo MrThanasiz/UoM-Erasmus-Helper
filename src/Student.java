@@ -76,14 +76,13 @@ public class Student implements Serializable{
 	}
 	
 	
-	public void copyFrom(Student copy) {
+	public void copyTo(Student copy) {
 		copy.setScores(this.getScores());
 		copy.setDepartment(this.getDepartment());
 		copy.setAcademicYear(this.getAcademicYear());
 		copy.setAverageGrade(this.getAverageGrade());
 		copy.setnFailed(this.getnFailed());
-		copy.setLangDegrees(this.getLangDegrees()); 
-		
+		copy.setLangDegrees(this.getLangDegrees());
 	}
 	
 	
