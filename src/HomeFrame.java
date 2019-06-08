@@ -42,6 +42,7 @@ public class HomeFrame extends JFrame
 
 	
 	private JPanel panel;
+	private static JPanel panelStatic;
 	private JPanel LoginButtonPanel;
 	private JPanel RegisterButtonPanel;
 	private JPanel InfoButtonPanel;
@@ -59,15 +60,17 @@ public class HomeFrame extends JFrame
 	private static JTextArea username;
 	private static JTextArea password;
 
-	
+	private static boolean isVisible;
 
 	
 	public HomeFrame() {
 		this.setPanel();
 		
+		isVisible = true;
+		
 		this.setContentPane(panel);
 		
-		this.setVisible(true);
+		this.setVisible(isVisible);
 		//Set the frame size
 		this.setSize(WIDTH, HEIGHT);
 		//Set the start position
@@ -76,12 +79,17 @@ public class HomeFrame extends JFrame
 		this.setTitle("Welcome to UoM Erasmus Helper!");
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		if (isVisible == false)
+			this.setVisible(false);
 	}
 	
 	private void setPanel() {
 		//create a panel
 		panel = new JPanel();
 		//used box layout
+
+		
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		//call-create elements
@@ -106,6 +114,13 @@ public class HomeFrame extends JFrame
 		loginButton.addActionListener(new Action());
 		registerButton.addActionListener(new Action());
 		infoButton.addActionListener(new Action());
+
+	
+	}
+	
+	public static void setInvisible() {
+		
+		isVisible = false;
 		
 		
 	}
@@ -193,8 +208,8 @@ public class HomeFrame extends JFrame
 	}
 	
 	
-	public void warningMessage() {
-		JOptionPane.showMessageDialog(panel,
+	public static void warningMessage() {
+		JOptionPane.showMessageDialog(panelStatic,
 			    "Wrong Username (and) or Password.",
 			    "Error",
 			    JOptionPane.WARNING_MESSAGE);
@@ -227,37 +242,44 @@ public class HomeFrame extends JFrame
 	 String username = null;
 	 String password = null;
 	 String id = null;	
+	 private static boolean login;
 	 
 	public void actionPerformed(ActionEvent e) {
 		
-			HomeFrame hf = new HomeFrame(); 
-			RegisterFrame rf = new RegisterFrame();
+		
+		
 			
-			//
+			
 			if (e.getSource() == HomeFrame.getLoginButton()) {
 				//System.out.println("Button login Working");
 				
-				
+				 login = false;
+				 
 				 username = HomeFrame.getUsername();
 				 password = HomeFrame.getPasswordHF();
 				
-				if (1 == 5) {
-				//if ( LogRegCheck.checkUsername(username)) {
-					//System.out.println("Login success");
+				 LogRegCheck.checkUsername(username);
+				 Student stud = new Student(username, password);
+				 
+				if (LogRegCheck.checkPassword(stud , password))  {
+					
+					login = true;
+					HomeFrame.setInvisible();
+					//set next window visible
+					
 					
 				}
 				else {
 					
-					hf.warningMessage();
+					HomeFrame.warningMessage();
 				}	
 			}
 			else if (e.getSource() == HomeFrame.getRegisterButton()) {
 				
-				//register to a student username and password
-				//LogRegCheck.checkUsername(HomeFrame.getUsername());
+				HomeFrame.setInvisible();
+	
 				
-				//dispose window , open next
-			
+				//set next window visible			
 			}
 			else if (e.getSource() == HomeFrame.getInfoButton()) {
 				

@@ -11,7 +11,7 @@ public class Score {
 	private static final double WL3 = 0.1;		//Average of Other Degrees Sub-Weight
 	
 	public static double CalculateGrade(Student stud) {
-		return WG1*stud.getAverageGrade();
+		return Math.floor((WG1*stud.getAverageGrade())*10000)/10000;
 		
 	}
 	
@@ -29,7 +29,7 @@ public class Score {
 			yearScore=5;
 			break;
 		}
-		return WG2*yearScore;
+		return Math.floor((WG2*yearScore)*10000)/10000;
 		
 	}
 	
@@ -44,7 +44,7 @@ public class Score {
 			failedScore=5;
 		else if (failed<=15)
 			failedScore=2.5;
-		return WG3*failedScore;
+		return Math.floor((WG3*failedScore)*10000)/10000;
 		
 	}
 	
@@ -70,7 +70,7 @@ public class Score {
 				break;
 			}
 		}
-		return WL1*engScore;
+		return Math.floor((WG4*WL1*engScore)*10000)/10000;
 		
 	}
 	
@@ -96,7 +96,7 @@ public class Score {
 				break;
 			}
 		}
-		return WL2*ntvScore;
+		return Math.floor((WG4*WL2*ntvScore)*10000)/10000;
 		
 	}
 	
@@ -136,7 +136,7 @@ public class Score {
 			    
 			}
 		}
-		return WL3*otrScore;
+		return Math.floor((WG4*WL3*otrScore)*10000)/10000;
 		
 	}
 	
@@ -145,13 +145,13 @@ public class Score {
 		double ntvScore=CalculateLNative(stud,uni);
 		double otrScore=CalculateLOther(stud,uni);
 		double langScore=engScore+ntvScore+otrScore;
-		return WG4*langScore;
+		return Math.floor((langScore)*10000)/10000;
 		
 	}
 	
 	public static double CalculateTotal(Student stud, University uni) {
 		double Final=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
-		return Final;
+		return Math.floor((Final)*10000)/10000;
 		
 	}
 }
