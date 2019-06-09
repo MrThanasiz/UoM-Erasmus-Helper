@@ -126,6 +126,14 @@ public class UniversitySelectFrame {
 	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
 	        		stud.setScores(scores);
 		        	f.dispose();
+		        	
+		        	/*
+		        	for(University uni:stud.getScores().keySet()) {
+		        		System.out.println(Tips.getTipLEnglish(stud, uni));
+		        		System.out.println(Tips.getTipLNative(stud, uni));
+		        	}
+		        	*/
+		        	
 		        	new MainFrame(stud);
 	        	}
 	        }
