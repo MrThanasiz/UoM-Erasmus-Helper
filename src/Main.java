@@ -9,7 +9,7 @@ public class Main {
 		ArrayList<University> uniList;
 		ArrayList<Student> studentsList = new ArrayList<>();
 		uniList = CentralRegistry.createUnis();
-		CentralRegistry.createDep(uniList, studentsList);
+		CentralRegistry.createDep();
 	
 		
 		

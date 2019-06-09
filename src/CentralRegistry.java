@@ -102,7 +102,7 @@ public class CentralRegistry
 			
 		}
 		
-		private static ArrayList<University> createUnis() {
+		public static ArrayList<University> createUnis() {
 			
 			String name;
 			String town;
@@ -159,14 +159,14 @@ public class CentralRegistry
 			departmentsList = new ArrayList<>();
 			ArrayList<University> uniList = createUnis();
 			
-			departmentsList.add(new Department("Applied Informatics",uniList,students,0,"dai"));
-			departmentsList.add(new Department("Economics",uniList,students,1,"eco"));
-			departmentsList.add(new Department("Balkan Studies",uniList,students,2,"bal"));
-			departmentsList.add(new Department("Business Admninistration",uniList,students,3,"bus"));
-			departmentsList.add(new Department("Accounting & Finance",uniList,students,4,"fin"));
-			departmentsList.add(new Department("European Studies",uniList,students,5,"eur"));
-			departmentsList.add(new Department("Educational & Social Policy",uniList,students,6,"esp"));
-			departmentsList.add(new Department("Music Science & Art",uniList,students,7,"mus"));
+			departmentsList.add(new Department("Applied Informatics",uniList,0,"dai"));
+			departmentsList.add(new Department("Economics",uniList,1,"eco"));
+			departmentsList.add(new Department("Balkan Studies",uniList,2,"bal"));
+			departmentsList.add(new Department("Business Admninistration",uniList,3,"bus"));
+			departmentsList.add(new Department("Accounting & Finance",uniList,4,"fin"));
+			departmentsList.add(new Department("European Studies",uniList,5,"eur"));
+			departmentsList.add(new Department("Educational & Social Policy",uniList,6,"esp"));
+			departmentsList.add(new Department("Music Science & Art",uniList,7,"mus"));
 		}
 
 
