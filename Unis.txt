@@ -42,7 +42,7 @@ University of Tampere,Tampere,Finland,Finnish,false,4
 University of Essen,Essen,Germany,German,false,4
 University of Vilnius,Vilnius,Lithuania,Lithuanian,false,4
 Vytautas Magnus University,Kaunas,Lithuania,Lithuanian,false,4
-University “1 Decembrie 1918”,Alba Iulia,Romania,Romanian,false,4
+1 Decembrie 1918 University,Alba Iulia,Romania,Romanian,false,4
 University of Almeria,Almeria,Spain,Spanish,false,4
 University of Liege,Liege,Belgium,French,true,5
 Saint-Louis University,Brussels,Belgium,French,true,5
