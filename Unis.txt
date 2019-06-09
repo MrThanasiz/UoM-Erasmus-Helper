@@ -8,7 +8,7 @@ University of Pisa,Pisa,Italy,Italian,false,0
 University of Bologna,Bologna,Italy,Italian,true,0,1
 BA School of Business and Finance,Riga,Latvia,Latvian,false,0
 University of Derby,Derby,UK,English,true,0
-University of Twente,Enschede,Netherlands,Dutch,false,0
+University of Twente,Enschede,Netherlands,Dutch,false,0,5
 University of Groningen,Groningen,Netherlands,Dutch,false,0
 Warsaw University of Technology,Warsaw,Poland,Polish,false,0,5
 University of Craiova,Craiova,Romania,Romanian,false,0
@@ -16,6 +16,8 @@ University of Primorska,Koper,Slovenia,Slovene,false,0
 Yasar University,Izmir,Turkey,Turkish,false,0
 University of Maribor,Maribor,Slovenia,Slovene,false,0
 University of Coimbra,Coimbra,Portugal,Portuguese,false,0,1
+University of Lodz,Lods,Poland,Polish,false,1,4,5
+University of Cyprus,Nicosia,Cyprus,Greek,false,1,5
 Slovak University of Agriculture,Nitra,Slovakia,Slovak,false,1
 Ruhr University Bochum,Bochum,Germany,German,true,1
 Aachen University of Applied Sciences,Aachen,Germany,German,true,1
@@ -36,3 +38,32 @@ Izmir University of Economics,Izmir,Turkey,Turkish,false,1
 Kadir Has University,Istanbul,Turkey,Turkish,false,1
 Ankara University,Ankara,Turkey,Turkish,false,1
 University of Tartu,Tartu,Estonia,Estonian,false,1
+University of Tampere,Tampere,Finland,Finnish,false,4
+University of Essen,Essen,Germany,German,false,4
+University of Vilnius,Vilnius,Lithuania,Lithuanian,false,4
+Vytautas Magnus University,Kaunas,Lithuania,Lithuanian,false,4
+1 Decembrie 1918 University,Alba Iulia,Romania,Romanian,false,4
+University of Almeria,Almeria,Spain,Spanish,false,4
+University of Liege,Liege,Belgium,French,true,5
+Saint-Louis University,Brussels,Belgium,French,true,5
+University of Nice Sophia Antipolis,Nice,France,French,true,5
+University of Caen Normandy,Caen,France,French,true,5
+Institutes of Political Studies,Rennes,France,French,false,5
+University of Paris 1 Pantheon-Sorbonne,Paris,France,French,true,5
+Philipps University of Marburg,Marburg,Germany,German,false,5
+University of Erfurt,Erfurt,Germany,German,false,5
+Theresian Military Academy,Wiener Neustadt,Austria,Austrian German,false,5
+Autonomous University of Barcelona,Barcelona,Spain,Spanish,false,5
+University of Camerino,Camerino,Italy,Italian,true,5
+Frederick University,Nicosia,Cyprus,Greek,false,5
+University of Central Lancashire,Larnaca,Cyprus,Greek,false,5
+University of Miskolc,Miskolc,Hungary,Hungarian,false,5
+University of Pecs,Pecs,Hungary,Hungarian,false,5
+University of Warsaw,Warsaw,Poland,Polish,false,5
+Jagiellonian University,Krakow,Poland,Polish,false,5
+University of Lisbon,Lisbon,Portugal,Portoguese,false,5
+Istanbul Commerce University,Istanbul,Turkey,Turkish,false,5
+Beykent University,Istanbul,Turkey,Turkish,false,5
+Mendel University,Brno,Czech Republic,Czech,false,5
+SNSPA,Bucharest,Romania,Romanian,false,5
+Halic University,Istanbul,Turkey,Turkish,false,5
