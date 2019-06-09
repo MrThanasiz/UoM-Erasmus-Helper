@@ -1,2 +1,38 @@
-University of Paris,Paris,France,French,true,0
-University of Derby,Derby,United Kingdom,English,true,0
+University of Paris 8,Paris,France,French,true,0
+University of Rennes 1,Rennes,France,French,true,0,1
+Reutlingen University,Reutlingen,Germany,German,true,0
+University of Bamberg,Bamberg,Germany,German,true,0
+Aalborg University,Aalborg,Denmark,Danish,false,0
+University of Malaga,Malaga,Spain,Spanish,true,0
+University of Pisa,Pisa,Italy,Italian,false,0
+University of Bologna,Bologna,Italy,Italian,true,0,1
+BA School of Business and Finance,Riga,Latvia,Latvian,false,0
+University of Derby,Derby,UK,English,true,0
+University of Twente,Enschede,Netherlands,Dutch,false,0
+University of Groningen,Groningen,Netherlands,Dutch,false,0
+Warsaw University of Technology,Warsaw,Poland,Polish,false,0,5
+University of Craiova,Craiova,Romania,Romanian,false,0
+University of Primorska,Koper,Slovenia,Slovene,false,0
+Yasar University,Izmir,Turkey,Turkish,false,0
+University of Maribor,Maribor,Slovenia,Slovene,false,0
+University of Coimbra,Coimbra,Portugal,Portuguese,false,0,1
+Slovak University of Agriculture,Nitra,Slovakia,Slovak,false,1
+Ruhr University Bochum,Bochum,Germany,German,true,1
+Aachen University of Applied Sciences,Aachen,Germany,German,true,1
+Mainz University of Applied Sciences,Mainz,Germany,German,true,1
+Bucharest University of Economic Studies,Bucharest,Romania,Romanian,false,1
+University of Vaasa,Vaasa,Finland,Finnish,false,1
+University of Lille,Lille,France,French,true,1
+Louis Pasteur University,Strasbourg,France,French,true,1
+University of Montpellier,Montpellier,France,French,true,1
+University of Reims Champagne-Ardenne,Grand Est,France,French,true,1
+Universite Grenoble Alpes,Grenoble,France,French,true,1
+University of Rzeszow,Rzeszow,Poland,Polish,false,1
+D'Annunzio University,Chieti,Italy,Italian,true,1
+Free Mediterranean University,Casamassima,Italy,Italian,true,1
+University of Siena,Siena,Italy,Italian,true,1
+Nisantasi University,Istanbul,Turkey,Turkish,false,1,5
+Izmir University of Economics,Izmir,Turkey,Turkish,false,1
+Kadir Has University,Istanbul,Turkey,Turkish,false,1
+Ankara University,Ankara,Turkey,Turkish,false,1
+University of Tartu,Tartu,Estonia,Estonian,false,1
