@@ -312,6 +312,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			}
 			else {
 				addWarnMess(wPass);
+				inputPassword = false;
 			}
 			
 			if(ValidationCheck.CheckID(getID()))
@@ -321,7 +322,10 @@ public class RegisterFrame extends JFrame implements ActionListener
 			}
 			else {
 				addWarnMess(wID);
+				inputID = false;
 			}
+			repaint();
+			revalidate();
 			
 			if(inputPassword && inputID) {
 				stud = CentralRegistry.registerNewUser();
