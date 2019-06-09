@@ -45,6 +45,11 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private JPanel IDLabelAbove;
 		private JPanel IDLabelAbovePanel;
 		private JPanel comboBoxPanel;
+		private JPanel wrongPassPanel;
+		private JPanel wrongIDPanel;
+		
+		private JLabel wPass;
+		private JLabel wID;
 	
 		private Student stud ; 
 		
@@ -56,6 +61,8 @@ public class RegisterFrame extends JFrame implements ActionListener
 		static String depString = "dai";
 		
 		private boolean inputOK = false;
+		private boolean inputID = false;
+		private boolean inputPassword = false;
 		
 		JComboBox<Department> cmbDepList;
 		JLabel lbltext = new JLabel("dai");
@@ -89,8 +96,10 @@ public class RegisterFrame extends JFrame implements ActionListener
 			this.ComboBoxDep();
 			this.IDLabelAbove();
 			this.setIDTextPanel();
+			this.WrongID();
 			this.passwordLabelAbove();
 			this.setPasswordTextPanel();
+			this.WrongPass();
 			this.passwordLabelBelow();
 			this.setRegisterButtonPanel();
 			
@@ -98,11 +107,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 			panel.add(comboBoxPanel);
 			panel.add(IDLabelAbovePanel);
 			panel.add(IDFieldPanel);
+			panel.add(wrongIDPanel);
 			panel.add(PasswordLabelAbovePanel);
 			panel.add(PasswordFieldPanel);
+			panel.add(wrongPassPanel);
 			panel.add(PasswordLabelBelowPanel);
 			panel.add(RegisterButtonPanel);
-		
+			
 			
 			
 		}
@@ -242,7 +253,38 @@ public class RegisterFrame extends JFrame implements ActionListener
 			comboBoxPanel.add(cmbDepList);
 			
 		}
-				
+		
+		public void WrongID() {
+			wrongIDPanel = new JPanel();
+			wrongIDPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+			
+			wID = new JLabel("ID must be 5-digit from 0-9");            
+	    	wID.setSize(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT);
+	    	wID.setForeground(Color.red);
+		}
+		
+		public void WrongPass() {
+			wrongPassPanel = new JPanel();
+			wrongPassPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+			
+			wPass = new JLabel("Incorrect password!");           
+			wPass.setSize(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT);
+			wPass.setForeground(Color.red);
+		}
+		
+		public void addWarnMess(JLabel label) {
+			if (label.equals(wPass))
+				wrongPassPanel.add(label);
+			else
+				wrongIDPanel.add(label);
+		}
+		public void removeWarnMess(JLabel label) {
+			if (label.equals(wPass))
+				wrongPassPanel.remove(label);
+			else
+				wrongIDPanel.remove(label);
+		}
+		
 		public void actionPerformed(ActionEvent e) {
 			
 			
@@ -263,29 +305,39 @@ public class RegisterFrame extends JFrame implements ActionListener
 		 if (e.getSource() == registerButton) {
 		  
 			 dep = (Department) cmbDepList.getSelectedItem();
-			if( ValidationCheck.CheckPassword(getPasswordRF()) && (ValidationCheck.CheckID(getID())))
-				{
-				
-				inputOK = true;
-				}
-			if(inputOK)	{
-				stud = CentralRegistry.registerNewUser();
-			 //set window invisible 
-			dispose();
-			//set visible next window
-			new InputDataFrame(stud);
+			if( ValidationCheck.CheckPassword(getPasswordRF()) )
+			{
+				inputPassword = true;
+				removeWarnMess(wPass);
 			}
-			else
-				HomeFrame.warningMessage();
+			else {
+				addWarnMess(wPass);
+			}
 			
+			if(ValidationCheck.CheckID(getID()))
+			{
+				inputID = true;
+				removeWarnMess(wID);
+			}
+			else {
+				addWarnMess(wID);
+			}
+			
+			if(inputPassword && inputID) {
+				stud = CentralRegistry.registerNewUser();
+				//set window invisible 
+				dispose();
+				//set visible next window
+				new InputDataFrame(stud);
+			}
 			 
 		 }
 		 
 					
-			}
-		
-		
 	}
+		
+		
+}
 		
 		
 		
