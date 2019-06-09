@@ -3,7 +3,7 @@ public class LogRegCheck {
 	public static Student checkUsername(String aUsername) {
 		
 		//We need a initializedList variable in Central Registry
-		if ( CentralRegistry.initializedList )
+		if ( !CentralRegistry.initializedList )
 			return null;
 		
 		for(Student student: CentralRegistry.getStudents())
