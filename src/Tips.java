@@ -9,7 +9,7 @@ public class Tips {
 		double cscore=Score.CalculateGrade(stud);
 		double tscore=Score.CalculateGrade(stips);
 		double diffscore=Math.floor((tscore-cscore)*10000)/10000;
-		return "If you improve your average 0.5, "
+		return "If you improve your average by 0.5, "
 				+ "your score will increase by: "+diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 	}
 	

@@ -42,9 +42,9 @@ public class MainFrame extends JFrame{
 	private JPanel tipsPanel2;
 	
 	private JButton dataEditButton;
-	private JButton changeCountriesButton;
+	private JButton changeUniversitiesButton;
 	private JButton logoutButton;
-	private JComboBox<String> countriesList;
+	private JComboBox<String> universitiesList;
 	private ButtonListener listener;
 	
 	private JLabel tipYear;
@@ -63,8 +63,6 @@ public class MainFrame extends JFrame{
 	private ArrayList<University> unisList= new ArrayList<University>();
 	private HashMap<University,Double> hm;
 	
-	private University chosen=null;
-	private ArrayList<String> chosenCountries;
 	
 	
 	public MainFrame(Student stud) {
@@ -109,13 +107,13 @@ public class MainFrame extends JFrame{
 		menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.X_AXIS));
 		
 		dataEditButton = new JButton("Edit personal info");
-		changeCountriesButton = new JButton("Change chosen countries");
+		changeUniversitiesButton = new JButton("Change chosen universities");
 		logoutButton = new JButton("Logout");
 		
 		listener = new ButtonListener();
 		
 		dataEditButton.addActionListener(listener);
-		changeCountriesButton.addActionListener(listener);
+		changeUniversitiesButton.addActionListener(listener);
 		logoutButton.addActionListener(listener);
 		
 		menuPanel.setBorder(BorderFactory.createTitledBorder(
@@ -125,7 +123,7 @@ public class MainFrame extends JFrame{
 		menuPanel.add(Box.createRigidArea(new Dimension(320,50)));
 		menuPanel.add(dataEditButton);
 		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
-		menuPanel.add(changeCountriesButton);
+		menuPanel.add(changeUniversitiesButton);
 		menuPanel.add(Box.createRigidArea(new Dimension(50,50)));
 		menuPanel.add(logoutButton);
 		menuPanel.add(Box.createRigidArea(new Dimension(320,50)));
@@ -135,7 +133,7 @@ public class MainFrame extends JFrame{
 	
 	private void setTipsPanel1() {
 		
-		countriesList = new JComboBox<String>();
+		universitiesList = new JComboBox<String>();
 
 		hm = stud.getScores();
 		
@@ -145,7 +143,7 @@ public class MainFrame extends JFrame{
 		}
 		else {
 		for(University uni: hm.keySet()) {
-			countriesList.addItem(uni.getName() + "  " + hm.get(uni));
+			universitiesList.addItem(uni.getName() + "  " + hm.get(uni));
 			unisList.add(uni);
 			
 		}
@@ -158,9 +156,9 @@ public class MainFrame extends JFrame{
 		listener = new ButtonListener();
 		
 		JLabel tipsLabel = new JLabel("Here you can find tips for improving "
-				+ "your Erasmus score for each of your chosen countries");
+				+ "your Erasmus score for each of your chosen universities");
 		
-		countriesList.addActionListener(listener);
+		universitiesList.addActionListener(listener);
 		
 		
 		tipsPanel1.setPreferredSize(new Dimension(TIPS1_WIDTH, TIPS1_HEIGHT));
@@ -169,7 +167,7 @@ public class MainFrame extends JFrame{
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		tipsPanel1.add(tipsLabel);
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
-		tipsPanel1.add(countriesList);
+		tipsPanel1.add(universitiesList);
 		tipsPanel1.add(Box.createRigidArea(new Dimension(200,50)));
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		
@@ -239,7 +237,7 @@ public class MainFrame extends JFrame{
 				dispose();
 				new InputDataFrame(stud);
 			}
-			else if(e.getSource().equals(changeCountriesButton)) {
+			else if(e.getSource().equals(changeUniversitiesButton)) {
 				dispose();
 				new UniversitySelectFrame(stud);
 				
@@ -251,8 +249,8 @@ public class MainFrame extends JFrame{
 				
 				
 			}
-			else if(e.getSource().equals(countriesList)) {
-				index = countriesList.getSelectedIndex();
+			else if(e.getSource().equals(universitiesList)) {
+				index = universitiesList.getSelectedIndex();
 				sTipGrade = Tips.getTipGrade(stud,unisList.get(index));
 				sTipFailed = Tips.getTipFailed(stud,unisList.get(index));
 				sTipYear = Tips.getTipYear(stud,unisList.get(index));
