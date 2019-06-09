@@ -7,9 +7,9 @@ public class Student implements Serializable{
 	
 	private String username;
 	private String password;
-	private int academicYear = 0;
-	private double averageGrade = 0;
-	private int nFailed = 0;
+	private int academicYear;
+	private double averageGrade;
+	private int nFailed;
 	private Department department;
 	private HashMap<String, Integer> langDegrees;
 	private HashMap<University, Double> scores;
