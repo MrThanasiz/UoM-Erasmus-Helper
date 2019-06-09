@@ -67,7 +67,7 @@ public class MainFrame extends JFrame{
 	
 	
 	public MainFrame(Student stud) {
-		
+		this.stud=stud;
 		this.setPanel(stud);
 		
 		this.setContentPane(panel);
@@ -144,7 +144,7 @@ public class MainFrame extends JFrame{
 			
 		}
 		for(University nam: unisList) {
-			System.out.print(nam.getName());
+			//System.out.print(nam.getName());
 		}
 		
 			
@@ -211,6 +211,9 @@ public class MainFrame extends JFrame{
 		
 	}
 	
+	
+	
+	
 	class ButtonListener implements ActionListener {
 		
 		
@@ -244,7 +247,7 @@ public class MainFrame extends JFrame{
 			else if(e.getSource().equals(countriesList)) {
 				JComboBox cb = (JComboBox) e.getSource();
 				index = cb.getSelectedIndex();
-				System.out.println(index);
+				//System.out.println(index);
 				
 				
 				
