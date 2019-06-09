@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
 	private static final int WIDTH = 1280;
@@ -43,7 +44,6 @@ public class MainFrame extends JFrame{
 	private JButton changeCountriesButton;
 	private JButton logoutButton;
 	private JComboBox<String> countriesList;
-	private JButton OkButton;
 	private ButtonListener listener;
 	
 	private JLabel tipYear;
@@ -68,7 +68,7 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(Student stud) {
 		this.stud=stud;
-		this.setPanel(stud);
+		this.setPanel();
 		
 		this.setContentPane(panel);
 		
@@ -81,7 +81,7 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	private void setPanel(Student stud) {
+	private void setPanel() {
 		
 		panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
@@ -89,8 +89,8 @@ public class MainFrame extends JFrame{
 		gbc.insets = new Insets(5, 0, 5, 0);
 		
 		this.setMenuPanel();
-		this.setTipsPanel1(stud);
-		this.setTipsPanel2(stud);
+		this.setTipsPanel1();
+		this.setTipsPanel2();
     	
 		gbc.gridy = 0;
 		panel.add(menuPanel, gbc);
@@ -132,21 +132,22 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	private void setTipsPanel1(Student stud) {
+	private void setTipsPanel1() {
 		
 		countriesList = new JComboBox<String>();
 
 		hm = stud.getScores();
+		
+		if(hm == null) {
+			dispose();
+			new InputDataFrame(stud);
+		}
 		
 		for(University uni: hm.keySet()) {
 			countriesList.addItem(uni.getName());
 			unisList.add(uni);
 			
 		}
-		for(University nam: unisList) {
-			//System.out.print(nam.getName());
-		}
-		
 			
 		
 		
@@ -160,8 +161,6 @@ public class MainFrame extends JFrame{
 		
 		countriesList.addActionListener(listener);
 		
-		OkButton = new JButton("OK");
-		OkButton.addActionListener(listener);
 		
 		tipsPanel1.setPreferredSize(new Dimension(TIPS1_WIDTH, TIPS1_HEIGHT));
 		
@@ -171,13 +170,12 @@ public class MainFrame extends JFrame{
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		tipsPanel1.add(countriesList);
 		tipsPanel1.add(Box.createRigidArea(new Dimension(200,50)));
-		tipsPanel1.add(OkButton);
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		
 		
 	}
 	
-	private void setTipsPanel2(Student stud) {
+	private void setTipsPanel2() {
 
 		
 		tipsPanel2 = new JPanel();
@@ -191,11 +189,11 @@ public class MainFrame extends JFrame{
 		sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(index));
 		sTipNative = Tips.getTipLNative(stud, unisList.get(index));
 
-		JLabel tipGrade = new JLabel(sTipGrade);
-		JLabel tipFailed = new JLabel(sTipFailed);
-		JLabel tipYear = new JLabel(sTipYear);
-		JLabel tipEnglish = new JLabel(sTipEnglish);
-		JLabel tipNative = new JLabel(sTipNative);
+		tipGrade = new JLabel(sTipGrade);
+		tipFailed = new JLabel(sTipFailed);
+		tipYear = new JLabel(sTipYear);
+		tipEnglish = new JLabel(sTipEnglish);
+		tipNative = new JLabel(sTipNative);
 		
 		
 		
@@ -208,6 +206,7 @@ public class MainFrame extends JFrame{
 		tipsPanel2.add(tipYear);
 		tipsPanel2.add(tipEnglish);
 		tipsPanel2.add(tipNative);
+		
 		
 	}
 	
@@ -237,21 +236,24 @@ public class MainFrame extends JFrame{
 				
 				
 			}
-			else if(e.getSource().equals(OkButton)) {
-				
+			else if(e.getSource().equals(countriesList)) {
+				index = countriesList.getSelectedIndex();
+				sTipGrade = Tips.getTipGrade(stud,unisList.get(index));
+				sTipFailed = Tips.getTipFailed(stud,unisList.get(index));
+				sTipYear = Tips.getTipYear(stud,unisList.get(index));
+				sTipEnglish = Tips.getTipLEnglish(stud,unisList.get(index));
 				sTipNative = Tips.getTipLNative(stud, unisList.get(index));
 				
+				tipGrade.setText(sTipGrade);
+				tipFailed.setText(sTipFailed);
+				tipYear.setText(sTipYear);
+				tipEnglish.setText(sTipEnglish);
+				tipNative.setText(sTipNative);
 				
+				repaint();
+				revalidate();
 				
-			}
-			else if(e.getSource().equals(countriesList)) {
-				JComboBox cb = (JComboBox) e.getSource();
-				index = cb.getSelectedIndex();
-				//System.out.println(index);
-				
-				
-				
-				
+					
 				
 				
 			}
