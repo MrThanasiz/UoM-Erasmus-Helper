@@ -91,6 +91,8 @@ public class Tips {
 				degrees.put("English",degrees.get("English")+1);
 				stips.setLangDegrees(degrees);
 				double tscore=Score.CalculateLEnglish(stips);
+				if (uni.getLanguage().equals("English"))
+					tscore=tscore+Score.CalculateLNative(stips,uni);
 				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 				return "There's room for improvement, if you get the next degree, "
 						+ "your English Language score will increase by:" + diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
@@ -101,6 +103,8 @@ public class Tips {
 			degrees.put("English", 1);
 			stips.setLangDegrees(degrees);
 			double tscore=Score.CalculateLEnglish(stips);
+			if (uni.getLanguage().equals("English"))
+				tscore=tscore+Score.CalculateLNative(stips,uni);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "Whoops, looks like you don't have an English Degree, "
 					+ "getting one (B1) would increase your English score by:" + diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
@@ -112,13 +116,16 @@ public class Tips {
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
 		double cscore=Score.CalculateLNative(stips,uni);
 		String ntvLang=uni.getLanguage();
+		if (ntvLang.equals("English")) {
+			return "";
+		}
 		if(degrees.containsKey(ntvLang)) {
 			if (degrees.get(ntvLang)<=3) {
 				degrees.put(ntvLang,degrees.get(ntvLang)+1);
 				stips.setLangDegrees(degrees);
 				double tscore=Score.CalculateLNative(stips,uni);
 				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
-				return "There's room for improvement, if you get the next degree, "
+				return "There's room for improvement, if you get the next "+ ntvLang +" degree, "
 						+ "your Native Language score will increase by:" + diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 			}
 			else {
