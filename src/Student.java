@@ -92,11 +92,13 @@ public class Student implements Serializable{
 		String str;
 		
 		str = username;
-		
-		for(University university: scores.keySet()) {
-			str += "   " + university.toString() + "   ";
-			str += scores.get(university).toString();
-		}
+		if(scores != null)
+			for(University university: scores.keySet()) {
+				str += "   " + university.toString() + "   ";
+				str += scores.get(university).toString();
+			}
+		else
+			str += "   No Universities chosen!";
 		
 		return str;
 	}
