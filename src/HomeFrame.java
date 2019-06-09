@@ -59,18 +59,13 @@ public class HomeFrame extends JFrame
 	
 	private static JTextArea username;
 	private static JTextArea password;
-
-	private static boolean isVisible;
-
 	
 	public HomeFrame() {
 		this.setPanel();
 		
-		isVisible = true;
-		
 		this.setContentPane(panel);
 		
-		this.setVisible(isVisible);
+		this.setVisible(true);
 		//Set the frame size
 		this.setSize(WIDTH, HEIGHT);
 		//Set the start position
@@ -80,8 +75,6 @@ public class HomeFrame extends JFrame
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		if (isVisible == false)
-			this.setVisible(false);
 	}
 	
 	private void setPanel() {
@@ -117,14 +110,6 @@ public class HomeFrame extends JFrame
 
 	
 	}
-	
-	public static void setInvisible() {
-		
-		isVisible = false;
-		
-		
-	}
-	
 	
 	public void setLoginButtonPanel() {
 		
@@ -235,37 +220,37 @@ public class HomeFrame extends JFrame
 	public static String getPasswordHF() {
 		return password.getText();
 	}
-}
+	
 
- class Action implements ActionListener {
+
+	class Action implements ActionListener {
 	 
 	 String username = null;
 	 String password = null;
 	 String id = null;	
-	 private static boolean login;
+	
 	 
 	public void actionPerformed(ActionEvent e) {
 		
-		
-		
-			
+	
+		 username = HomeFrame.getUsername();
+		 password = HomeFrame.getPasswordHF();
+		 Student stud = new Student(username, password);
 			
 			if (e.getSource() == HomeFrame.getLoginButton()) {
 				//System.out.println("Button login Working");
 				
-				 login = false;
-				 
-				 username = HomeFrame.getUsername();
-				 password = HomeFrame.getPasswordHF();
-				
 				 LogRegCheck.checkUsername(username);
-				 Student stud = new Student(username, password);
 				 
 				if (LogRegCheck.checkPassword(stud , password))  {
 					
-					login = true;
-					HomeFrame.setInvisible();
+					
+					//close window
+					dispose();
 					//set next window visible
+					stud.setDepartment(CentralRegistry.getDepartments().get(0));
+					new MainFrame(stud);
+				
 					
 					
 				}
@@ -275,11 +260,11 @@ public class HomeFrame extends JFrame
 				}	
 			}
 			else if (e.getSource() == HomeFrame.getRegisterButton()) {
+				//close window
+				dispose();
+				//set next window visible
+				new InputDataFrame(stud);
 				
-				HomeFrame.setInvisible();
-	
-				
-				//set next window visible			
 			}
 			else if (e.getSource() == HomeFrame.getInfoButton()) {
 				
@@ -297,3 +282,6 @@ public class HomeFrame extends JFrame
 		
 	
 	}
+	
+	
+}
