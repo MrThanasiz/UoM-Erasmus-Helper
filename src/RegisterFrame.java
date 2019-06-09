@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,6 +46,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private JPanel IDLabelAbovePanel;
 		private JPanel comboBoxPanel;
 	
+		private Student stud ; 
 		
 		private static JButton registerButton;
 		
@@ -56,7 +58,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private boolean inputOK = false;
 		
 		JComboBox<Department> cmbDepList;
-		JLabel lbltext = new JLabel();
+		JLabel lbltext = new JLabel("dai");
 		
 		private static Department dep;
 		
@@ -123,6 +125,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			
 			password = new JTextArea();
+			password.setBorder(BorderFactory.createEtchedBorder());
 			
 			password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 			
@@ -145,7 +148,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			PasswordLabelBelowPanel = new JPanel();
 			PasswordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
-			JLabel labela = new JLabel("Remember , password must contain at least 8 characters!");
+			JLabel labela = new JLabel("Remember , password must contain at least 8 characters , including one lower case and one upper case!");
 			
 			PasswordLabelBelowPanel.add(labela);
 			
@@ -178,6 +181,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			
 			id = new JTextArea();
+			id.setBorder(BorderFactory.createEtchedBorder());
 			
 			id.setPreferredSize(new Dimension(ID_TEXT_AREA_WIDTH, ID_TEXT_AREA_HEIGHT));
 			
@@ -262,10 +266,17 @@ public class RegisterFrame extends JFrame implements ActionListener
 		  
 			 dep = (Department) cmbDepList.getSelectedItem();
 			if( ValidationCheck.CheckPassword(getPasswordRF()) && (ValidationCheck.CheckID(getID())))
+				{
+				
 				inputOK = true;
-			if(inputOK)	
-				CentralRegistry.registerNewUser();
-			 //set window invisible , set visible next window
+				}
+			if(inputOK)	{
+				stud = CentralRegistry.registerNewUser();
+			 //set window invisible 
+			dispose();
+			//set visible next window
+			new InputDataFrame(stud);
+			}
 			else
 				HomeFrame.warningMessage();
 			

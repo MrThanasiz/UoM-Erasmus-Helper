@@ -233,37 +233,45 @@ public class HomeFrame extends JFrame
 	public void actionPerformed(ActionEvent e) {
 		
 	
-		 username = HomeFrame.getUsername();
-		 password = HomeFrame.getPasswordHF();
-		 Student stud = new Student(username, password);
-			
+	
 			if (e.getSource() == HomeFrame.getLoginButton()) {
 				//System.out.println("Button login Working");
-				
-				 LogRegCheck.checkUsername(username);
 				 
-				if (LogRegCheck.checkPassword(stud , password))  {
-					
-					
-					//close window
-					dispose();
-					//set next window visible
-					stud.setDepartment(CentralRegistry.getDepartments().get(0));
-					new MainFrame(stud);
+				 username = HomeFrame.getUsername();
+				 password = HomeFrame.getPasswordHF();
 				
-					
-					
-				}
-				else {
-					
-					HomeFrame.warningMessage();
-				}	
+				CentralRegistry.desirializeUsers();
+				
+				Student stud = LogRegCheck.checkUsername(username);
+				
+				System.out.println(stud);
+				
+				System.out.println(CentralRegistry.getStudents());
+				
+				
+				
+				if(stud == null)
+					 HomeFrame.warningMessage();
+				 else
+				 {
+					 if (LogRegCheck.checkPassword(stud , password))  {
+						 //close window
+						 dispose();
+						 //set next window visible
+						 //stud.setDepartment(CentralRegistry.getDepartments().get(0));
+						 new MainFrame(stud);
+					 
+					 }
+					 else
+						 HomeFrame.warningMessage();
+				 }
 			}
 			else if (e.getSource() == HomeFrame.getRegisterButton()) {
 				//close window
 				dispose();
 				//set next window visible
-				new InputDataFrame(stud);
+				
+				new RegisterFrame();
 				
 			}
 			else if (e.getSource() == HomeFrame.getInfoButton()) {
