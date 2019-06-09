@@ -1,24 +1,16 @@
-import java.util.ArrayList;
-
 public class LogRegCheck {
 
-	/*
-	 * Instructions:
-	 * 		if (LogRegCheck.checkExistingRegistry == null)
-	 * 			Initialize users list first.
-	 * 		else if ( (boolean) LogRegCheck.checkExistingRegistry == true )
-	 * 			User already exists.
-	 * 		else
-	 * 			User does not exist.
-	 */
-	public static Object checkUsername(String aUsername) {
+	public static Student checkUsername(String aUsername) {
 		
 		//We need a initializedList variable in Central Registry
-		if ( CentralRegistry.initializedList )
+		if ( !CentralRegistry.initializedList )
 			return null;
-		return aUsername;
 		
-		//return CentralRegistry.getStudents.contains(aUsername);
+		for(Student student: CentralRegistry.getStudents())
+			if(student.getUsername().equals(aUsername))
+				return student;
+		
+		return null;
 	}
 	
 	

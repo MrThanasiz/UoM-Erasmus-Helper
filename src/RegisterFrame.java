@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,18 +46,19 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private JPanel IDLabelAbovePanel;
 		private JPanel comboBoxPanel;
 	
+		private Student stud ; 
 		
 		private static JButton registerButton;
 		
 		private static JTextArea password;
 		private static JTextArea id;
 		
-		static String depString;
+		static String depString = "dai";
 		
 		private boolean inputOK = false;
 		
 		JComboBox<Department> cmbDepList;
-		JLabel lbltext = new JLabel();
+		JLabel lbltext = new JLabel("dai");
 		
 		private static Department dep;
 		
@@ -145,7 +147,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			PasswordLabelBelowPanel = new JPanel();
 			PasswordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
-			JLabel labela = new JLabel("Remember , password must contain at least 8 characters!");
+			JLabel labela = new JLabel("Remember , password must contain at least 8 characters , including one lower case and one upper case!");
 			
 			PasswordLabelBelowPanel.add(labela);
 			
@@ -262,10 +264,17 @@ public class RegisterFrame extends JFrame implements ActionListener
 		  
 			 dep = (Department) cmbDepList.getSelectedItem();
 			if( ValidationCheck.CheckPassword(getPasswordRF()) && (ValidationCheck.CheckID(getID())))
+				{
+				
 				inputOK = true;
-			if(inputOK)	
-				CentralRegistry.registerNewUser();
-			 //set window invisible , set visible next window
+				}
+			if(inputOK)	{
+				stud = CentralRegistry.registerNewUser();
+			 //set window invisible 
+			dispose();
+			//set visible next window
+			new InputDataFrame(stud);
+			}
 			else
 				HomeFrame.warningMessage();
 			

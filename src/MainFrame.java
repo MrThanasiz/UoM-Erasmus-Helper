@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -144,7 +145,7 @@ public class MainFrame extends JFrame{
 		}
 		
 		for(University uni: hm.keySet()) {
-			countriesList.addItem(uni.getName());
+			countriesList.addItem(uni.getName() + "  " + hm.get(uni));
 			unisList.add(uni);
 			
 		}
@@ -200,12 +201,26 @@ public class MainFrame extends JFrame{
 		tipsPanel2.setPreferredSize(new Dimension(TIPS2_WIDTH, TIPS2_HEIGHT));
 		tipsPanel2.setBorder(BorderFactory.createTitledBorder(
 				BorderFactory.createEtchedBorder(), "Tips", TitledBorder.TOP, TitledBorder.TOP));
+		
+		tipGrade.setAlignmentX(Component.CENTER_ALIGNMENT);
+		tipFailed.setAlignmentX(Component.CENTER_ALIGNMENT);
+		tipYear.setAlignmentX(Component.CENTER_ALIGNMENT);
+		tipEnglish.setAlignmentX(Component.CENTER_ALIGNMENT);
+		tipNative.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,60)));
 		tipsPanel2.add(tipGrade);
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
 		tipsPanel2.add(tipFailed);
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
 		tipsPanel2.add(tipYear);
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
 		tipsPanel2.add(tipEnglish);
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
 		tipsPanel2.add(tipNative);
+		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
+		
+		
 		
 		
 	}

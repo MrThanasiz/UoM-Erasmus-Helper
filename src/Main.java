@@ -21,13 +21,12 @@ public class Main {
 		//initialize list
 		CentralRegistry.desirializeUsers();
 		//strarting frame
-		//new HomeFrame();
+		new HomeFrame();
 		
-		//new RegisterFrame();
 	
-		Student stud = new Student("user","cod");
-		stud.setDepartment(CentralRegistry.getDepartments().get(0));
-		new InputDataFrame(stud);
+	//	Student stud = new Student("user","cod");
+		//stud.setDepartment(CentralRegistry.getDepartments().get(0));
+	//	new InputDataFrame(stud);
 		
 		//new SecretariatFrame();
 	}

@@ -32,8 +32,7 @@ public class CentralRegistry
 		   // System.out.println("Deserialization worked"); 
 				 
 			initializedList = true;
-				 
-				 
+			
 		    in.close();
 		    fileIn.close();
 		         
@@ -56,7 +55,7 @@ public class CentralRegistry
 
 
 	
-	  public static void registerNewUser() {
+	  public static Student registerNewUser() {
 	  
 	  desirializeUsers(); 
 	  ArrayList<Student> s = getStudents();
@@ -64,6 +63,8 @@ public class CentralRegistry
 	  stud.setDepartment(RegisterFrame.getDep());
 	  s.add(stud);
 	  serializeUsers(s);
+	  
+	  return stud;
 	  }
 	 
 
