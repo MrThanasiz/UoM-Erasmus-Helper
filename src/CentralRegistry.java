@@ -6,9 +6,7 @@ public class CentralRegistry
 {
 	private static ArrayList<Department> departmentsList;
 	
-	private static ArrayList<Student> s;
-	private String username;
-	private String password;
+	private static ArrayList<Student> students;
 		
 	public static boolean initializedList = false;
 		
@@ -25,7 +23,7 @@ public class CentralRegistry
 		    ObjectInputStream in = new ObjectInputStream(fileIn);
 		         
 		   
-		    s = (ArrayList<Student>)in.readObject();
+		    students = (ArrayList<Student>)in.readObject();
 		      
 		        
 		   // System.out.println("Deserialization worked"); 
@@ -79,7 +77,7 @@ public class CentralRegistry
 		            ObjectOutputStream out = new ObjectOutputStream(file); 
 		              
 		            // Method for serialization of Student s
-		            out.writeObject(s); 
+		            out.writeObject(students); 
 		              
 		            out.close(); 
 		            file.close(); 
@@ -100,11 +98,11 @@ public class CentralRegistry
 		
 		public static ArrayList<Student> getStudents(){
 			
-			return s;
+			return students;
 			
 		}
 		
-		public static ArrayList<University> createUnis() {
+		private static ArrayList<University> createUnis() {
 			
 			String name;
 			String town;
@@ -156,27 +154,19 @@ public class CentralRegistry
 		
 
 		
-		public static void createDep(ArrayList<University> uniList, ArrayList<Student> studentsList) {
+		public static void createDep() {
 			
 			departmentsList = new ArrayList<>();
+			ArrayList<University> uniList = createUnis();
 			
-			Department informatics = new Department("Applied Informatics",uniList,studentsList,0,"dai");
-			Department economics = new Department("Economics",uniList,studentsList,1,"eco");
-			Department balkan = new Department("Balkan Studies",uniList,studentsList,2,"bal");
-			Department businessadm = new Department("Business Admninistration",uniList,studentsList,3,"bus");
-			Department accounting = new Department("Accounting & Finance",uniList,studentsList,4,"fin");
-			Department european = new Department("European Studies",uniList,studentsList,5,"eur");
-			Department educational = new Department("Educational & Social Policy",uniList,studentsList,6,"esp");
-			Department music = new Department("Music Science & Art",uniList,studentsList,7,"mus");
-			
-			departmentsList.add(informatics);
-			departmentsList.add(economics);
-			departmentsList.add(balkan);
-			departmentsList.add(businessadm);
-			departmentsList.add(accounting);
-			departmentsList.add(european);
-			departmentsList.add(educational);
-			departmentsList.add(music);
+			departmentsList.add(new Department("Applied Informatics",uniList,students,0,"dai"));
+			departmentsList.add(new Department("Economics",uniList,students,1,"eco"));
+			departmentsList.add(new Department("Balkan Studies",uniList,students,2,"bal"));
+			departmentsList.add(new Department("Business Admninistration",uniList,students,3,"bus"));
+			departmentsList.add(new Department("Accounting & Finance",uniList,students,4,"fin"));
+			departmentsList.add(new Department("European Studies",uniList,students,5,"eur"));
+			departmentsList.add(new Department("Educational & Social Policy",uniList,students,6,"esp"));
+			departmentsList.add(new Department("Music Science & Art",uniList,students,7,"mus"));
 		}
 
 
