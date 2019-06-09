@@ -7,44 +7,42 @@ public class Department implements Serializable{
 	
 	private String name;
 	private ArrayList<University> cooplist;
-	private ArrayList<Student> studentslist;
+	private ArrayList<Student> studentsList;
 	private int numberofdep;
 	private String prefix;
 	
-	public Department(String name, ArrayList<University> cooplist, ArrayList<Student> studentslist,int numberofdep,String prefix) {
+	public Department(String name, ArrayList<University> cooplist, int numberofdep, String prefix) {
 		
 		ArrayList<University> coplist = new ArrayList<>();
-		University auni = new University(name, name, name, name, new ArrayList<>(), false);
+		
 		this.name = name;
-		this.studentslist = studentslist;
 		this.numberofdep = numberofdep;
 		this.prefix = prefix;
 		
-		for(int i=0;i<cooplist.size();i++) {
-			auni = cooplist.get(i);
-			if( auni.getCoop().contains(numberofdep))
-				coplist.add(cooplist.get(i));
+		for(University aUni: cooplist) {
+			if(aUni.getCoop().contains(numberofdep)) {
+				coplist.add(aUni);
+			}
 		}
+		
 		
 		this.cooplist = coplist;
 		
 		
 	}
 	
-	public void sortStudents( ) {
-		
-		
-		
-		
-		
+	
+	public void addNewUser(Student stu) {
+		studentsList.add(stu);
 	}
+	
 	
 	public ArrayList<University> getCooplist() {
 		return cooplist;
 	}
 	
 	public ArrayList<Student> getStudentslist() {
-		return studentslist;
+		return studentsList;
 	}
 	
 	public String getName() {
