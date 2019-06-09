@@ -143,7 +143,7 @@ public class MainFrame extends JFrame{
 			dispose();
 			new InputDataFrame(stud);
 		}
-		
+		else {
 		for(University uni: hm.keySet()) {
 			countriesList.addItem(uni.getName() + "  " + hm.get(uni));
 			unisList.add(uni);
@@ -173,7 +173,7 @@ public class MainFrame extends JFrame{
 		tipsPanel1.add(Box.createRigidArea(new Dimension(200,50)));
 		tipsPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		
-		
+		}
 	}
 	
 	private void setTipsPanel2() {

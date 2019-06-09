@@ -210,6 +210,9 @@ public class InputDataFrame {
 	        		    }
 	        		}
 	        		stud.setLangDegrees(degrees);
+	        		
+	        		CentralRegistry.serializeUsers();
+	        		
 	        		//close window & call next one
 	        		f.dispose();
 		        	new UniversitySelectFrame(stud);

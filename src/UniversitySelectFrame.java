@@ -125,6 +125,7 @@ public class UniversitySelectFrame {
 	        		if (strUni.get(uni3.getSelectedItem().toString())!=null)
 	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
 	        		stud.setScores(scores);
+	        		CentralRegistry.serializeUsers();
 		        	f.dispose();
 		        	
 		        	/*

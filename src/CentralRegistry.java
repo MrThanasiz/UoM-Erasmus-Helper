@@ -11,7 +11,6 @@ public class CentralRegistry
 	private String password;
 		
 	public static boolean initializedList = false;
-	static ArrayList<Student> studentList = new ArrayList<Student>();
 		
 		
 	@SuppressWarnings("unchecked")
@@ -62,14 +61,14 @@ public class CentralRegistry
 	  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
 	  stud.setDepartment(RegisterFrame.getDep());
 	  s.add(stud);
-	  serializeUsers(s);
+	  serializeUsers();
 	  
-	  return stud;
+	  return s.get(s.indexOf(stud));
 	  }
 	 
 
 
-		public static void serializeUsers(ArrayList<Student> s ) {
+		public static void serializeUsers() {
 		     String filename = "student.ser"; 
 		     
 		     // Serialization  

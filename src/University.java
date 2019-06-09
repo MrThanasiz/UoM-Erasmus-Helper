@@ -44,4 +44,8 @@ public class University implements Serializable{
 	public boolean getLangRequired() {
 		return langRequired;
 	}
+	
+	public String toString() {
+		return name;
+	}
 }
