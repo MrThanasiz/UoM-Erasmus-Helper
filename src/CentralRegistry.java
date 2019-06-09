@@ -32,8 +32,7 @@ public class CentralRegistry
 		   // System.out.println("Deserialization worked"); 
 				 
 			initializedList = true;
-			System.out.println(initializedList);
-				 
+			
 		    in.close();
 		    fileIn.close();
 		         

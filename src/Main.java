@@ -23,7 +23,6 @@ public class Main {
 		//strarting frame
 		new HomeFrame();
 		
-		//new RegisterFrame();
 	
 	//	Student stud = new Student("user","cod");
 		//stud.setDepartment(CentralRegistry.getDepartments().get(0));

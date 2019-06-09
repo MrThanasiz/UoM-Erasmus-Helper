@@ -53,7 +53,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static JTextArea password;
 		private static JTextArea id;
 		
-		static String depString;
+		static String depString = "dai";
 		
 		private boolean inputOK = false;
 		
@@ -125,7 +125,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			
 			password = new JTextArea();
-			password.setBorder(BorderFactory.createEtchedBorder());
 			
 			password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 			
@@ -181,7 +180,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 			
 			id = new JTextArea();
-			id.setBorder(BorderFactory.createEtchedBorder());
 			
 			id.setPreferredSize(new Dimension(ID_TEXT_AREA_WIDTH, ID_TEXT_AREA_HEIGHT));
 			
