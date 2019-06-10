@@ -63,11 +63,14 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private boolean inputOK = false;
 		private boolean inputID = false;
 		private boolean inputPassword = false;
+		private boolean inputUsername = false;
 		
 		JComboBox<Department> cmbDepList;
 		JLabel lbltext = new JLabel("dai");
 		
 		private static Department dep;
+		
+		private String username;
 		
 		public  RegisterFrame() {
 			this.setPanel();
@@ -320,10 +323,16 @@ public class RegisterFrame extends JFrame implements ActionListener
 				addWarnMess(wID);
 				inputID = false;
 			}
+			username = depString+id;
+			Student stud = LogRegCheck.checkUsername(username);
+			if(stud != null)
+				inputUsername = false;
+			else 
+				inputUsername = true;
 			repaint();
 			revalidate();
 			
-			if(inputPassword && inputID) {
+			if(inputPassword && inputID && inputUsername) {
 				stud = CentralRegistry.registerNewUser();
 				//set window invisible 
 				dispose();
