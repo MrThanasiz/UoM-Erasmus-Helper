@@ -34,7 +34,7 @@ D'Annunzio University,Chieti,Italy,Italian,true,1
 Free Mediterranean University,Casamassima,Italy,Italian,true,1
 University of Siena,Siena,Italy,Italian,true,1
 Nisantasi University,Istanbul,Turkey,Turkish,false,1,5
-Izmir University of Economics,Izmir,Turkey,Turkish,false,1
+Izmir University of Economics,Izmir,Turkey,Turkish,false,1,2
 Kadir Has University,Istanbul,Turkey,Turkish,false,1
 Ankara University,Ankara,Turkey,Turkish,false,1
 University of Tartu,Tartu,Estonia,Estonian,false,1
@@ -86,8 +86,28 @@ University of Hamburg,Hamburg,Germany,German,true,2
 University of Regensburg,Regensburg,Germany,German,true,2
 University of Bamberg,Bamberg,Germany,German,true,2
 Johannes Gutenberg University Mainz,Mainz,Germany,German,true,2
-Eötvös Loránd University,Budapest,Hungary,Hungarian,true,2
+Eotvos Lorand University,Budapest,Hungary,Hungarian,true,2
 Central European University,Budapest,Hungary,Hungarian,false,2
 University of Pannonia,Veszprem,Hungary,Hungarian,true,2
 University of Social Sciences and Humanities,North Macedonia,Macedonian,true,2
 Jagiellonian University,Krakow,Poland,Polish,true,2
+University of Wroclaw,Wroclaw,Poland,Polish,true,2
+Alexandru Ioan Cuza University,Iasi<Romania,Romanian,true
+Lucian Blaga University,Sibiu,Romania,Romanian,true,2
+Babes-Bolyai University,Cluj-Napoca,Romania,Romanian,false,2
+University of Nis,Nis,Serbia,Serbian,true,2
+Constantine the Philosopher University,Nitra,Slovakia,Slovak,true,2
+University of Ljubljana,Ljubljana,Slovenia,Slovene,true,2
+University of Deusto,Bilbao,Spain,Spanish,false,2
+Bilkent University,Ankara,Turkey,Turkish,false,2
+Bursa Technical University,Bursa,Turkey,Turkish,true,2
+TOBB University of Economics and Technology,Ankara,Turkey,Turkish,false,2
+Bosphorus University,Istanbul,Turkey,Turkish,false,2
+Istanbul Bilgi University,Istanbul,Turkey,Turkish,false,2
+Bahcesehir University,Istanbul,Turkey,Turkish,false,2
+Istanbul Aydın University,Istanbul,Turkey,Turkish,false,2
+Yeditepe University,Istanbul,Turkey,Turkish,false,2
+Marmara University,Istanbul,Turkey,Turkish,false,2
+Kırıkkale University,Kırıkkale,Turkey,Turkish,true,2
+Mimar Sinan Fine Arts University,Findikli,Turkey,Turkish,true,2
+Sabancı University,Istanbul,Turkey,Turkish,false,2
