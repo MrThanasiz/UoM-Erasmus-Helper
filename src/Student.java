@@ -76,18 +76,14 @@ public class Student implements Serializable{
 		return this.langDegrees;
 	}
 	
-	public void setDepartmentForCopy(Department department) {
-		this.department = department;
-	}
-	
 	
 	public void copyTo(Student copy) {
-		copy.setScores(new HashMap<University,Double>(this.getScores()));
-		copy.setDepartmentForCopy(this.getDepartment());
-		copy.setAcademicYear(this.getAcademicYear());
-		copy.setAverageGrade(this.getAverageGrade());
-		copy.setnFailed(this.getnFailed());
-		copy.setLangDegrees(new HashMap<String,Integer>(this.getLangDegrees()));
+		copy.scores = new HashMap<University,Double>(this.getScores());
+		copy.department = this.getDepartment();
+		copy.academicYear = this.getAcademicYear();
+		copy.averageGrade = this.getAverageGrade();
+		copy.nFailed = this.getnFailed();
+		copy.langDegrees = new HashMap<String,Integer>(this.getLangDegrees());
 
 	}
 	

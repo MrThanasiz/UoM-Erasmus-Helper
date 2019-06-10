@@ -164,8 +164,7 @@ public class CentralRegistry
 		
 		public static void assignStudsToDeps() {
 			
-			for(Student student: students) {
+			for(Student student: students)
 				departmentsList.get(departmentsList.indexOf(student.getDepartment())).addNewUser(student);
-			}
 		}
 }
