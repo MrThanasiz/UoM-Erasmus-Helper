@@ -83,6 +83,7 @@ public class SecretariatFrame extends JFrame{
 		this.setSize(WIDTH, HEIGHT);
 		this.setResizable(false);
 		this.setTitle("Secretariat");
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -213,8 +214,10 @@ public class SecretariatFrame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			if(e.getSource().equals(logoutButton))
+			if(e.getSource().equals(logoutButton)) {
+				dispose();
 				new HomeFrame();
+			}
 			else if(e.getSource().equals(exitButton)) {
 				int answer = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (answer == JOptionPane.YES_OPTION)

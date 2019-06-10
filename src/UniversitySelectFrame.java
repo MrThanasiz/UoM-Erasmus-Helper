@@ -37,9 +37,6 @@ public class UniversitySelectFrame {
 	private static final int NB_HEIGHT=HEIGHT*5/100;
 	
 	
-	
-	
-	
 	JFrame f;    
 	UniversitySelectFrame(Student stud){
 		//Frame Options
@@ -140,8 +137,6 @@ public class UniversitySelectFrame {
 	        }
 	    });
 	        
-	    f.setVisible(true);  
-	     
-	               
+	    f.setVisible(true); 
 	}
 }

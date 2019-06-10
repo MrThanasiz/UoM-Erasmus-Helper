@@ -142,11 +142,10 @@ public class MainFrame extends JFrame{
 			new InputDataFrame(stud);
 		}
 		else {
-		for(University uni: hm.keySet()) {
-			universitiesList.addItem(uni.getName() + "  " + hm.get(uni));
-			unisList.add(uni);
-			
-		}
+			for(University uni: hm.keySet()) {
+				universitiesList.addItem(uni.getName() + "  " + hm.get(uni));
+				unisList.add(uni);
+			}
 			
 		
 		
@@ -217,19 +216,11 @@ public class MainFrame extends JFrame{
 		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
 		tipsPanel2.add(tipNative);
 		tipsPanel2.add(Box.createRigidArea(new Dimension(1000,50)));
-		
-		
-		
-		
 	}
-	
-	
 	
 	
 	class ButtonListener implements ActionListener {
 		
-		
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
@@ -265,10 +256,6 @@ public class MainFrame extends JFrame{
 				
 				repaint();
 				revalidate();
-				
-					
-				
-				
 			}
 		}
 	}

@@ -25,10 +25,8 @@ public class Department implements Serializable{
 			}
 		}
 		
-		
 		this.cooplist = coplist;
-		
-		
+		this.studentsList = new ArrayList<>();
 	}
 	
 	

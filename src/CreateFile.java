@@ -15,13 +15,11 @@ public class CreateFile
 		if(f.exists() && !f.isDirectory()) { 
 		    fileExist = true; 
 		}
+		
 		return fileExist;
-		
-		
 	}
 	
 	public void newFile() {
-		
 		
 	      try {
 	         FileOutputStream fileOut = new FileOutputStream( file );
@@ -40,8 +38,4 @@ public class CreateFile
 	public String getFile() {
 		return file;
 	}
-	
-	
-	}
-	
-
+}

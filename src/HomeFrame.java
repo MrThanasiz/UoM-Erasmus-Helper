@@ -38,6 +38,10 @@ public class HomeFrame extends JFrame
 	//messages options
 	private static final int MESSAGE_PANEL_HEIGHT = 15;
 	private static final int MESSAGE_PANEL_WIDTH = 25;
+	//Secretariat Login Details
+	private static final String  SECRUSERNAME = "SecrUser";
+	private static final String  SECRPASSWORD = "SecrPass";
+	
 	
 
 	
@@ -242,16 +246,23 @@ public class HomeFrame extends JFrame
 				
 				CentralRegistry.desirializeUsers();
 				
+				if (username.equals(SECRUSERNAME) && password.equals(SECRPASSWORD)) {
+					dispose();
+					new SecretariatFrame();
+				}
+				
 				Student stud = LogRegCheck.checkUsername(username);
 				
-				System.out.println(stud);
+				//System.out.println(stud);
 				
-				System.out.println(CentralRegistry.getStudents());
+				//System.out.println(CentralRegistry.getStudents());
 				
 				
 				
-				if(stud == null)
-					 HomeFrame.warningMessage();
+				if(stud == null) {
+					if (!(username.equals(SECRUSERNAME) && password.equals(SECRPASSWORD)))
+						 HomeFrame.warningMessage();
+				}
 				 else
 				 {
 					 if (LogRegCheck.checkPassword(stud , password))  {
@@ -279,17 +290,8 @@ public class HomeFrame extends JFrame
 				try {
 				    Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Erasmus_Programme").toURI());
 				} catch (Exception e1) {}
-				
-			}
 			
-		
+			}
 		}
-		
-		
-		
-		
-	
 	}
-	
-	
 }

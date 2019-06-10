@@ -13,7 +13,6 @@ public class LogRegCheck {
 		return null;
 	}
 	
-	
 	public static boolean checkPassword(Student aStudent, String aPassword) {
 		
 			return aStudent.getPassword().equals(aPassword);
