@@ -63,11 +63,14 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private boolean inputOK = false;
 		private boolean inputID = false;
 		private boolean inputPassword = false;
+		private boolean inputUsername = false;
 		
 		JComboBox<Department> cmbDepList;
 		JLabel lbltext = new JLabel("dai");
 		
 		private static Department dep;
+		
+		private String username;
 		
 		public  RegisterFrame() {
 			this.setPanel();
@@ -205,6 +208,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 				    "Error",
 				    JOptionPane.WARNING_MESSAGE);
 		}
+		
+		public void userExistMessage() {
+			JOptionPane.showMessageDialog(panel,
+					"User already exists!" , 
+					"Error",
+					JOptionPane.WARNING_MESSAGE);
+		}
 
 		
 		public static JButton getRegisterButton() {
@@ -320,10 +330,20 @@ public class RegisterFrame extends JFrame implements ActionListener
 				addWarnMess(wID);
 				inputID = false;
 			}
+			
+			username = getDepString()+getID();
+			System.out.println(username);
+			Student stud = LogRegCheck.checkUsername(username);
+			if(stud != null) {
+				inputUsername = false;
+				userExistMessage();
+			}
+			else 
+				inputUsername = true;
 			repaint();
 			revalidate();
 			
-			if(inputPassword && inputID) {
+			if(inputPassword && inputID && inputUsername) {
 				stud = CentralRegistry.registerNewUser();
 				//set window invisible 
 				dispose();

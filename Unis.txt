@@ -1,12 +1,12 @@
-University of Paris 8,Paris,France,French,true,0
+﻿University of Paris 8,Paris,France,French,true,0
 University of Rennes 1,Rennes,France,French,true,0,1
 Reutlingen University,Reutlingen,Germany,German,true,0
-University of Bamberg,Bamberg,Germany,German,true,0
+University of Bamberg,Bamberg,Germany,German,true,0,2,3
 Aalborg University,Aalborg,Denmark,Danish,false,0
-University of Malaga,Malaga,Spain,Spanish,true,0
+University of Malaga,Malaga,Spain,Spanish,true,0,3
 University of Pisa,Pisa,Italy,Italian,false,0
 University of Bologna,Bologna,Italy,Italian,true,0,1
-BA School of Business and Finance,Riga,Latvia,Latvian,false,0
+BA School of Business and Finance,Riga,Latvia,Latvian,false,0,3
 University of Derby,Derby,UK,English,true,0
 University of Twente,Enschede,Netherlands,Dutch,false,0,5
 University of Groningen,Groningen,Netherlands,Dutch,false,0
@@ -17,33 +17,33 @@ Yasar University,Izmir,Turkey,Turkish,false,0
 University of Maribor,Maribor,Slovenia,Slovene,false,0
 University of Coimbra,Coimbra,Portugal,Portuguese,false,0,1
 University of Lodz,Lodz,Poland,Polish,false,1,4,5,6
-University of Cyprus,Nicosia,Cyprus,Greek,false,1,5
-Slovak University of Agriculture,Nitra,Slovakia,Slovak,false,1
+University of Cyprus,Nicosia,Cyprus,Greek,false,1,3,5
+Slovak University of Agriculture,Nitra,Slovakia,Slovak,false,1,3
 Ruhr University Bochum,Bochum,Germany,German,true,1
 Aachen University of Applied Sciences,Aachen,Germany,German,true,1
 Mainz University of Applied Sciences,Mainz,Germany,German,true,1
 Bucharest University of Economic Studies,Bucharest,Romania,Romanian,false,1
 University of Vaasa,Vaasa,Finland,Finnish,false,1,2
-University of Lille,Lille,France,French,true,1
+University of Lille,Lille,France,French,true,1,3
 Louis Pasteur University,Strasbourg,France,French,true,1
 University of Montpellier,Montpellier,France,French,true,1
-University of Reims Champagne-Ardenne,Grand Est,France,French,true,1
+University of Reims Champagne Ardenne,Grand Est,France,French,true,1
 Universite Grenoble Alpes,Grenoble,France,French,true,1
 University of Rzeszow,Rzeszow,Poland,Polish,false,1
 D'Annunzio University,Chieti,Italy,Italian,true,1
-Free Mediterranean University,Casamassima,Italy,Italian,true,1
+Free Mediterranean University,Casamassima,Italy,Italian,true,1,3
 University of Siena,Siena,Italy,Italian,true,1
-Nisantasi University,Istanbul,Turkey,Turkish,false,1,5
+Nisantasi University,Istanbul,Turkey,Turkish,false,1,5,3
 Izmir University of Economics,Izmir,Turkey,Turkish,false,1,2
 Kadir Has University,Istanbul,Turkey,Turkish,false,1
 Ankara University,Ankara,Turkey,Turkish,false,1
 University of Tartu,Tartu,Estonia,Estonian,false,1
-University of Tampere,Tampere,Finland,Finnish,false,4
+University of Tampere,Tampere,Finland,Finnish,false,4,3
 University of Essen,Essen,Germany,German,false,4
 University of Vilnius,Vilnius,Lithuania,Lithuanian,false,4
 Vytautas Magnus University,Kaunas,Lithuania,Lithuanian,false,4
 1 Decembrie 1918 University,Alba Iulia,Romania,Romanian,false,4
-University of Almeria,Almeria,Spain,Spanish,false,4
+University of Almeria,Almeria,Spain,Spanish,false,4,3
 University of Liege,Liege,Belgium,French,true,5
 Saint-Louis University,Brussels,Belgium,French,true,5
 University of Nice Sophia Antipolis,Nice,France,French,true,5
@@ -60,7 +60,7 @@ University of Central Lancashire,Larnaca,Cyprus,Greek,false,5,2
 University of Miskolc,Miskolc,Hungary,Hungarian,false,5
 University of Pecs,Pecs,Hungary,Hungarian,false,5
 University of Warsaw,Warsaw,Poland,Polish,false,5
-Jagiellonian University,Krakow,Poland,Polish,false,5
+Jagiellonian University,Krakow,Poland,Polish,false,5,2
 University of Lisbon,Lisbon,Portugal,Portoguese,false,5
 Istanbul Commerce University,Istanbul,Turkey,Turkish,false,5
 Beykent University,Istanbul,Turkey,Turkish,false,5
@@ -71,7 +71,7 @@ University of Graz,Graz,Austria,German,true,2
 Veliko Tarnovo University,Veliko Tarnovo,Bulgaria,Bulgarian,true,2
 Sofia University,Sofia,Bulgaria,Bulgarian,true,2
 Bulgarian Academy of Sciences,Sofia,Bulgaria,Bulgarian,true,2
-Paisii Hilendarski,Plovdiv,Bulgaria,Bulgarian,true,2
+Plovdiv University Paisii Hilendarski,Plovdiv,Bulgaria,Bulgarian,false,3,2
 Neofit Rilski,Blagoevgrad,Bulgaria,Bulgarian,true,2
 University of Zadar,Zadar,Croatia,Croatian,true,2
 University of Zagreb,Zagreb,Croatia,Croatian,true,2
@@ -84,15 +84,13 @@ University of Bordeaux,Bordeaux,France,French,true,2
 Free University of Berlin,Berlin,Germany,German,true,2
 University of Hamburg,Hamburg,Germany,German,true,2,6
 University of Regensburg,Regensburg,Germany,German,true,2
-University of Bamberg,Bamberg,Germany,German,true,2
 Johannes Gutenberg University Mainz,Mainz,Germany,German,true,2
 Eotvos Lorand University,Budapest,Hungary,Hungarian,true,2
 Central European University,Budapest,Hungary,Hungarian,false,2
 University of Pannonia,Veszprem,Hungary,Hungarian,true,2
 University of Social Sciences and Humanities,skopje,North Macedonia,Macedonian,true,2
-Jagiellonian University,Krakow,Poland,Polish,true,2
 University of Wroclaw,Wroclaw,Poland,Polish,true,2
-Alexandru Ioan Cuza University,Iasi,Romania,Romanian,true,2
+Alexandru Ioan Cuza University,Iasi,Romania,Romania,false,3,2
 Lucian Blaga University,Sibiu,Romania,Romanian,true,2
 Babes Bolyai University,Cluj Napoca,Romania,Romanian,false,2
 University of Nis,Nis,Serbia,Serbian,true,2
@@ -108,7 +106,7 @@ Bahcesehir University,Istanbul,Turkey,Turkish,false,2
 Istanbul Aydın University,Istanbul,Turkey,Turkish,false,2
 Yeditepe University,Istanbul,Turkey,Turkish,false,2
 Marmara University,Istanbul,Turkey,Turkish,false,2
-Kırıkkale University,Kırıkkale,Turkey,Turkish,true,2
+Kirikkale University,Kirikkale,Turkey,Turkish,true,2
 Mimar Sinan Fine Arts University,Findikli,Turkey,Turkish,true,2
 Sabancı University,Istanbul,Turkey,Turkish,false,2
 Padagogische Hochschule Oberosterreich,Linz,Austria,German,false,6
@@ -125,8 +123,23 @@ European University Cyprus,Nicosia,Cyprus,Greek,true,6
 Open University of Cyprus,Nicosia,Cyprus,Greek,false,6
 University of Latvia,Riga,Latvia,English,true,6
 NHL Stenden University of Applied Sciences,Meppel,Netherlands,English,false,6
-Ss Cyril and Methodius University of Skopje,Skopje,North Macedonia,English,faslse,6
+Ss Cyril and Methodius University of Skopje,Skopje,North Macedonia,English,false,6
 Nicolaus Copernicus University in Torun,Torun,Poland,Polish,false,6
 SWPS University of Social Sciences and Humanities,Warszaw,Poland,Polish,false,6
 University of Pitesti,Pitesti,Romania,Romanian,false,6
 Stockholm University,Stockholm,Sweden,Swedish,false,6
+University of Hanover,Hanover,Germany,German,false,3
+Polytechnic Institute of Santarem,Santarem,Portugal,Portoguese,false,3
+Nice IPAG Business School,Nice,France,French,true,3
+Paris IPAG Business School,Paris,France,French,true,3
+JAMK University of Applied Sciences,Jyvaskyla,Finland,Finnish,false,3
+Kuhne Logistics University,Hamburg,Germany,German,false,3
+Linnaeus University,Vaxjo,Sweden,Swedish,false,3
+D. A. Tsenov Academy of Economics,Svishtov,Bulgaria,Bulgarian,false,3
+Tallinn University of Technology,Tallinn,Estonia,Estonian,false,3
+University of Pavia,Pavia,Italy,Italian,false,3
+University of Sassari,Sassari,Italy,Italian,true,3
+University of Urbino,Urbino,Italy,Italian,false,3
+University of Duisburg Essen,Essen,Germany,German,true,3
+Cyprus University of Technology,Limassol,Cyprus,Greek,false,3
+Windesheim University of Applied Sciences,Zwolle,Netherlands,Dutch,false,3
