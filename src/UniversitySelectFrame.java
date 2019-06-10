@@ -79,9 +79,9 @@ public class UniversitySelectFrame {
 	    
 	    
 	    //University+Score Drop-downs
-	    final JComboBox<String> uni1=new JComboBox<String>();    
-	    final JComboBox<String> uni2=new JComboBox<String>(); 
-	    final JComboBox<String> uni3=new JComboBox<String>(); 
+	    final JComboBox<String> uni1=new JComboBox<>();    
+	    final JComboBox<String> uni2=new JComboBox<>(); 
+	    final JComboBox<String> uni3=new JComboBox<>(); 
 	    uni1.setBounds(C_X,C1_Y,C_WIDTH,C_HEIGHT); 
 	    uni2.setBounds(C_X,C2_Y,C_WIDTH,C_HEIGHT);
 	    uni3.setBounds(C_X,C3_Y,C_WIDTH,C_HEIGHT);
@@ -89,14 +89,14 @@ public class UniversitySelectFrame {
 	    uni2.addItem("---");
 	    uni3.addItem("---");
 	    ArrayList<University> unis=stud.getDepartment().getCooplist();
-	    HashMap<String,University> strUni=new HashMap<String,University>();
+	    HashMap<String,University> strUni=new HashMap<>();
+	    String scrStr ="   Score:";
 	    for (University i:unis) {
-			uni1.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
-			uni2.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
-			uni3.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
-			strUni.put(i.getName()   +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)), i);
-			//debug
-			//System.out.println(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
+			uni1.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
+			uni2.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
+			uni3.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
+			strUni.put(i.getName()   +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i), i);
+			
 		}
 	    f.add(uni1);
 	    f.add(uni2);
@@ -107,9 +107,9 @@ public class UniversitySelectFrame {
 	    f.add(buttonNext);
 	    buttonNext.addActionListener(new ActionListener() {  
 	        public void actionPerformed(ActionEvent e) {
-	        	HashMap<University, Double> scores= new HashMap<University, Double>();
+	        	HashMap<University, Double> scores= new HashMap<>();
 	        	//if no uni selected shows error msg
-	        	if(uni1.getSelectedItem().toString()=="---"&&uni2.getSelectedItem().toString()=="---"&&uni3.getSelectedItem().toString()=="---") {
+	        	if(uni1.getSelectedItem().toString().equals("---")&&uni2.getSelectedItem().toString().equals("---")&&uni3.getSelectedItem().toString().equals("---")) {
 	        		f.add(err);
 	        		f.revalidate();
 		        	f.repaint();
@@ -125,12 +125,6 @@ public class UniversitySelectFrame {
 	        		CentralRegistry.serializeUsers();
 		        	f.dispose();
 		        	
-		        	/*
-		        	for(University uni:stud.getScores().keySet()) {
-		        		System.out.println(Tips.getTipLEnglish(stud, uni));
-		        		System.out.println(Tips.getTipLNative(stud, uni));
-		        	}
-		        	*/
 		        	
 		        	new MainFrame(stud);
 	        	}

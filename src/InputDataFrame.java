@@ -107,17 +107,17 @@ public class InputDataFrame {
 	    final JTextField failedField=new JTextField("");   
 	    failedField.setBounds(D_X,D2_Y,D_WIDTH,D_HEIGHT);
 	    f.add(failedField);	
-	    String years[]={"1","2","3","4","5+"};
-	    final JComboBox<String> yearField=new JComboBox<String>(years);    
+	    String[] years={"1","2","3","4","5+"};
+	    final JComboBox<String> yearField=new JComboBox<>(years);    
 	    yearField.setBounds(D_X,D3_Y,D_WIDTH,D_HEIGHT); 
 	    f.add(yearField);
 	    
 	    
 	    //Language drop-down
 	    //---,English,Not In List - Other
-	    ArrayList<University> CoopUnis=stud.getDepartment().getCooplist();
-	    Set<String> langsHashSet = new HashSet<String>();
-	    for (University uni:CoopUnis) {
+	    ArrayList<University> coopUnis=stud.getDepartment().getCooplist();
+	    Set<String> langsHashSet = new HashSet<>();
+	    for (University uni:coopUnis) {
 	    	langsHashSet.add(uni.getLanguage());
 	    }
 	    langsHashSet.add("---");
@@ -125,38 +125,38 @@ public class InputDataFrame {
 	    langsHashSet.add("|Unlisted Language #1");
 	    langsHashSet.add("|Unlisted Language #2");
 	    langsHashSet.add("|Unlisted Language #3");
-	    Set<String> langsTreeSet = new TreeSet<String>(langsHashSet);
+	    Set<String> langsTreeSet = new TreeSet<>(langsHashSet);
 	    String[] languages = langsTreeSet.toArray(new String[langsTreeSet.size()]);
-	    final JComboBox<String> langField=new JComboBox<String>(languages);    
+	    final JComboBox<String> langField=new JComboBox<>(languages);    
 	    langField.setBounds(D_X,D4_Y,D_WIDTH,D_HEIGHT); 
 	    f.add(langField);
-	    final JComboBox<String> langField2=new JComboBox<String>(languages);    
+	    final JComboBox<String> langField2=new JComboBox<>(languages);    
 	    langField2.setBounds(D_X,D42_Y,D_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> langField3=new JComboBox<String>(languages);    
+	    final JComboBox<String> langField3=new JComboBox<>(languages);    
 	    langField3.setBounds(D_X,D43_Y,D_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> langField4=new JComboBox<String>(languages);    
+	    final JComboBox<String> langField4=new JComboBox<>(languages);    
 	    langField4.setBounds(D_X,D44_Y,D_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> langField5=new JComboBox<String>(languages);    
+	    final JComboBox<String> langField5=new JComboBox<>(languages);    
 	    langField5.setBounds(D_X,D45_Y,D_WIDTH,D_HEIGHT); 
 	    
 	    //Language degree level drop-down
-	    String level[]= {"---","B1","B2","C1","C2"};
-	    final JComboBox<String> levelField=new JComboBox<String>(level);    
+	    String[] level= {"---","B1","B2","C1","C2"};
+	    final JComboBox<String> levelField=new JComboBox<>(level);    
 	    levelField.setBounds(D4L_X,D4_Y,D4L_WIDTH,D_HEIGHT); 
 	    f.add(levelField);
-	    final JComboBox<String> levelField2=new JComboBox<String>(level);    
+	    final JComboBox<String> levelField2=new JComboBox<>(level);    
 	    levelField2.setBounds(D4L_X,D42_Y,D4L_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> levelField3=new JComboBox<String>(level);    
+	    final JComboBox<String> levelField3=new JComboBox<>(level);    
 	    levelField3.setBounds(D4L_X,D43_Y,D4L_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> levelField4=new JComboBox<String>(level);    
+	    final JComboBox<String> levelField4=new JComboBox<>(level);    
 	    levelField4.setBounds(D4L_X,D44_Y,D4L_WIDTH,D_HEIGHT); 
 	    
-	    final JComboBox<String> levelField5=new JComboBox<String>(level);    
+	    final JComboBox<String> levelField5=new JComboBox<>(level);    
 	    levelField5.setBounds(D4L_X,D45_Y,D4L_WIDTH,D_HEIGHT); 
 	    
 
@@ -207,20 +207,20 @@ public class InputDataFrame {
 	        		stud.setnFailed(Integer.parseInt(failedField.getText()));
 	        		int year=Integer.parseInt(yearField.getSelectedItem().toString().replace("+",""));
 	        		stud.setAcademicYear(year);
-	        		String clangs[]= {langField.getSelectedItem().toString(),langField2.getSelectedItem().toString(),
+	        		String[] clangs= {langField.getSelectedItem().toString(),langField2.getSelectedItem().toString(),
 	        				langField3.getSelectedItem().toString(),langField4.getSelectedItem().toString(),langField5.getSelectedItem().toString()};
-	        		String clevels[]= {levelField.getSelectedItem().toString(),levelField2.getSelectedItem().toString(),
+	        		String[] clevels= {levelField.getSelectedItem().toString(),levelField2.getSelectedItem().toString(),
 	        				levelField3.getSelectedItem().toString(),levelField4.getSelectedItem().toString(),levelField5.getSelectedItem().toString()};
-	        		HashMap<String, Integer> degrees = new HashMap<String, Integer>();
+	        		HashMap<String, Integer> degrees = new HashMap<>();
 	        		for( int i = 0; i < 5; i++)
 	        		{
-	        		    if(clangs[i]!="---"&&clevels[i]!="---") {
+	        		    if(!clangs[i].equals("---")&&!clevels[i].equals("---")) {
 	        		    	int lvl=4;
-	        		    	if (clevels[i]=="B1")
+	        		    	if (clevels[i].equals("B1"))
 	        		    		lvl=1;
-	        		    	else if (clevels[i]=="B2")
+	        		    	else if (clevels[i].equals("B2"))
 	        		    		lvl=2;
-	        		    	else if (clevels[i]=="C1")
+	        		    	else if (clevels[i].equals("C1"))
 	        		    		lvl=3;
 	        		    	degrees.put(clangs[i], lvl);
 	        		    }

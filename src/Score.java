@@ -17,7 +17,7 @@ public class Score {
 	
 	public static double CalculateYear(Student stud) {
 		int year=stud.getAcademicYear();
-		double yearScore=0;
+		double yearScore;
 		switch(year) {
 		case 2:
 			yearScore=7.5;
@@ -27,6 +27,9 @@ public class Score {
 			break;
 		case 4:
 			yearScore=5;
+			break;
+		default:
+			yearScore=0;
 			break;
 		}
 		return Math.floor((WG2*yearScore)*10000)/10000;
@@ -109,7 +112,7 @@ public class Score {
 			int otrCount=0;
 			int level=0;
 			for (Entry<String, Integer> entry : degrees.entrySet()) {
-			    if(entry.getKey()!="English" && entry.getKey()!=ntvLang) {
+			    if(!entry.getKey().equals("English") && !entry.getKey().equals(ntvLang)) {
 			    	level=entry.getValue();
 			    	otrCount++;
 			    	switch (level) {
@@ -150,8 +153,8 @@ public class Score {
 	}
 	
 	public static double CalculateTotal(Student stud, University uni) {
-		double Final=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
-		return Math.floor((Final)*10000)/10000;
+		double scrFinal=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
+		return Math.floor((scrFinal)*10000)/10000;
 		
 	}
 }
