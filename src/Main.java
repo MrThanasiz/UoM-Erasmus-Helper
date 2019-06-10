@@ -20,17 +20,8 @@ public class Main {
 		
 		//initialize list
 		CentralRegistry.desirializeUsers();
-		System.out.println(CentralRegistry.getStudents());
 		//Starting frame
 		new HomeFrame();
-		
-		
-		
-	//	Student stud = new Student("user","cod");
-	//stud.setDepartment(CentralRegistry.getDepartments().get(0));
-	//	new InputDataFrame(stud);
-		
-	//new SecretariatFrame();
 	}
 	
 	

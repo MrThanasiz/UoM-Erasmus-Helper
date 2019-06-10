@@ -24,9 +24,6 @@ public class CentralRegistry
 		         
 		   
 		    students = (ArrayList<Student>)in.readObject();
-		      
-		        
-		   // System.out.println("Deserialization worked"); 
 				 
 			initializedList = true;
 			

@@ -32,8 +32,6 @@ public class CreateFile
 	         out.close();
 	         fileOut.close();
 	         
-	         //System.out.printf("Serialized data is saved in student.ser");
-	         
 	      } catch (IOException i) {
 	         i.printStackTrace();
 	      }
