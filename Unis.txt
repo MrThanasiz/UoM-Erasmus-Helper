@@ -108,6 +108,6 @@ Bahcesehir University,Istanbul,Turkey,Turkish,false,2
 Istanbul Aydın University,Istanbul,Turkey,Turkish,false,2
 Yeditepe University,Istanbul,Turkey,Turkish,false,2
 Marmara University,Istanbul,Turkey,Turkish,false,2
-Kırıkkale University,Kırıkkale,Turkey,Turkish,true,2
+Kirikkale University,Kirikkale,Turkey,Turkish,true,2
 Mimar Sinan Fine Arts University,Findikli,Turkey,Turkish,true,2
 Sabancı University,Istanbul,Turkey,Turkish,false,2
