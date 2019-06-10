@@ -21,8 +21,8 @@ public class CentralRegistry
 				
 			FileInputStream fileIn = new FileInputStream(cf.getFile());
 		    ObjectInputStream in = new ObjectInputStream(fileIn);
-		         
-		   
+		    
+		    
 		    students = (ArrayList<Student>)in.readObject();
 				 
 			initializedList = true;
@@ -30,64 +30,55 @@ public class CentralRegistry
 		    in.close();
 		    fileIn.close();
 		         
-		    } catch (IOException i) {
+		} catch (IOException i) {
+			
 		    System.out.println("IOException is caught"); 
 		    i.printStackTrace();
 		    return;
 		         
-		    } catch (ClassNotFoundException c) {
+		} catch (ClassNotFoundException c) {
 		    	  
 		    System.out.println("Student class not found");
 		    c.printStackTrace();
 		    return;
-		      }
-				
-			   
-				
-			}
-		
-
-
+		}
+	}
 	
 	  public static Student registerNewUser() {
 	  
-	  desirializeUsers(); 
-	  ArrayList<Student> s = getStudents();
-	  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
-	  stud.setDepartment(RegisterFrame.getDep());
-	  s.add(stud);
-	  serializeUsers();
-	  
-	  return s.get(s.indexOf(stud));
+		  desirializeUsers(); 
+		  ArrayList<Student> s = getStudents();
+		  Student stud = new Student( RegisterFrame.getUsername() , RegisterFrame.getPasswordRF());
+		  stud.setDepartment(RegisterFrame.getDep());
+		  s.add(stud);
+		  serializeUsers();
+		  
+		  return s.get(s.indexOf(stud));
 	  }
 	 
 
 
 		public static void serializeUsers() {
+			
 		     String filename = "student.ser"; 
 		     
 		     // Serialization  
-		        try
-		        {    
-		            //Saving of student in a file 
-		            FileOutputStream file = new FileOutputStream(filename); 
-		            ObjectOutputStream out = new ObjectOutputStream(file); 
+		     try{    
+		    	 //Saving of student in a file 
+		         FileOutputStream file = new FileOutputStream(filename); 
+		         ObjectOutputStream out = new ObjectOutputStream(file); 
 		              
-		            // Method for serialization of Student s
-		            out.writeObject(students); 
+		         // Method for serialization of Student s
+		         out.writeObject(students); 
 		              
-		            out.close(); 
-		            file.close(); 
+		         out.close(); 
+		         file.close(); 
 		              
-		           // System.out.println("Serialization worked"); 
-		           
-		  
-		        } 
-		          
-		        catch(IOException ex) 
-		        { 
-		            System.out.println("IOException is caught"); 
-		        } 
+		         // System.out.println("Serialization worked"); 
+		     }catch(IOException ex) {
+		    	 
+		        System.out.println("IOException is caught"); 
+		     } 
 		  
 			
 			
@@ -99,7 +90,7 @@ public class CentralRegistry
 			
 		}
 		
-		public static ArrayList<University> createUnis() {
+		private static ArrayList<University> createUnis() {
 			
 			String name;
 			String town;
@@ -171,7 +162,10 @@ public class CentralRegistry
 			return departmentsList;
 		}
 		
-	}
-	
-
-
+		public static void assignStudsToDeps() {
+			
+			for(Student student: students) {
+				departmentsList.get(departmentsList.indexOf(student.getDepartment())).addNewUser(student);
+			}
+		}
+}

@@ -29,6 +29,7 @@ public class Student implements Serializable{
 	
 	public void setDepartment(Department department) {
 		this.department = department;
+		CentralRegistry.getDepartments().get(CentralRegistry.getDepartments().indexOf(department)).addNewUser(this);
 	}
 
 	public void setAcademicYear(int academicYear) {

@@ -197,9 +197,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			IDFieldPanel.add(lbltext);
 			IDFieldPanel.add(id);
 			
-			
 		}
-		
 		
 		public void warningMessage() {
 			JOptionPane.showMessageDialog(panel,
@@ -287,8 +285,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		public void actionPerformed(ActionEvent e) {
 			
-			
-			
 			if(e.getSource().equals(cmbDepList)) {
 				Department cb = (Department) cmbDepList.getSelectedItem();
 				for(Department i : CentralRegistry.getDepartments()  )
@@ -334,18 +330,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 				//set visible next window
 				new InputDataFrame(stud);
 			}
-			 
-		 }
-		 
-					
+		 }		
 	}
-		
-		
 }
-		
-		
-		
-
-
-
-

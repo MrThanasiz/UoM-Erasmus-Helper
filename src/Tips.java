@@ -107,7 +107,8 @@ public class Tips {
 				tscore=tscore+Score.CalculateLNative(stips,uni);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "Whoops, looks like you don't have an English Degree, "
-					+ "getting one (B1) would increase your English score by: " + diffscore + " to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ "getting one (B1) would increase your English score by: "
+					+ diffscore + " to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 		
 	}
@@ -126,7 +127,8 @@ public class Tips {
 				double tscore=Score.CalculateLNative(stips,uni);
 				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 				return "There's room for improvement, if you get the next "+ ntvLang +" degree, "
-						+ "your Native Language score will increase by: " + diffscore+" to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+						+ "your Native Language score will increase by: " + diffscore+" to -> "
+						+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 			}
 			else {
 				return "You've got a (C2) Proficiency, your Native Language score can't get any better! :)";
@@ -138,7 +140,8 @@ public class Tips {
 			double tscore=Score.CalculateLNative(stips,uni);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "Whoops, looks like you don't have an "+ ntvLang +" Degree, "
-					+ "getting one (B1) would increase your Native Language score by: " + diffscore + " to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ "getting one (B1) would increase your Native Language score by: "
+					+ diffscore + " to -> "+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 	}
 	

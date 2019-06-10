@@ -290,17 +290,8 @@ public class HomeFrame extends JFrame
 				try {
 				    Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Erasmus_Programme").toURI());
 				} catch (Exception e1) {}
-				
-			}
 			
-		
+			}
 		}
-		
-		
-		
-		
-	
 	}
-	
-	
 }
