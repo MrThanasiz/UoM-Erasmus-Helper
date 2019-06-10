@@ -110,8 +110,8 @@ Kirikkale University,Kirikkale,Turkey,Turkish,true,2
 Mimar Sinan Fine Arts University,Findikli,Turkey,Turkish,true,2
 Sabancı University,Istanbul,Turkey,Turkish,false,2
 Padagogische Hochschule Oberosterreich,Linz,Austria,German,false,6
-Private Padagogische Hochschule der Diozese Linz,Linz,German,false,6
-Jean Monnet University,Saint Etienne,France,true,6
+Private Padagogische Hochschule der Diozese Linz,Linz,Austria,German,false,6
+Jean Monnet University,Saint Etienne,France,French,true,6
 Ludwig Maximilian University of Munich,Munchen,Germany,German,false,6
 University of Bremen,Bremen,Germany,German,true,6
 University of Oldenburg,Oldenburg,Germany,German,false,6
