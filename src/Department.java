@@ -8,7 +8,6 @@ public class Department implements Serializable{
 	private String name;
 	private ArrayList<University> cooplist;
 	private ArrayList<Student> studentsList;
-	private int numberofdep;
 	private String prefix;
 	
 	public Department(String name, ArrayList<University> cooplist, int numberofdep, String prefix) {
@@ -16,7 +15,6 @@ public class Department implements Serializable{
 		ArrayList<University> coplist = new ArrayList<>();
 		
 		this.name = name;
-		this.numberofdep = numberofdep;
 		this.prefix = prefix;
 		
 		for(University aUni: cooplist) {
@@ -31,7 +29,7 @@ public class Department implements Serializable{
 	
 	
 	public void addNewUser(Student stu) {
-		studentsList.add(stu);
+		this.studentsList.add(stu);
 	}
 	
 	

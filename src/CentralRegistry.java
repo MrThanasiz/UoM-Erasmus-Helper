@@ -163,8 +163,12 @@ public class CentralRegistry
 		}
 		
 		public static void assignStudsToDeps() {
-			
-			for(Student student: students)
-				departmentsList.get(departmentsList.indexOf(student.getDepartment())).addNewUser(student);
+			for(Student student: students) {
+				for(int i = 0; i < departmentsList.size(); i++)
+					if(departmentsList.get(i).getName().equals(student.getDepartment().getName())) {
+						departmentsList.remove(i);
+						departmentsList.add(i, student.getDepartment());
+					}
+			}
 		}
 }

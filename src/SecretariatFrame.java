@@ -244,9 +244,9 @@ public class SecretariatFrame extends JFrame{
 		public void valueChanged(ListSelectionEvent e) {
 
 			if(e.getSource().equals(departmentList)) {
-
 				selectedDepartment.setText(departmentList.getSelectedValue().getName());
-				for(Student student:departmentList.getSelectedValue().getStudentslist())
+				studentInfoModel.removeAllElements();
+				for(Student student: departmentList.getSelectedValue().getStudentslist())
 					studentInfoModel.addElement(student);
 			}
 			else if(e.getSource().equals(studentInfoList))
