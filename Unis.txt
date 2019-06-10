@@ -77,9 +77,9 @@ University of Zadar,Zadar,Croatia,Croatian,true,2
 University of Zagreb,Zagreb,Croatia,Croatian,true,2
 Charles University,Prague,Czech Republic,Czech,true,2
 Palacky University,Olomouc,Czech Republic,Czech,true,2
-University of Franche-Comte,Besancon,France,French,true,2
-University Clermont Auvergne,Clermont-Ferrand,France,French,true,2
-Aix-Marseille University,Marseille,France,French,true,2
+University of Franche Comte,Besancon,France,French,true,2
+University Clermont Auvergne,Clermont Ferrand,France,French,true,2
+Aix Marseille University,Marseille,France,French,true,2
 University of Bordeaux,Bordeaux,France,French,true,2
 Free University of Berlin,Berlin,Germany,German,true,2
 University of Hamburg,Hamburg,Germany,German,true,2
@@ -89,12 +89,12 @@ Johannes Gutenberg University Mainz,Mainz,Germany,German,true,2
 Eotvos Lorand University,Budapest,Hungary,Hungarian,true,2
 Central European University,Budapest,Hungary,Hungarian,false,2
 University of Pannonia,Veszprem,Hungary,Hungarian,true,2
-University of Social Sciences and Humanities,North Macedonia,Macedonian,true,2
+University of Social Sciences and Humanities,skopje,North Macedonia,Macedonian,true,2
 Jagiellonian University,Krakow,Poland,Polish,true,2
 University of Wroclaw,Wroclaw,Poland,Polish,true,2
-Alexandru Ioan Cuza University,Iasi<Romania,Romanian,true
+Alexandru Ioan Cuza University,Iasi,Romania,Romanian,true,2
 Lucian Blaga University,Sibiu,Romania,Romanian,true,2
-Babes-Bolyai University,Cluj-Napoca,Romania,Romanian,false,2
+Babes Bolyai University,Cluj Napoca,Romania,Romanian,false,2
 University of Nis,Nis,Serbia,Serbian,true,2
 Constantine the Philosopher University,Nitra,Slovakia,Slovak,true,2
 University of Ljubljana,Ljubljana,Slovenia,Slovene,true,2
