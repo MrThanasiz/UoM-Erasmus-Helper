@@ -330,7 +330,9 @@ public class RegisterFrame extends JFrame implements ActionListener
 				addWarnMess(wID);
 				inputID = false;
 			}
-			username = depString+id;
+			
+			username = getDepString()+getID();
+			System.out.println(username);
 			Student stud = LogRegCheck.checkUsername(username);
 			if(stud != null) {
 				inputUsername = false;
