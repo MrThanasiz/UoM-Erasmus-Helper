@@ -2,7 +2,11 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.event.*;
-import java.util.HashMap;    
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;    
 public class InputDataFrame { 
 	//Frame Options
 	private static final int WIDTH=1280;
@@ -110,7 +114,19 @@ public class InputDataFrame {
 	    
 	    
 	    //Language drop-down
-	    String languages[]= {"---","English","French","German","Spanish","Other"};
+	    //---,English,Not In List - Other
+	    ArrayList<University> CoopUnis=stud.getDepartment().getCooplist();
+	    Set<String> langsHashSet = new HashSet<String>();
+	    for (University uni:CoopUnis) {
+	    	langsHashSet.add(uni.getLanguage());
+	    }
+	    langsHashSet.add("---");
+	    langsHashSet.add("English");
+	    langsHashSet.add("|Unlisted Language #1");
+	    langsHashSet.add("|Unlisted Language #2");
+	    langsHashSet.add("|Unlisted Language #3");
+	    Set<String> langsTreeSet = new TreeSet<String>(langsHashSet);
+	    String[] languages = langsTreeSet.toArray(new String[langsTreeSet.size()]);
 	    final JComboBox<String> langField=new JComboBox<String>(languages);    
 	    langField.setBounds(D_X,D4_Y,D_WIDTH,D_HEIGHT); 
 	    f.add(langField);

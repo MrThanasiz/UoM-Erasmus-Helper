@@ -18,13 +18,13 @@ public class UniversitySelectFrame {
 	private static final int ERR_Y = HEIGHT*15/100;
 	
 	//University 1,2,3 Labels
-	private static final int CL_X=WIDTH*39/100;
+	private static final int CL_X=WIDTH*32/100;
 	private static final int CL1_Y=HEIGHT*25/100;
 	private static final int CL2_Y=HEIGHT*45/100;
 	private static final int CL3_Y=HEIGHT*65/100;
 	//University+Score Drop-downs
-	private static final int C_X=WIDTH*40/100;
-	private static final int C_WIDTH=WIDTH*25/100;
+	private static final int C_X=WIDTH*35/100;
+	private static final int C_WIDTH=WIDTH*30/100;
 	private static final int C_HEIGHT=HEIGHT*5/100;
 	private static final int C1_Y=HEIGHT*10/100;
 	private static final int C2_Y=HEIGHT*20/100;
@@ -91,10 +91,10 @@ public class UniversitySelectFrame {
 	    ArrayList<University> unis=stud.getDepartment().getCooplist();
 	    HashMap<String,University> strUni=new HashMap<String,University>();
 	    for (University i:unis) {
-			uni1.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
-			uni2.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
-			uni3.addItem(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
-			strUni.put(i.getName() +  "   " +String.valueOf(Score.CalculateTotal(stud, i)), i);
+			uni1.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
+			uni2.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
+			uni3.addItem(i.getName() +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)));
+			strUni.put(i.getName()   +" ("+i.getCountry()+")"+"   Score:" + String.valueOf(Score.CalculateTotal(stud, i)), i);
 			//debug
 			//System.out.println(i.getName() +"   " +String.valueOf(Score.CalculateTotal(stud, i)));
 		}

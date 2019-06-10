@@ -67,6 +67,10 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(Student stud) {
 		this.stud=stud;
+		if (stud.getAcademicYear()==0) {
+			dispose();
+			new InputDataFrame(stud);
+		}
 		this.setPanel();
 		
 		this.setContentPane(panel);
@@ -134,12 +138,10 @@ public class MainFrame extends JFrame{
 	private void setTipsPanel1() {
 		
 		universitiesList = new JComboBox<String>();
-
 		hm = stud.getScores();
-		
 		if(hm == null) {
 			dispose();
-			new InputDataFrame(stud);
+			new UniversitySelectFrame(stud);
 		}
 		else {
 			for(University uni: hm.keySet()) {
