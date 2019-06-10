@@ -208,6 +208,13 @@ public class RegisterFrame extends JFrame implements ActionListener
 				    "Error",
 				    JOptionPane.WARNING_MESSAGE);
 		}
+		
+		public void userExistMessage() {
+			JOptionPane.showMessageDialog(panel,
+					"User already exists!" , 
+					"Error",
+					JOptionPane.WARNING_MESSAGE);
+		}
 
 		
 		public static JButton getRegisterButton() {
@@ -325,8 +332,10 @@ public class RegisterFrame extends JFrame implements ActionListener
 			}
 			username = depString+id;
 			Student stud = LogRegCheck.checkUsername(username);
-			if(stud != null)
+			if(stud != null) {
 				inputUsername = false;
+				userExistMessage();
+			}
 			else 
 				inputUsername = true;
 			repaint();
