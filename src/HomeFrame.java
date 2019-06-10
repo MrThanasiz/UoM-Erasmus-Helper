@@ -288,7 +288,7 @@ public class HomeFrame extends JFrame
 			else if (e.getSource() == HomeFrame.getInfoButton()) {
 				
 				try {
-				    Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Erasmus_Programme").toURI());
+				    Desktop.getDesktop().browse(new URL("https://www.uom.gr/erasmus-office#undefined1").toURI());
 				} catch (Exception e1) {}
 			
 			}

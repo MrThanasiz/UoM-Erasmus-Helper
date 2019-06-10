@@ -332,7 +332,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 			}
 			
 			username = getDepString()+getID();
-			System.out.println(username);
 			Student stud = LogRegCheck.checkUsername(username);
 			if(stud != null) {
 				inputUsername = false;
