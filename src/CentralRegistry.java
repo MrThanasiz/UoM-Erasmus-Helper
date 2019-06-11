@@ -109,9 +109,7 @@ public class CentralRegistry
 				int i = 0;
 				while(lineSc.hasNext()) {
 					i++;
-					System.out.println(i);
 					line = lineSc.nextLine();
-					System.out.println(line);
 					@SuppressWarnings("resource")
 					Scanner sc = new Scanner(line);
 					sc.useDelimiter(",");

@@ -1,4 +1,4 @@
-﻿University of Paris 8,Paris,France,French,true,0
+﻿ University of Paris 8,Paris,France,French,true,0
 University of Rennes 1,Rennes,France,French,true,0,1
 Reutlingen University,Reutlingen,Germany,German,true,0
 University of Bamberg,Bamberg,Germany,German,true,0,2,3
@@ -156,19 +156,19 @@ Hochschule fur Musik Theater und Medien Hannover,Hannover,Germany,English,false,
 Musikhochschule Lubeck,Lubeck,Germany,English,false,7
 Hochschule fur Musik Franz Liszt Weimar,Weimar,Germany,English,false,7
 Conservatori Superior de Musica de Castello "Salvador Segui",Castello,Spain,English,false,7
-Conservatorio Superior “Victoria Eugenia”,Granada,Spain,English,false,7
+Victoria Eugenia,Granada,Spain,English,false,7
 Real Conservatorio Superior de Musica de Madrid,Madrid,Spain,English,false,7
-Musikene,San Sebastian,Spain,English,false,7
-Conservatorio Superior de Musica de Aragon (CSMA),Zaragoza,Spain,English,false,7
+Musikene ,San Sebastian,Spain,English,false,7
+Conservatorio Superior de Musica de Aragon CSMA,Zaragoza,Spain,English,false,7
 Conservatorio Superior de Musica de Vigo,Vigo,Spain,English,false,7
 Conservatorio Di Musica Di Adria,Adria,Italy,English,false,7
 Conservatorio Antonio Vivaldi,Alessandria,Italy,English,false,7
-Istituto Superiore Di Studi Musicali ’V. Bellini’,Catania,Italy,English,false,7
+Istituto Superiore Di Studi Musicali V. Bellini,Catania,Italy,English,false,7
 Conservatorio Cesare Pollini,Padova,Italy,English,false,7
 Conservatorio Arrigo Boito,Parma,Italy,English,false,7
 University of Pavia,Pavia,Italy,English,false,7
 Conservatorio Santa Cecilia,Rome,Italy,English,false,7
-Conservatorio di Musica “F.Venezze”,Rovigo,Italy,English,false,7
+Conservatorio di Musica F.Venezze,Rovigo,Italy,English,false,7
 Academy of Music University of Zagreb,Zagreb,Croatia,English,false,7
 University of Nicosia,Nicosia,Cyprus,English,false,7
 European University Cyprus,Nicosia,Cyprus,English,false,7
