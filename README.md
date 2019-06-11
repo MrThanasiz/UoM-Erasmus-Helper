@@ -29,16 +29,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 Any **Windows**/**Linux**/**MacOs** machine running **JavaSE-1.8** & Higher.
 
-The program can run on any OS,, however testing was mostly done in Windows, so there might be unexplored bugs with other operating systems.
+The program can run on any OS, however testing was mostly done in Windows, so there might be unexplored bugs with other operating systems.
 
 
-### Installing
+## Installing
+
+### Build Instructions
 
 1.  Download the project.
 2.  Import it into Eclipse.
 3.  Build & Run.
 
-**Make sure you have the Unis.txt file in the project folder.**
+### Pre-Built Instructions
+
+1. Download the latest version archive (.zip) from the [releases](https://github.com/MrThanasiz/UoM-Erasmus-Helper/releases) tab.
+2. Extract the folder from the zip.
+3. **Make sure the .jar executable is in the same folder as Unis.txt.**
+4. Run the .jar file.
 
 
 ## Built With
