@@ -1,14 +1,11 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
-import java.util.ArrayList;
 
 
-
+@SuppressWarnings("serial")
 public class RegisterFrame extends JFrame implements ActionListener
 {
 	//Frame Options 

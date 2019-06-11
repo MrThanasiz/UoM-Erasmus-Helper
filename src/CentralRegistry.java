@@ -106,9 +106,7 @@ public class CentralRegistry
 				Scanner lineSc = new Scanner(f);
 				
 				
-				int i = 0;
 				while(lineSc.hasNext()) {
-					i++;
 					line = lineSc.nextLine();
 					@SuppressWarnings("resource")
 					Scanner sc = new Scanner(line);
