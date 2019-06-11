@@ -1,6 +1,12 @@
+
 # UoM Erasmus Helper
 
 This program was created to help UoM(University of Macedonia) students, find the best university for the Erasmus Programme and to make the Secretariat's Office's life a bit easier providing them with an easy view of all the student's selections.
+
+## Features
+* Score calculation screen to help students calculate their UoM score for the partner universities.
+* Tips Screen to help students improve their score & their chance of acceptance.
+* Secretariat Screen to help the university pick the best students.
 
 ## Screenshots
 
@@ -28,9 +34,9 @@ The program can run on any OS,, however testing was mostly done in Windows, so t
 
 ### Installing
 
-1. Download the project.
-2. Import it into Eclipse.
-3. Build & Run.
+1.  Download the project.
+2.  Import it into Eclipse.
+3.  Build & Run.
 
 **Make sure you have the Unis.txt file in the project folder.**
 
