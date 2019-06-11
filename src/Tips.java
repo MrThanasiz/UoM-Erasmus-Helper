@@ -85,28 +85,27 @@ public class Tips {
 		stud.copyTo(stips);
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
 		double cscore=Score.calculateLEnglish(stips);
-		if (degrees.containsKey("English")) {
-			if (degrees.get("English")==4)
-				return "You've got a (C2) Proficiency, your English score can't get any better! :)";
-			else {
-				degrees.put("English",degrees.get("English")+1);
-				stips.setLangDegrees(degrees);
-				double tscore=Score.calculateLEnglish(stips);
-				if (uni.getLanguage().equals("English"))
-					tscore=tscore+Score.calculateLNative(stips,uni);
-				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
-				return "There's room for improvement, if you get the next English degree, "
-						+ "your English Language score will increase by: " + diffscore +TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
-			}
-			
+		double cscore2=Score.calculateLNative(stud, uni);
+		if (degrees.containsKey("English")&&degrees.get("English")==4) {
+			return "You've got a (C2) Proficiency, your English score can't get any better! :)";
 		}
+		if(degrees.containsKey("English")){
+				degrees.put("English",degrees.get("English")+1);
+			}
 		else {
 			degrees.put("English", 1);
-			stips.setLangDegrees(degrees);
-			double tscore=Score.calculateLEnglish(stips);
-			if (uni.getLanguage().equals("English"))
-				tscore=tscore+Score.calculateLNative(stips,uni);
-			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
+		}
+		stips.setLangDegrees(degrees);
+		double tscore=Score.calculateLEnglish(stips);
+		double tscore2=cscore;
+		if (uni.getLanguage().equals("English"))
+			tscore2=Score.calculateLNative(stips,uni);
+		double diffscore=Math.floor((tscore-cscore+tscore2-cscore2)*10000)/10000;
+		if(degrees.containsKey("English")) {
+			return "There's room for improvement, if you get the next English degree, "
+					+ "your English Language score will increase by: " + diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
+		}
+		else {
 			return "Whoops, looks like you don't have an English Degree, "
 					+ "getting one (B1) would increase your English score by: "
 					+ diffscore +TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
