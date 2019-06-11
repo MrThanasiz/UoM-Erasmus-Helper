@@ -3,6 +3,13 @@
 
 This program was created to help UoM(University of Macedonia) students, find the best university for the Erasmus Programme and to make the Secretariat's Office's life a bit easier providing them with an easy view of all the student's selections.
 
+### Quick-Start Steps:
+
+1. Download the latest version archive (.zip) from the [releases](https://github.com/MrThanasiz/UoM-Erasmus-Helper/releases) tab.
+2. Extract the folder from the zip.
+3. **Make sure the .jar executable & Unis.txt are in the same folder.**
+4. Run the .jar file.
+
 ## Features
 * Score calculation screen to help students calculate their UoM score for the partner universities.
 * Tips Screen to help students improve their score & their chance of acceptance.
@@ -44,7 +51,7 @@ The program can run on any OS, however testing was mostly done in Windows, so th
 
 1. Download the latest version archive (.zip) from the [releases](https://github.com/MrThanasiz/UoM-Erasmus-Helper/releases) tab.
 2. Extract the folder from the zip.
-3. **Make sure the .jar executable is in the same folder as Unis.txt.**
+3. **Make sure the .jar executable & Unis.txt are in the same folder.**
 4. Run the .jar file.
 
 
