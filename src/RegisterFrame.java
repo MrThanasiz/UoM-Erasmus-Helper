@@ -35,14 +35,12 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private static final int ID_TEXT_AREA_WIDTH = ID_PANEL_WIDTH;
 		
 		private JPanel panel;
-		private JPanel RegisterButtonPanel;
-		private JPanel PasswordFieldPanel;
+		private JPanel registerButtonPanel;
+		private JPanel passwordFieldPanel;
 		private JPanel IDFieldPanel;
-		private JPanel PasswordLabelAbovePanel;
-		private JPanel PasswordLabelBelowPanel;
-		private JPanel DepLabelAbove;
-		private JPanel DepLabelAbovePanel;
-		private JPanel IDLabelAbove;
+		private JPanel passwordLabelAbovePanel;
+		private JPanel passwordLabelBelowPanel;
+		private JPanel depLabelAbovePanel;
 		private JPanel IDLabelAbovePanel;
 		private JPanel comboBoxPanel;
 		private JPanel wrongPassPanel;
@@ -51,7 +49,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 		private JLabel wPass;
 		private JLabel wID;
 	
-		private Student stud ; 
 		
 		private static JButton registerButton;
 		
@@ -60,7 +57,6 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		static String depString = "dai";
 		
-		private boolean inputOK = false;
 		private boolean inputID = false;
 		private boolean inputPassword = false;
 		private boolean inputUsername = false;
@@ -95,27 +91,27 @@ public class RegisterFrame extends JFrame implements ActionListener
 			//used box layout
 			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 			
-			this.DepLabelAbove();
-			this.ComboBoxDep();
+			this.depLabelAbove();
+			this.comboBoxDep();
 			this.IDLabelAbove();
 			this.setIDTextPanel();
-			this.WrongID();
+			this.wrongID();
 			this.passwordLabelAbove();
 			this.setPasswordTextPanel();
-			this.WrongPass();
+			this.wrongPass();
 			this.passwordLabelBelow();
 			this.setRegisterButtonPanel();
 			
-			panel.add(DepLabelAbovePanel);
+			panel.add(depLabelAbovePanel);
 			panel.add(comboBoxPanel);
 			panel.add(IDLabelAbovePanel);
 			panel.add(IDFieldPanel);
 			panel.add(wrongIDPanel);
-			panel.add(PasswordLabelAbovePanel);
-			panel.add(PasswordFieldPanel);
+			panel.add(passwordLabelAbovePanel);
+			panel.add(passwordFieldPanel);
 			panel.add(wrongPassPanel);
-			panel.add(PasswordLabelBelowPanel);
-			panel.add(RegisterButtonPanel);
+			panel.add(passwordLabelBelowPanel);
+			panel.add(registerButtonPanel);
 			
 			
 			
@@ -123,19 +119,19 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		public void setRegisterButtonPanel() {
 			
-			RegisterButtonPanel = new JPanel();
-			RegisterButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
+			registerButtonPanel = new JPanel();
+			registerButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
 		
 			registerButton = new JButton("Register");
 			registerButton.addActionListener(this);		
 			
-			RegisterButtonPanel.add(registerButton);		
+			registerButtonPanel.add(registerButton);		
 		}
 		
 		public void setPasswordTextPanel() {
 			
-			PasswordFieldPanel = new JPanel();
-			PasswordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
+			passwordFieldPanel = new JPanel();
+			passwordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
 			
 			
 			password = new JTextArea();
@@ -143,37 +139,37 @@ public class RegisterFrame extends JFrame implements ActionListener
 			password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 			
 		
-			PasswordFieldPanel.add(password);
+			passwordFieldPanel.add(password);
 			
 			
 		}
 		
 		public void passwordLabelAbove() {
-			PasswordLabelAbovePanel = new JPanel();
-			PasswordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+			passwordLabelAbovePanel = new JPanel();
+			passwordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
 			JLabel labela = new JLabel("Enter a password :");
 			
-			PasswordLabelAbovePanel.add(labela);
+			passwordLabelAbovePanel.add(labela);
 			
 		}
 		public void passwordLabelBelow() {
-			PasswordLabelBelowPanel = new JPanel();
-			PasswordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+			passwordLabelBelowPanel = new JPanel();
+			passwordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
 			JLabel labela = new JLabel("Remember , password must contain at least 8 characters , including one lower case and one upper case!");
 			
-			PasswordLabelBelowPanel.add(labela);
+			passwordLabelBelowPanel.add(labela);
 			
 		}
 		
-		public void DepLabelAbove() {
-			DepLabelAbovePanel = new JPanel();
-			DepLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		public void depLabelAbove() {
+			depLabelAbovePanel = new JPanel();
+			depLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
 			JLabel labela = new JLabel("Select a department :");
 			
-			DepLabelAbovePanel.add(labela);
+			depLabelAbovePanel.add(labela);
 			
 		}
 		
@@ -248,7 +244,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			return dep;
 		}
 		
-		public void ComboBoxDep() {
+		public void comboBoxDep() {
 			comboBoxPanel = new JPanel();
 			comboBoxPanel.setPreferredSize(new Dimension(CB_PANEL_HEIGHT , CB_PANEL_WIDTH));
 			cmbDepList = new JComboBox<>();
@@ -262,7 +258,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			
 		}
 		
-		public void WrongID() {
+		public void wrongID() {
 			wrongIDPanel = new JPanel();
 			wrongIDPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
@@ -271,7 +267,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 	    	wID.setForeground(Color.red);
 		}
 		
-		public void WrongPass() {
+		public void wrongPass() {
 			wrongPassPanel = new JPanel();
 			wrongPassPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			

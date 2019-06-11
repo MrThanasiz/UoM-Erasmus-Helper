@@ -92,10 +92,10 @@ public class UniversitySelectFrame {
 	    HashMap<String,University> strUni=new HashMap<>();
 	    String scrStr ="   Score:";
 	    for (University i:unis) {
-			uni1.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
-			uni2.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
-			uni3.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i));
-			strUni.put(i.getName()   +" ("+i.getCountry()+")"+scrStr + Score.CalculateTotal(stud, i), i);
+			uni1.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.calculateTotal(stud, i));
+			uni2.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.calculateTotal(stud, i));
+			uni3.addItem(i.getName() +" ("+i.getCountry()+")"+scrStr + Score.calculateTotal(stud, i));
+			strUni.put(i.getName()   +" ("+i.getCountry()+")"+scrStr + Score.calculateTotal(stud, i), i);
 			
 		}
 	    f.add(uni1);
@@ -116,11 +116,11 @@ public class UniversitySelectFrame {
 	        	}
 	        	else {
 	        		if (strUni.get(uni1.getSelectedItem().toString())!=null)
-	        			scores.put(strUni.get(uni1.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni1.getSelectedItem().toString())));
+	        			scores.put(strUni.get(uni1.getSelectedItem().toString()), Score.calculateTotal(stud,strUni.get(uni1.getSelectedItem().toString())));
 	        		if (strUni.get(uni2.getSelectedItem().toString())!=null)
-	        			scores.put(strUni.get(uni2.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni2.getSelectedItem().toString())));
+	        			scores.put(strUni.get(uni2.getSelectedItem().toString()), Score.calculateTotal(stud,strUni.get(uni2.getSelectedItem().toString())));
 	        		if (strUni.get(uni3.getSelectedItem().toString())!=null)
-	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.CalculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
+	        			scores.put(strUni.get(uni3.getSelectedItem().toString()), Score.calculateTotal(stud,strUni.get(uni3.getSelectedItem().toString())));
 	        		stud.setScores(scores);
 	        		CentralRegistry.serializeUsers();
 		        	f.dispose();

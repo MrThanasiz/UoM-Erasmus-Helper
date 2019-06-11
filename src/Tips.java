@@ -7,17 +7,17 @@ public class Tips {
 	public static String getTipGrade(Student stud,University uni) {
 		stud.copyTo(stips);
 		stips.setAverageGrade(stips.getAverageGrade()+0.5);
-		double cscore=Score.CalculateGrade(stud);
-		double tscore=Score.CalculateGrade(stips);
+		double cscore=Score.calculateGrade(stud);
+		double tscore=Score.calculateGrade(stips);
 		double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 		return "If you improve your average by 0.5, "
-				+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+				+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 	}
 	
 	public static String getTipFailed(Student stud,University uni) {
 		stud.copyTo(stips);
 		int cfailed=stud.getnFailed();
-		double cscore = Score.CalculateFailed(stud);
+		double cscore = Score.calculateFailed(stud);
 		if (cfailed<=3) {
 			return "That's great, you have the maximum score in this category!";
 		}
@@ -42,10 +42,10 @@ public class Tips {
 			}
 			
 			stips.setnFailed(prevc);
-			double tscore = Score.CalculateFailed(stips);
+			double tscore = Score.calculateFailed(stips);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "You can do better! If you manage to have only "+ prevc +" failed classes by "
-					+ "September, "+ SCRUPSTR + diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ "September, "+ SCRUPSTR + diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 		
 		
@@ -54,23 +54,23 @@ public class Tips {
 	public static String getTipYear(Student stud,University uni) {
 		stud.copyTo(stips);
 		int cyear=stud.getAcademicYear();
-		double cscore = Score.CalculateYear(stud);
+		double cscore = Score.calculateYear(stud);
 		stips.setAcademicYear(cyear+1);
-		double tscore = Score.CalculateYear(stips);
+		double tscore = Score.calculateYear(stips);
 		double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 		switch (cyear) {
 		case 1:
 			return "It's better to wait till next year, "
-					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		case 2:
 			return "It's a good point to apply, however next year "
-					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		case 3:
 			return "It's the perfect moment to apply, next year "
-					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		case 4:
 			return "It's better to apply now, next year "
-					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ SCRUPSTR +diffscore+TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		default:
 			return "You're a bit old, your score stays the same from now on. :)";
 		}
@@ -84,39 +84,39 @@ public class Tips {
 	public static String getTipLEnglish(Student stud,University uni) {
 		stud.copyTo(stips);
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
-		double cscore=Score.CalculateLEnglish(stips);
+		double cscore=Score.calculateLEnglish(stips);
 		if (degrees.containsKey("English")) {
 			if (degrees.get("English")==4)
 				return "You've got a (C2) Proficiency, your English score can't get any better! :)";
 			else {
 				degrees.put("English",degrees.get("English")+1);
 				stips.setLangDegrees(degrees);
-				double tscore=Score.CalculateLEnglish(stips);
+				double tscore=Score.calculateLEnglish(stips);
 				if (uni.getLanguage().equals("English"))
-					tscore=tscore+Score.CalculateLNative(stips,uni);
+					tscore=tscore+Score.calculateLNative(stips,uni);
 				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 				return "There's room for improvement, if you get the next English degree, "
-						+ "your English Language score will increase by: " + diffscore +TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+						+ "your English Language score will increase by: " + diffscore +TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 			}
 			
 		}
 		else {
 			degrees.put("English", 1);
 			stips.setLangDegrees(degrees);
-			double tscore=Score.CalculateLEnglish(stips);
+			double tscore=Score.calculateLEnglish(stips);
 			if (uni.getLanguage().equals("English"))
-				tscore=tscore+Score.CalculateLNative(stips,uni);
+				tscore=tscore+Score.calculateLNative(stips,uni);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "Whoops, looks like you don't have an English Degree, "
 					+ "getting one (B1) would increase your English score by: "
-					+ diffscore +TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ diffscore +TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 		
 	}
 	public static String getTipLNative(Student stud, University uni) {
 		stud.copyTo(stips);
 		HashMap<String, Integer> degrees=stips.getLangDegrees();
-		double cscore=Score.CalculateLNative(stips,uni);
+		double cscore=Score.calculateLNative(stips,uni);
 		String ntvLang=uni.getLanguage();
 		if (ntvLang.equals("English")) {
 			return "";
@@ -125,11 +125,11 @@ public class Tips {
 			if (degrees.get(ntvLang)<=3) {
 				degrees.put(ntvLang,degrees.get(ntvLang)+1);
 				stips.setLangDegrees(degrees);
-				double tscore=Score.CalculateLNative(stips,uni);
+				double tscore=Score.calculateLNative(stips,uni);
 				double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 				return "There's room for improvement, if you get the next "+ ntvLang +" degree, "
 						+ "your Native Language score will increase by: " + diffscore+TOSTR
-						+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+						+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 			}
 			else {
 				return "You've got a (C2) Proficiency, your Native Language score can't get any better! :)";
@@ -138,11 +138,11 @@ public class Tips {
 		else {
 			degrees.put(ntvLang, 1);
 			stips.setLangDegrees(degrees);
-			double tscore=Score.CalculateLNative(stips,uni);
+			double tscore=Score.calculateLNative(stips,uni);
 			double diffscore=Math.floor((tscore-cscore)*10000)/10000;
 			return "Whoops, looks like you don't have an "+ ntvLang +" Degree, "
 					+ "getting one (B1) would increase your Native Language score by: "
-					+ diffscore + TOSTR+Math.floor((Score.CalculateTotal(stud, uni)+diffscore)*10000)/10000;
+					+ diffscore + TOSTR+Math.floor((Score.calculateTotal(stud, uni)+diffscore)*10000)/10000;
 		}
 	}
 	

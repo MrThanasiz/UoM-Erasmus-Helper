@@ -10,12 +10,12 @@ public class Score {
 	private static final double WL2 = 0.5;		//Destination Language Degree Sub-Weight
 	private static final double WL3 = 0.1;		//Average of Other Degrees Sub-Weight
 	
-	public static double CalculateGrade(Student stud) {
+	public static double calculateGrade(Student stud) {
 		return Math.floor((WG1*stud.getAverageGrade())*10000)/10000;
 		
 	}
 	
-	public static double CalculateYear(Student stud) {
+	public static double calculateYear(Student stud) {
 		int year=stud.getAcademicYear();
 		double yearScore;
 		switch(year) {
@@ -36,7 +36,7 @@ public class Score {
 		
 	}
 	
-	public static double CalculateFailed(Student stud) {
+	public static double calculateFailed(Student stud) {
 		int failed=stud.getnFailed();
 		double failedScore=0;
 		if (failed<=3)
@@ -52,7 +52,7 @@ public class Score {
 	}
 	
 	
-	public static double CalculateLEnglish(Student stud) {
+	public static double calculateLEnglish(Student stud) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
 		double engScore=0;
 		if(degrees.containsKey("English")) {
@@ -71,13 +71,16 @@ public class Score {
 			case 4:
 				engScore=10;
 				break;
+			default:
+				System.out.println("Degree level out of bounds");
+				break;
 			}
 		}
 		return Math.floor((WG4*WL1*engScore)*10000)/10000;
 		
 	}
 	
-	public static double CalculateLNative(Student stud, University uni) {
+	public static double calculateLNative(Student stud, University uni) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
 		double ntvScore=0;
 		String ntvLang=uni.getLanguage();
@@ -97,6 +100,9 @@ public class Score {
 			case 4:
 				ntvScore=10;
 				break;
+			default:
+				System.out.println("Degree level out of bounds");
+				break;
 			}
 		}
 		return Math.floor((WG4*WL2*ntvScore)*10000)/10000;
@@ -104,7 +110,7 @@ public class Score {
 	}
 	
 	
-	public static double CalculateLOther(Student stud, University uni) {
+	public static double calculateLOther(Student stud, University uni) {
 		HashMap<String, Integer> degrees=stud.getLangDegrees();
 		double otrScore=0;
 		if (!degrees.isEmpty()) {
@@ -128,6 +134,9 @@ public class Score {
 					case 4:
 						otrScore+=10;
 						break;
+					default:
+						System.out.println("Degree level out of bounds");
+						break;
 					}
 			    }
 			    if(otrCount>0) {
@@ -143,17 +152,17 @@ public class Score {
 		
 	}
 	
-	public static double CalculateLanguage(Student stud, University uni) {
-		double engScore=CalculateLEnglish(stud);
-		double ntvScore=CalculateLNative(stud,uni);
-		double otrScore=CalculateLOther(stud,uni);
+	public static double calculateLanguage(Student stud, University uni) {
+		double engScore=calculateLEnglish(stud);
+		double ntvScore=calculateLNative(stud,uni);
+		double otrScore=calculateLOther(stud,uni);
 		double langScore=engScore+ntvScore+otrScore;
 		return Math.floor((langScore)*10000)/10000;
 		
 	}
 	
-	public static double CalculateTotal(Student stud, University uni) {
-		double scrFinal=CalculateGrade(stud)+CalculateYear(stud)+CalculateFailed(stud)+CalculateLanguage(stud,uni);
+	public static double calculateTotal(Student stud, University uni) {
+		double scrFinal=calculateGrade(stud)+calculateYear(stud)+calculateFailed(stud)+calculateLanguage(stud,uni);
 		return Math.floor((scrFinal)*10000)/10000;
 		
 	}

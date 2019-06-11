@@ -47,13 +47,13 @@ public class HomeFrame extends JFrame
 	
 	private JPanel panel;
 	private static JPanel panelStatic;
-	private JPanel LoginButtonPanel;
-	private JPanel RegisterButtonPanel;
-	private JPanel InfoButtonPanel;
-	private JPanel UsernameFieldPanel;
-	private JPanel PasswordFieldPanel;
-	private JPanel PasswordLabelAbovePanel;
-	private JPanel UsernameLabelAbovePanel;
+	private JPanel loginButtonPanel;
+	private JPanel registerButtonPanel;
+	private JPanel infoButtonPanel;
+	private JPanel usernameFieldPanel;
+	private JPanel passwordFieldPanel;
+	private JPanel passwordLabelAbovePanel;
+	private JPanel usernameLabelAbovePanel;
 	
 	
 	
@@ -99,13 +99,13 @@ public class HomeFrame extends JFrame
 		this.setInfoButtonPanel();
 		
 		//add elements to panel
-		panel.add(UsernameLabelAbovePanel);
-		panel.add(UsernameFieldPanel);
-		panel.add(PasswordLabelAbovePanel);
-		panel.add(PasswordFieldPanel);
-		panel.add(LoginButtonPanel);
-		panel.add(RegisterButtonPanel);
-		panel.add(InfoButtonPanel);
+		panel.add(usernameLabelAbovePanel);
+		panel.add(usernameFieldPanel);
+		panel.add(passwordLabelAbovePanel);
+		panel.add(passwordFieldPanel);
+		panel.add(loginButtonPanel);
+		panel.add(registerButtonPanel);
+		panel.add(infoButtonPanel);
 		
 		//button is pressed
 		loginButton.addActionListener(new Action());
@@ -117,53 +117,53 @@ public class HomeFrame extends JFrame
 	
 	public void setLoginButtonPanel() {
 		
-		LoginButtonPanel = new JPanel();
-		LoginButtonPanel.setPreferredSize(new Dimension(LOGIN_PANEL_WIDTH, LOGIN_PANEL_HEIGHT));
+		loginButtonPanel = new JPanel();
+		loginButtonPanel.setPreferredSize(new Dimension(LOGIN_PANEL_WIDTH, LOGIN_PANEL_HEIGHT));
 		
 		loginButton = new JButton("Login");
 				
-		LoginButtonPanel.add(loginButton);
+		loginButtonPanel.add(loginButton);
 	}
 	
 	public void setRegisterButtonPanel() {
 		
-		RegisterButtonPanel = new JPanel();
-		RegisterButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
+		registerButtonPanel = new JPanel();
+		registerButtonPanel.setPreferredSize(new Dimension(REGISTER_PANEL_WIDTH, REGISTER_PANEL_HEIGHT));
 	
 		registerButton = new JButton("Register");
 				
-		RegisterButtonPanel.add(registerButton);		
+		registerButtonPanel.add(registerButton);		
 	}
 	public void setInfoButtonPanel() {
 		
-		InfoButtonPanel = new JPanel();
-		InfoButtonPanel.setPreferredSize(new Dimension(INFO_PANEL_WIDTH, INFO_PANEL_HEIGHT));
+		infoButtonPanel = new JPanel();
+		infoButtonPanel.setPreferredSize(new Dimension(INFO_PANEL_WIDTH, INFO_PANEL_HEIGHT));
 		
 		infoButton = new JButton("What is Erasmus?");
 		infoButton.setBounds(250,250,INFO_BUTTON_PANEL_WIDTH,INFO_BUTTON_PANEL_HEIGHT);
 		
-		InfoButtonPanel.add(infoButton);
+		infoButtonPanel.add(infoButton);
 				
 		
 	}
 	
 	public void setUsernameTextPanel() {
 		
-		UsernameFieldPanel = new JPanel();
-		UsernameFieldPanel.setPreferredSize(new Dimension(USERNAME_PANEL_WIDTH , USERNAME_PANEL_HEIGHT));
+		usernameFieldPanel = new JPanel();
+		usernameFieldPanel.setPreferredSize(new Dimension(USERNAME_PANEL_WIDTH , USERNAME_PANEL_HEIGHT));
 		
 		username = new JTextArea();
 		username.setPreferredSize(new Dimension(USERNAME_TEXT_AREA_WIDTH, USERNAME_TEXT_AREA_HEIGHT));
 		
-		UsernameFieldPanel.add(username);
+		usernameFieldPanel.add(username);
 	
 	}
 	
 	
 	public void setPasswordTextPanel() {
 		
-		PasswordFieldPanel = new JPanel();
-		PasswordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
+		passwordFieldPanel = new JPanel();
+		passwordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
 		
 		
 		password = new JTextArea();
@@ -171,28 +171,28 @@ public class HomeFrame extends JFrame
 		password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 		
 	
-		PasswordFieldPanel.add(password);
+		passwordFieldPanel.add(password);
 		
 		
 	}
 	
 	public void usernameLablelAbove() {
-		UsernameLabelAbovePanel = new JPanel();
-		UsernameLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		usernameLabelAbovePanel = new JPanel();
+		usernameLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 		
 		JLabel labela = new JLabel("Enter a username :");
 		
-		UsernameLabelAbovePanel.add(labela);
+		usernameLabelAbovePanel.add(labela);
 		
 	}
 	
 	public void passwordLabelAbove() {
-		PasswordLabelAbovePanel = new JPanel();
-		PasswordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
+		passwordLabelAbovePanel = new JPanel();
+		passwordLabelAbovePanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 		
 		JLabel labela = new JLabel("Enter your password :");
 		
-		PasswordLabelAbovePanel.add(labela);
+		passwordLabelAbovePanel.add(labela);
 		
 	}
 	
@@ -289,7 +289,9 @@ public class HomeFrame extends JFrame
 				
 				try {
 				    Desktop.getDesktop().browse(new URL("https://www.uom.gr/erasmus-office#undefined1").toURI());
-				} catch (Exception e1) {}
+				} catch (Exception e1) {
+					
+				}
 			
 			}
 		}

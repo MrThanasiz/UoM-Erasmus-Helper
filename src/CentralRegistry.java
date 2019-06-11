@@ -34,13 +34,11 @@ public class CentralRegistry
 			
 		    System.out.println("IOException is caught"); 
 		    i.printStackTrace();
-		    return;
 		         
 		} catch (ClassNotFoundException c) {
 		    	  
 		    System.out.println("Student class not found");
 		    c.printStackTrace();
-		    return;
 		}
 	}
 	

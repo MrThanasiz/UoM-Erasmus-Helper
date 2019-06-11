@@ -137,7 +137,7 @@ public class MainFrame extends JFrame{
 	
 	private void setTipsPanel1() {
 		
-		universitiesList = new JComboBox<String>();
+		universitiesList = new JComboBox<>();
 		hm = stud.getScores();
 		if(hm == null) {
 			dispose();
