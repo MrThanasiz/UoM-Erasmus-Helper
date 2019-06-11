@@ -103,7 +103,7 @@ TOBB University of Economics and Technology,Ankara,Turkey,Turkish,false,2
 Bosphorus University,Istanbul,Turkey,Turkish,false,2
 Istanbul Bilgi University,Istanbul,Turkey,Turkish,false,2
 Bahcesehir University,Istanbul,Turkey,Turkish,false,2
-Istanbul Aydın University,Istanbul,Turkey,Turkish,false,2
+Istanbul Aydin University,Istanbul,Turkey,Turkish,false,2
 Yeditepe University,Istanbul,Turkey,Turkish,false,2
 Marmara University,Istanbul,Turkey,Turkish,false,2
 Kirikkale University,Kirikkale,Turkey,Turkish,true,2
@@ -143,3 +143,49 @@ University of Urbino,Urbino,Italy,Italian,false,3
 University of Duisburg Essen,Essen,Germany,German,true,3
 Cyprus University of Technology,Limassol,Cyprus,Greek,false,3
 Windesheim University of Applied Sciences,Zwolle,Netherlands,Dutch,false,3
+The University of Music and Performing Arts Vienna,Vienna,Austria,English,false,7
+Erasmushogeschool Brussel,Brussels,Belgium,English,false,7
+LUCA School of Arts,Brussels,Belgium,English,false,7
+Academy of Music Dance and Fine Arts Plovdin,Plovdin,Bulgaria,English,false,7
+National Academy of Music,Sofia,Bulgaria,English,false,7
+Hochschule fur Musik Detmold,Detmold,Germany,English,false,7
+Robert Schumann Hochschule,Dusseldorf,Germany,English,false,7
+Folkwang University of the Arts,Essen,Germany,English,false,7
+Martin Luther University of Halle Wittenberg,Halle Wittenberg,Germany,English,false,7
+Hochschule fur Musik Theater und Medien Hannover,Hannover,Germany,English,false,7
+Musikhochschule Lubeck,Lubeck,Germany,English,false,7
+Hochschule fur Musik Franz Liszt Weimar,Weimar,Germany,English,false,7
+Conservatori Superior de Musica de Castello "Salvador Segui",Castello,Spain,English,false,7
+Conservatorio Superior “Victoria Eugenia”,Granada,Spain,English,false,7
+Real Conservatorio Superior de Musica de Madrid,Madrid,Spain,English,false,7
+Musikene,San Sebastian,Spain,English,false,7
+Conservatorio Superior de Musica de Aragon (CSMA),Zaragoza,Spain,English,false,7
+Conservatorio Superior de Musica de Vigo,Vigo,Spain,English,false,7
+Conservatorio Di Musica Di Adria,Adria,Italy,English,false,7
+Conservatorio Antonio Vivaldi,Alessandria,Italy,English,false,7
+Istituto Superiore Di Studi Musicali ’V. Bellini’,Catania,Italy,English,false,7
+Conservatorio Cesare Pollini,Padova,Italy,English,false,7
+Conservatorio Arrigo Boito,Parma,Italy,English,false,7
+University of Pavia,Pavia,Italy,English,false,7
+Conservatorio Santa Cecilia,Rome,Italy,English,false,7
+Conservatorio di Musica “F.Venezze”,Rovigo,Italy,English,false,7
+Academy of Music University of Zagreb,Zagreb,Croatia,English,false,7
+University of Nicosia,Nicosia,Cyprus,English,false,7
+European University Cyprus,Nicosia,Cyprus,English,false,7
+ArtEZ University of Arts,Arnhem Enschede,Netherlands,English,false,7
+Zuyd University of Applied Sciences,Maastricht,Netherlands,English,false,7
+Codarts University of the Arts,Rotterdam,Netherlands,English,false,7
+Szechenyi Istvan University,Gyor,Hungart,English,false,7
+Karol Szymanowski Academy of Music,Katowise,Poland,English,false,7
+Instituto Politecnico de Castelo Branco,Castelo Branco,Portogal,English,false,7
+Academy of Arts in Banska Bystrica,Banska Bystrica,Slovakia,English,false,7
+Malmo Academy of Music,Malmo,Sweden,English,false,7
+University of Gothenburg Academy of Music and Drama,Gothenburg,Sweden,English,false,7
+Hacettepe University Ankara State Conservatory,Ankara,Turkey,English,false,7
+Istanbul Technical University,Istanbul,Turkey,English,false,7
+Yildiz Technical University,Istanbul,Turkey,English,false,7
+Ege University Turkish Music State Conservatory,Izmir,Turkey,English,false,7
+Yasar University,Izmir,Turkey,English,false,7
+Metropolia University of Applied Sciences,Helsinki,Finland,English,false,7
+Sibelius Academy,Helsinki,Finland,English,false,7
+Turku University of Applied Sciences,Turku,Finland,English,false,7
