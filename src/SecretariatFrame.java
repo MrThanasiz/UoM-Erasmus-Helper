@@ -46,7 +46,7 @@ public class SecretariatFrame extends JFrame{
 	private static final int STUD_INFO_LIST_WIDTH = DET_PANEL_WIDTH*3/5;
 	private static final int STUD_INFO_LIST_HEIGHT = DET_PANEL_HEIGHT*2/5;
 	private static final int STUD_DET_TEXT_AREA_WIDTH = DET_PANEL_WIDTH*4/5;
-	private static final int STUD_DET_TEXT_AREA_HEIGHT = DET_PANEL_HEIGHT*1/10;
+	private static final int STUD_DET_TEXT_AREA_HEIGHT = DET_PANEL_HEIGHT*3/20;
 	
 	
 	private JPanel panel;

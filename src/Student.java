@@ -12,6 +12,7 @@ public class Student implements Serializable{
 	private int nFailed;
 	private Department department;
 	private HashMap<String, Integer> langDegrees;
+	private HashMap<Integer, String> degreeLevels;
 	private HashMap<University, Double> scores;
 
 	public HashMap<University, Double> getScores() {
@@ -25,6 +26,11 @@ public class Student implements Serializable{
 	public Student(String username, String password) {
 		this.username = username;
 		this.password = password;
+		degreeLevels = new HashMap<>();
+		degreeLevels.put(1, "B1");
+		degreeLevels.put(2, "B2");
+		degreeLevels.put(3, "C1");
+		degreeLevels.put(4, "C2");
 	}
 	
 	public void setDepartment(Department department) {
@@ -90,21 +96,34 @@ public class Student implements Serializable{
 	
 	public String toString() {
 		
+		return "Student ID: " + username + "    Year: " + academicYear
+				+ "    Average Grade: " + averageGrade + "    Failed classes: " + nFailed;
+	}
+	
+	public String getDetails() {
+		
 		String str;
 		
 		str = username;
+		
+		if(!langDegrees.isEmpty())
+			for(String degree: langDegrees.keySet()) {
+				str += "   " + degree + ": ";
+				str += degreeLevels.get(langDegrees.get(degree));
+			}
+		else
+			str += "    No degrees";
+		
+		str += "\n";
+		
 		if(scores != null)
 			for(University university: scores.keySet()) {
-				str += "   " + university.toString() + "   ";
-				str += scores.get(university).toString();
+				str += "\n" + university.toString() + "    ";
+				str += "Score: " + scores.get(university).toString();
 			}
 		else
 			str += "   No Universities chosen!";
 		
 		return str;
-	}
-	
-	public String getDetails() {
-		return "kati";
 	}	
 }
