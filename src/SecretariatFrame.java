@@ -5,7 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -245,13 +244,16 @@ public class SecretariatFrame extends JFrame{
 
 			if(e.getSource().equals(departmentList)) {
 				selectedDepartment.setText(departmentList.getSelectedValue().getName());
-				studentInfoModel.removeAllElements();
+				studentInfoModel.clear();
 				for(Student student: departmentList.getSelectedValue().getStudentslist())
 					studentInfoModel.addElement(student);
 			}
 			else if(e.getSource().equals(studentInfoList))
-				studentDetailsTextArea.setText(studentInfoList.getSelectedValue().getDetails());
+				try {
+					studentDetailsTextArea.setText(studentInfoList.getSelectedValue().getDetails());
+				}catch(NullPointerException ex) {
+					studentDetailsTextArea.setText("");
+				}
 		}
-		
 	}
 }
