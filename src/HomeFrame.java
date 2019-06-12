@@ -60,8 +60,8 @@ public class HomeFrame extends JFrame
 	private static JButton registerButton;
 	private static JButton infoButton;
 	
-	private static JTextArea username;
-	private static JTextArea password;
+	private static JTextField username;
+	private static JPasswordField password;
 	
 	public HomeFrame() {
 		this.setPanel();
@@ -151,7 +151,7 @@ public class HomeFrame extends JFrame
 		usernameFieldPanel = new JPanel();
 		usernameFieldPanel.setPreferredSize(new Dimension(USERNAME_PANEL_WIDTH , USERNAME_PANEL_HEIGHT));
 		
-		username = new JTextArea();
+		username = new JTextField();
 		username.setPreferredSize(new Dimension(USERNAME_TEXT_AREA_WIDTH, USERNAME_TEXT_AREA_HEIGHT));
 		
 		usernameFieldPanel.add(username);
@@ -165,7 +165,7 @@ public class HomeFrame extends JFrame
 		passwordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
 		
 		
-		password = new JTextArea();
+		password = new JPasswordField();
 		
 		password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 		

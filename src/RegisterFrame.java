@@ -49,8 +49,8 @@ public class RegisterFrame extends JFrame implements ActionListener
 		
 		private static JButton registerButton;
 		
-		private static JTextArea password;
-		private static JTextArea id;
+		private static JPasswordField password;
+		private static JTextField id;
 		
 		static String depString = "dai";
 		
@@ -131,7 +131,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			passwordFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
 			
 			
-			password = new JTextArea();
+			password = new JPasswordField();
 			
 			password.setPreferredSize(new Dimension(PASSWORD_TEXT_AREA_WIDTH, PASSWORD_TEXT_AREA_HEIGHT));
 			
@@ -154,7 +154,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			passwordLabelBelowPanel = new JPanel();
 			passwordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
-			JLabel labela = new JLabel("Remember , password must contain at least 8 characters , including one lower case and one upper case!");
+			JLabel labela = new JLabel("Remember , password must be atleast 6 characters long , including one lower case or upper case letter!");
 			
 			passwordLabelBelowPanel.add(labela);
 			
@@ -186,7 +186,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			IDFieldPanel.setPreferredSize(new Dimension(PASSWORD_PANEL_WIDTH , PASSWORD_PANEL_HEIGHT));
 			
 			
-			id = new JTextArea();
+			id = new JTextField();
 			
 			id.setPreferredSize(new Dimension(ID_TEXT_AREA_WIDTH, ID_TEXT_AREA_HEIGHT));
 			
