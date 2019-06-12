@@ -66,7 +66,7 @@ Please contact [MrThanasiz](https://github.com/MrThanasiz)/[Novvator](https://gi
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+For the versions available, check the [Releases tab on the repository](https://github.com/MrThanasiz/UoM-Erasmus-Helper/releases). 
 
 ## Authors
 
