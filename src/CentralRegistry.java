@@ -8,7 +8,7 @@ public class CentralRegistry
 	
 	private static ArrayList<Student> students;
 		
-	public static boolean initializedList = false;
+	private static boolean initializedList = false;
 		
 		
 	@SuppressWarnings("unchecked")
@@ -41,6 +41,28 @@ public class CentralRegistry
 		    c.printStackTrace();
 		}
 	}
+	 
+	public static void serializeUsers() {
+			
+		String filename = "student.ser"; 
+		     
+		// Serialization  
+		try{    
+			//Saving of student in a file 
+		    FileOutputStream file = new FileOutputStream(filename); 
+		    ObjectOutputStream out = new ObjectOutputStream(file); 
+		              
+		    // Method for serialization of Student s
+		    out.writeObject(students); 
+		              
+		    out.close(); 
+		    file.close(); 
+		              
+		    // System.out.println("Serialization worked"); 
+		}catch(IOException ex) {
+		    System.out.println("IOException is caught"); 
+		}
+	}
 	
 	  public static Student registerNewUser() {
 	  
@@ -53,34 +75,6 @@ public class CentralRegistry
 		  
 		  return s.get(s.indexOf(stud));
 	  }
-	 
-
-
-		public static void serializeUsers() {
-			
-		     String filename = "student.ser"; 
-		     
-		     // Serialization  
-		     try{    
-		    	 //Saving of student in a file 
-		         FileOutputStream file = new FileOutputStream(filename); 
-		         ObjectOutputStream out = new ObjectOutputStream(file); 
-		              
-		         // Method for serialization of Student s
-		         out.writeObject(students); 
-		              
-		         out.close(); 
-		         file.close(); 
-		              
-		         // System.out.println("Serialization worked"); 
-		     }catch(IOException ex) {
-		    	 
-		        System.out.println("IOException is caught"); 
-		     } 
-		  
-			
-			
-		}
 		
 		public static ArrayList<Student> getStudents(){
 			
@@ -156,6 +150,10 @@ public class CentralRegistry
 
 		public static ArrayList<Department> getDepartments(){
 			return departmentsList;
+		}
+		
+		public static boolean initializedList() {
+			return initializedList;
 		}
 		
 		public static void assignStudsToDeps() {

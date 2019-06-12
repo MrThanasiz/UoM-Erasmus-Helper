@@ -66,12 +66,12 @@ Please contact [MrThanasiz](https://github.com/MrThanasiz)/[Novvator](https://gi
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+For the versions available, check the [Releases tab on the repository](https://github.com/MrThanasiz/UoM-Erasmus-Helper/releases). 
 
 ## Authors
 
-* **Athanasios Stefanidis** - *InputDataFrame / Score / Tips / UniversitySelectFrame* - [MrThanasiz](https://github.com/MrThanasiz/)
-* **Konstantinos Petridis** - *LogRegCheck / Secretariat / SecretariatFrame* - [Romputer](https://github.com/Romputer)
+* **Athanasios Stefanidis** - *InputDataFrame / Score / Tips / UniversitySelectFrame / ValidationCheck* - [MrThanasiz](https://github.com/MrThanasiz/)
+* **Konstantinos Petridis** - *LogRegCheck / Secretariat / SecretariatFrame / Student* - [Romputer](https://github.com/Romputer)
 * **Stamatis Sellas** - *Department / MainFrame / University* - [Novvator](https://github.com/Novvator)
 * **Stefanos Fokianos** - *CentralRegistry / CreateFile / HomeFrame / RegisterFrame* - [Stef-Fokianos](https://github.com/Stef-fokianos)
 
