@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.Arrays;
 
 
 @SuppressWarnings("serial")
@@ -221,7 +222,7 @@ public class HomeFrame extends JFrame
 	}
 	
 	public static String getPasswordHF() {
-		return password.getPassword().toString();
+		return String.valueOf(password.getPassword());
 	}
 	
 
@@ -242,6 +243,7 @@ public class HomeFrame extends JFrame
 				 
 				 username = HomeFrame.getUsername();
 				 password = HomeFrame.getPasswordHF();
+				 System.out.println("pass="+password);
 				
 				CentralRegistry.desirializeUsers();
 				

@@ -215,7 +215,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		}
 		
 		public static String getPassword() {
-			return password.getPassword().toString();
+			return String.valueOf(password.getPassword());
 		}
 		
 		
@@ -230,7 +230,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		}
 		
 		public static String getPasswordRF() {
-			return password.getPassword().toString();
+			return String.valueOf(password.getPassword());
 		}
 
 		public static String getDepString() {
