@@ -21,7 +21,7 @@ This program was created to help UoM(University of Macedonia) students, find the
 ![RegisterFrame](https://user-images.githubusercontent.com/8089997/59288942-9af41980-8c7d-11e9-82de-b19a164ec3b1.png)
 ![InputDataFrame](https://user-images.githubusercontent.com/8089997/59288946-9b8cb000-8c7d-11e9-8d76-c89fc1d6195c.png)
 ![SelectUniversityFrame](https://user-images.githubusercontent.com/8089997/59288949-9c254680-8c7d-11e9-88f7-eae7ead76a14.png)
-![mainFrame](https://user-images.githubusercontent.com/8089997/59383589-dcadbe80-8d68-11e9-8b13-9f5c988e7c3a.png)
+![MainFrame](https://user-images.githubusercontent.com/8089997/59383688-1e3e6980-8d69-11e9-98c4-061028e33c05.png)
 ![SecretariatFrame](https://user-images.githubusercontent.com/8089997/59288940-9a5b8300-8c7d-11e9-841d-8711bc192059.png)
 
 
