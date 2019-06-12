@@ -221,7 +221,7 @@ public class HomeFrame extends JFrame
 	}
 	
 	public static String getPasswordHF() {
-		return password.getText();
+		return password.getPassword().toString();
 	}
 	
 

@@ -154,7 +154,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 			passwordLabelBelowPanel = new JPanel();
 			passwordLabelBelowPanel.setPreferredSize(new Dimension(MESSAGE_PANEL_WIDTH , MESSAGE_PANEL_HEIGHT));
 			
-			JLabel labela = new JLabel("Remember , password must be atleast 6 characters long , including one lower case or upper case letter!");
+			JLabel labela = new JLabel("Remember , password must be atleast 6 characters long , including atleast one number and one letter!");
 			
 			passwordLabelBelowPanel.add(labela);
 			
@@ -215,7 +215,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		}
 		
 		public static String getPassword() {
-			return password.getText();
+			return password.getPassword().toString();
 		}
 		
 		
@@ -230,7 +230,7 @@ public class RegisterFrame extends JFrame implements ActionListener
 		}
 		
 		public static String getPasswordRF() {
-			return password.getText();
+			return password.getPassword().toString();
 		}
 
 		public static String getDepString() {
