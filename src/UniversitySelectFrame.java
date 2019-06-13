@@ -124,8 +124,6 @@ public class UniversitySelectFrame {
 	        		stud.setScores(scores);
 	        		CentralRegistry.serializeUsers();
 		        	f.dispose();
-		        	
-		        	
 		        	new MainFrame(stud);
 	        	}
 	        }

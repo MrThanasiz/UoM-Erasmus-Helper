@@ -47,10 +47,11 @@ public class InputDataFrame {
 	private static final int LB_Y=HEIGHT*43/100;
 	
 	
-	//Next button
+	//Next/Back button
 	private static final int NB_X=WIDTH*70/100;
+	private static final int BB_X=WIDTH*20/100;
 	private static final int NB_Y=HEIGHT*80/100;
-	private static final int NB_WIDTH=WIDTH*13/100;
+	private static final int NB_WIDTH=WIDTH*18/100;
 	private static final int NB_HEIGHT=HEIGHT*5/100;
 	
 	
@@ -192,10 +193,33 @@ public class InputDataFrame {
 	        }
 	    });
 	        
+	   
+	    
+	    
 	    
 	    
 	    //Next screen button
-	    JButton buttonNext=new JButton("Select Universities");  
+	    JButton buttonNext=new JButton("Select Universities");
+	    if (stud.getAcademicYear()!=0) {
+	    	 
+	    }
+	    
+	    //Back Button (MainFrame)
+	    JButton buttonBack=new JButton("Back to Tips");  
+	    buttonBack.setBounds(BB_X,NB_Y,NB_WIDTH,NB_HEIGHT);
+	    if (stud.getAcademicYear()!=0) {
+	    	buttonNext.setText("Save scores & Select Universities"); 
+	    	f.add(buttonBack);
+	    	f.revalidate();
+        	f.repaint();
+	    }
+	    buttonBack.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		f.dispose();
+	        	new MainFrame(stud);
+	    	}
+	    });
+	    
 	    buttonNext.setBounds(NB_X,NB_Y,NB_WIDTH,NB_HEIGHT);
 	    f.add(buttonNext);
 	    buttonNext.addActionListener(new ActionListener() {  
