@@ -139,12 +139,12 @@ public class CentralRegistry
 			
 			departmentsList.add(new Department("Applied Informatics",uniList,0,"dai"));
 			departmentsList.add(new Department("Economics",uniList,1,"eco"));
-			departmentsList.add(new Department("Balkan Studies",uniList,2,"bal"));
-			departmentsList.add(new Department("Business Admninistration",uniList,3,"bus"));
+			departmentsList.add(new Department("Balkan Studies",uniList,2,"bso"));
+			departmentsList.add(new Department("Business Admninistration",uniList,3,"ba"));
 			departmentsList.add(new Department("Accounting & Finance",uniList,4,"fin"));
-			departmentsList.add(new Department("European Studies",uniList,5,"eur"));
+			departmentsList.add(new Department("European Studies",uniList,5,"ies"));
 			departmentsList.add(new Department("Educational & Social Policy",uniList,6,"esp"));
-			departmentsList.add(new Department("Music Science & Art",uniList,7,"mus"));
+			departmentsList.add(new Department("Music Science & Art",uniList,7,"msa"));
 		}
 
 
