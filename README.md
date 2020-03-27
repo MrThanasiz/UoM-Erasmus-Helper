@@ -1,4 +1,4 @@
-## Erasmus score calculation has been changed in the academic year 2019-2020, this tool is now outdated.
+## Erasmus score calculation has been changed in the academic year 2019-2020, this tool is now outdated, may be updated with the latest values in the future.
 
 
 # UoM Erasmus Helper
